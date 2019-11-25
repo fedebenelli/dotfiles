@@ -1,0 +1,4 @@
+#xrdb -merge ~/.Xresources
+#~/.fehbg
+#xbindkeys
+exec i3

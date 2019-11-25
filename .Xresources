@@ -1,0 +1,71 @@
+URxvt.geometry: 40x30 
+URxvt.buffered: true
+
+URxvt.background:[70]#965E07
+URxvt.foreground:  #c8a451
+URxvt.cursorColor: orange
+URxvt.underlineColor: green
+
+!URxvt.font:xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=false
+
+!URxvt.font:xft:Terminess (TTF) Nerd Font Complete Mono:pixelsize=10
+URxvt.font:xft:BitstreamVeraSansMono NF:pixelsize=12:antialias=false
+
+!------------
+!True Transparency
+!------------
+!set to 32-bit for real transparency (compositing required (see xcompmgr)
+!urxvt*depth: 32
+!transparent=0000
+!opaque=ffff
+!urxvt*background: rgba:1111/1111/1111/dddd
+!urxvt*background: rgba:1111/1111/1111/0000
+
+
+!------------------
+!False tranparency
+!------------------
+URxvt.transparent: true
+URxvt.shading: 32
+
+URxvt.scrollBar: false
+URxvt.secondaryScroll:  true    # Enable Shift-PageUp/Down in screen
+
+
+! Colors 0-15.
+*.color0: #231100
+*color0:  #231100
+*.color1: #A66C08
+*color1:  #A66C08
+*.color2: #A57C21
+*color2:  #A57C21
+*.color3: #C17E0C
+*color3:  #C17E0C
+*.color4: #AE891F
+*color4:  #AE891F
+*.color5: #B28915
+*color5:  #B28915
+*.color6: #DE9611
+*color6:  #DE9611
+*.color7: #e8c37f
+*color7:  #e8c37f
+*.color8: #a28858
+*color8:  #a28858
+*.color9: #A66C08
+*color9:  #A66C08
+*.color10: #A57C21
+*color10:  #A57C21
+*.color11: #C17E0C
+*color11:  #C17E0C
+*.color12: #AE891F
+*color12:  #AE891F
+*.color13: #B28915
+*color13:  #B28915
+*.color14: #DE9611
+*color14:  #DE9611
+*.color15: #e8c37f
+*color15:  #e8c37f
+
+! Black color that will not be affected by bold hig$
+*.color66: #231100
+*color66:  #231100
