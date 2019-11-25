@@ -1,0 +1,28 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+"http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<Menu>
+  <Name>Applications</Name>
+  <Menu>
+    <Name>wine-wine</Name>
+    <Directory>wine-wine.directory</Directory>
+  <Menu>
+    <Name>wine-Programs</Name>
+    <Directory>wine-Programs.directory</Directory>
+  <Menu>
+    <Name>wine-Programs-Native Instruments</Name>
+    <Directory>wine-Programs-Native Instruments.directory</Directory>
+  <Menu>
+    <Name>wine-Programs-Native Instruments-Controller Editor</Name>
+    <Directory>wine-Programs-Native Instruments-Controller Editor.directory</Directory>
+  <Menu>
+    <Name>wine-Programs-Native Instruments-Controller Editor-Documentation</Name>
+    <Directory>wine-Programs-Native Instruments-Controller Editor-Documentation.directory</Directory>
+    <Include>
+      <Filename>wine-Programs-Native Instruments-Controller Editor-Documentation-Controller Editor Manual English.pdf.desktop</Filename>
+    </Include>
+  </Menu>
+  </Menu>
+  </Menu>
+  </Menu>
+  </Menu>
+</Menu>

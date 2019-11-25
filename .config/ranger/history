@@ -1,0 +1,18 @@
+shell sudoedit /etc/i3/config
+shell smartx
+open_with nano
+shell wine BZ1.5.exe
+shell sudo wine BZ1.5.exe
+shell python3
+shell python3 setup.py
+wine
+h
+help
+
+shell mkdir Tesis
+shell git clone https://github.com/fedebenelli/grade-thesis
+shell git clone https://github.com/fedebenelli/automatic-calcurses
+delete
+shell git clone https://github.com/fedebenelli/automatic-calcurses ./
+shell git clone https://github.com/fedebenelli/automatic-calcurses .calcurse
+open_with 

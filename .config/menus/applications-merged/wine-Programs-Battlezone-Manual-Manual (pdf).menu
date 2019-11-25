@@ -1,0 +1,24 @@
+<!DOCTYPE Menu PUBLIC "-//freedesktop//DTD Menu 1.0//EN"
+"http://www.freedesktop.org/standards/menu-spec/menu-1.0.dtd">
+<Menu>
+  <Name>Applications</Name>
+  <Menu>
+    <Name>wine-wine</Name>
+    <Directory>wine-wine.directory</Directory>
+  <Menu>
+    <Name>wine-Programs</Name>
+    <Directory>wine-Programs.directory</Directory>
+  <Menu>
+    <Name>wine-Programs-Battlezone</Name>
+    <Directory>wine-Programs-Battlezone.directory</Directory>
+  <Menu>
+    <Name>wine-Programs-Battlezone-Manual</Name>
+    <Directory>wine-Programs-Battlezone-Manual.directory</Directory>
+    <Include>
+      <Filename>wine-Programs-Battlezone-Manual-Manual (pdf).desktop</Filename>
+    </Include>
+  </Menu>
+  </Menu>
+  </Menu>
+  </Menu>
+</Menu>
