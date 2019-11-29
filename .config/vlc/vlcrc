@@ -52,7 +52,7 @@
 #alsa-audio-channels=6
 
 # Software gain (float)
-alsa-gain=1.061208
+alsa-gain=0.148877
 
 [amem] # Audio memory output
 
