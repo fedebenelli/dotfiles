@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cd /media/Big\ Data/OneDrive/Documentos/Programming/Python/DiscordBots/pepbot
+python3 main.py
+
+

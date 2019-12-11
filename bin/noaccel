@@ -1,0 +1,9 @@
+#!/bin/bash
+
+xinput --set-prop 12 300 0;
+xinput --set-prop 12 302 0, 0;
+xinput --set-prop 12 303 0, 1;
+xinput --list-props 12
+
+#xset q | grep -A 1 Pointer
+#xset m 1/1 0
