@@ -1,0 +1,54 @@
+!*.font: 9x15   
+*.font: xft:BitstreamVeraSansMono NF:size=10:antialias=false
+*.scrollBar: false
+
+ 
+!----Transparencia
+
+urxvt*depth: 32
+!urxvt*background: rgba:0000/0000/0200/c800
+urxvt*background: [80]#000000
+
+!--------------------------------------------
+
+*foreground:	       #000000
+urxvt*foreground:      #EBE1FF
+*cursorColor:          #bfff00
+
+
+
+!--Color Bold
+*colorBD:              #CDB3FF
+
+!--Color Italic
+*colorIT:              #EEE5FF
+
+*color0:               #333366
+*color8:               #333399
+
+*color1:               #6666CC
+*color9:               #9999FF
+
+*color2:               #0099CC
+!--Nombre en terminal
+*color10:              #39F8AF
+
+*color3:               #99CCCC
+!Texto seleccionado
+*color11:              #CCFFFF
+
+*color4:               #01c7f6
+!-Subfolders
+*color12:              #FF00F3
+
+*color5:               #0066FF
+*color13:              #0099FF
+
+!Comentarios
+*color6:               #669999
+*color14:              #66CCCC
+
+!Resaltado no seleccionado
+*color7:               #3366CC
+!Texto resaltado no seleccionado
+*color15:              #1F61E5
