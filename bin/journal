@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+
+hour(){
+printf "$(date +%H:%M)"
+}
+
+day(){
+printf "$(date +%Y-%m-%d)"
+}
+
+dayname(){
+printf "$(date +%A)"
+}
+
+monthname(){
+printf "$(date +%B)"
+}
+
+# Enter the work directory
+cd $HOME/.journal
+
+if [ $1 == 'read' ]; then
+	xdg-open journal.pdf
+fi
+
+
+if [ $1 == 'compile' ];then
+    (year_aux=0
+    month_aux=0
+    cd entries
+    for entry in $(ls)
+    do
+        year=${entry:0:4}
+        month=${entry:5:2}
+        if [ $year != $year_aux ];then
+            printf "# Año: $year\n\n"
+            year_aux=$year
+        fi
+        if [ $month != $month_aux ];then
+		printf "## Mes: $(monthname)\n\n"
+            month_aux=$month
+        fi
+        cat $entry
+    done) > journal.md
+    pandoc journal.md -o journal.pdf
+    xdg-open journal.pdf
+fi
+
+if [ $1 == 'add' ];then
+    cd "$HOME/.journal/entries" 	
+	printf "\n#### $(hour)\n\n" >> "$(day).md"
+	printf "$2\n\n" >> "$(day).md"
+	read -r firstline<"$(day).md"
+	if [ "$firstline" != "### $(dayname) $(day)" ];then
+		printf "### $(dayname) $(day)\n\n$(cat $(day).md)\n" > "$(day).md"
+	fi
+fi
