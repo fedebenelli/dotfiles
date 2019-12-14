@@ -14,7 +14,7 @@ set $terminal urxvt
 
 
 ## Gaps
-for_window [class=".*"] border pixel 5
+for_window [class=".*"] border pixel 3 
 gaps inner 10
 gaps outer 5
 #
