@@ -20,7 +20,7 @@ gaps outer 5
 #
 
 # Programas ejectudados en incio
-exec_always dbus-launch compton -c --config ~/.config/compton.conf &
+exec dbus-launch compton -c --config ~/.config/compton.conf &
 #exec tizonia --youtube-audio-mix-search "synthwave mix"
 #exec vis
 #exec s-tui
@@ -57,7 +57,7 @@ font xft:BitstreamVeraSansMono NF 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+# font pango:DejaVu Sans Mono 10 
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -213,5 +213,6 @@ bindsym $mod+r mode "resize"
 #}
 
 bar {
+	position top
 	status_command i3blocks -c $HOME/.config/i3blocks/config
 }
