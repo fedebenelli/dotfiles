@@ -1,5 +1,5 @@
 !*.font: 9x15   
-*.font: xft:BitstreamVeraSansMono NF:size=10:antialias=false
+*.font: xft:BitstreamVeraSansMono NF:size=10:antialias=true
 *.scrollBar: false
 
  
