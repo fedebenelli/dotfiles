@@ -52,7 +52,7 @@
 #alsa-audio-channels=6
 
 # Software gain (float)
-alsa-gain=0.148877
+alsa-gain=2.744000
 
 [amem] # Audio memory output
 
@@ -2444,11 +2444,6 @@ qt-privacy-ask=0
 
 # Follow the mouse (boolean)
 #screen-follow-mouse=0
-
-[dvdread] # DVDRead Input (no menu support)
-
-# DVD angle (integer)
-#dvdread-angle=1
 
 [ftp] # FTP input
 

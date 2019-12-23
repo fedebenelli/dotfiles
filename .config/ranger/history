@@ -12,7 +12,9 @@ help
 shell mkdir Tesis
 shell git clone https://github.com/fedebenelli/grade-thesis
 shell git clone https://github.com/fedebenelli/automatic-calcurses
-delete
 shell git clone https://github.com/fedebenelli/automatic-calcurses ./
 shell git clone https://github.com/fedebenelli/automatic-calcurses .calcurse
+delete
+open_with atril
 open_with 
+rename calcs.xlsm
