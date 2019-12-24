@@ -26,7 +26,7 @@ gaps outer 5
 ###################
 
 exec dbus-launch compton -c --config ~/.config/compton.conf &
-exec urxvt -r wal -i $HOME/Pictures/Wallpapers/wallpaper1.jpg -a "75" &
+exec dbus-launch wal -i $HOME/Pictures/Wallpapers/wallpaper1.jpg -a "75" &
 
 ###
 #  My bindings
@@ -54,18 +54,18 @@ for_window [class="Yad"] floating enable
 
 
 ###
-#  Borders colors
+#  Colors
 #################
 
 # class                 	border  backgr. text    indicator child_border
 
-client.focused          	#555555 #4f1e2c #d5eb86 #d53b86   #d5eb86
-client.focused_inactive 	#333333 #5f676a #ffffff #FF000000 #FF000000
-#client.unfocused        	#333333 #222222 #888888 #292d2e   #ffffff
+client.focused          	#4f1e2c #4f1e2c #d5eb86 #d53b86   #d5eb86
+client.focused_inactive 	#4f1e2c #5f676a #ffffff #FF000000 #FF000000
+client.unfocused        	#2D1119 #2D1119 #888888 #292d2e   #FF000000
 #client.urgent           	#2f343a #900000 #ffffff #900000   #900000
 #client.placeholder      	#000000 #0c0c0c #ffffff #000000   #0c0c0c
 
-#client.background       	#ffffff
+#client.background       	#000000
 ################################
 
 # Font
@@ -109,10 +109,23 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
+
+# Resizing
+
+bindsym $mod+Shift+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+Down resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+Right resize grow width 10 px or 10 ppt
+
+
+
+
+
+
 
 # split in horizontal orientation
 bindsym $mod+i split h

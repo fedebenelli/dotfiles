@@ -27,7 +27,11 @@
 # Change $SCRIPT_DIR to the location of your scripts!
 command=$HOME/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
 separator_block_width=15
-markup=none
+#markup=none
+
+[test.py]
+command=$HOME/.config/i3blocks/test.py/test.py
+interval=1
 
 
 # Weather
@@ -113,7 +117,7 @@ separator=false
 min_width=CPU 100.00%
 
 [temperature]
-label=T=
+label=
 interval=10
 T_WARN=50
 T_CRIT=75
@@ -129,7 +133,7 @@ interval=10
 [calendar]
 interval=1
 LABEL= 
-DATEFMT=+%a %D %H:%M:%S   
+DATEFMT=+%a %d/%m/%Y %H:%M:%S   
 HEIGHT=-0
 WIDTH=220
 

@@ -1,5 +1,15 @@
 #!/usr/bin/env bash
 
+###
+# Simple journal script to write journal entries through the terminal
+# The script accepts three different arguments:
+#
+# read: will open the last compiled file
+# compile: will compile all the entries to one .md and a .pdf file
+# add <string>: will add a timestamped string to a previously compiled file:
+#
+###
+
 
 hour(){
 printf "$(date +%H:%M)"
@@ -17,22 +27,46 @@ monthname(){
 printf "$(date +%B)"
 }
 
-# Enter the work directory
-cd $HOME/.journal
 
+WD=$HOME/.journal
+
+# Enter the work directory
+cd $WD
+
+
+# If the first arg is just 'read' then the script will look for the compiled file.
 if [ $1 == 'read' ]; then
-	xdg-open journal.pdf
+	# Opens a previously compiled file with
+	#  the default application
+	xdg-open journal.pdf &
 fi
 
-
+# If the first arg is 'compile' it will run through all the files on the 'entries' folder and compile them to .md file and a .pdf one
 if [ $1 == 'compile' ];then
+
+	# Compiles the data to a markdown file,
+	#  while it compiles de data,
+	#  first of all it checks if it's the first entry of a year
+	#   if the opened file is the first one of an year (by checking
+	#   the first 4 characters of the file with a previously defined
+	#   year_aux corresponding to the previous file first 4 characters)
+	#   it will add the string "# Año: $year\n\n",
+	#   similar processing happens with months.
+
+
+    # Definition of auxiliar variables
     (year_aux=0
     month_aux=0
+    
+    # Enter the entries folder and iteration over each file that's in there
     cd entries
     for entry in $(ls)
     do
-        year=${entry:0:4}
+        # Definition of year and month variables that are checked later
+	year=${entry:0:4}
         month=${entry:5:2}
+
+
         if [ $year != $year_aux ];then
             printf "# Año: $year\n\n"
             year_aux=$year
@@ -43,12 +77,18 @@ if [ $1 == 'compile' ];then
         fi
         cat $entry
     done) > journal.md
+    # Convert the .md file to pdf and then open it with the default application
     pandoc journal.md -o journal.pdf
-    xdg-open journal.pdf
+    xdg-open journal.pdf &
 fi
 
+
+# Addition of new entries.
+#  First of, the files adds a string with a timestamp to the entry file,
+#   then it adds the entry and after it two lineskips to fit the md format
+#  It also checks if the first line is that of the day, if it isn't it adds it
 if [ $1 == 'add' ];then
-    cd "$HOME/.journal/entries" 	
+    cd "$WD/entries" 	
 	printf "\n#### $(hour)\n\n" >> "$(day).md"
 	printf "$2\n\n" >> "$(day).md"
 	read -r firstline<"$(day).md"
