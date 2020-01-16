@@ -26,7 +26,7 @@ gaps outer 5
 ###################
 
 exec dbus-launch compton -c --config ~/.config/compton.conf &
-exec dbus-launch wal -i $HOME/Pictures/Wallpapers/wallpaper1.jpg -a "75" &
+exec dbus-launch wal -i $HOME/Pictures/Wallpapers/wallpaper-cowboybebop-1.jpg -a "80" &
 
 ###
 #  My bindings

@@ -11,8 +11,12 @@ urxvt*depth: 32
 
 !--------------------------------------------
 
-!*foreground:	       #000000
-!urxvt*foreground:     #EBE1FF
+
+emacs.font:Monospace 12
+
+
+*foreground:	       #000000
+urxvt*foreground:      #EBE1FF
 *cursorColor:          #bfff00
 
 

@@ -1,4 +1,6 @@
 #!/bin/bash
-
+killall compton
 python3 ~/Desktop/bzoneMouse.py &
-steam steam://rungameid/301650 &
+steam steam://rungameid/301650
+wait
+compton -b
