@@ -11,3 +11,7 @@ What I use:
 * **terminal**: urxvt
 * **colorscheme**: to make my colorschemes I use pywal, calling it at login from i3-gaps with a previously established wallpaper
 * **text editor**: neo-vim, still setting it up
+
+![How it looks right now](/Pictures/Screenshots/scr--2020-01-16--120730.png)
+
+![](/Pictures/Screenshots/scr--2020-01-16--120754.png)
