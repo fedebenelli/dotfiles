@@ -25,8 +25,8 @@ gaps outer 5
 #  Start-up software
 ###################
 
-exec dbus-launch compton -c --config ~/.config/compton.conf &
 exec dbus-launch wal -i $HOME/Pictures/Wallpapers/wallpaper-cowboybebop-1.jpg -a "80" &
+exec dbus-launch compton -c --config ~/.config/compton.conf &
 
 ###
 #  My bindings
@@ -164,7 +164,7 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10: PC Stats"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
