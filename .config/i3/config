@@ -21,11 +21,14 @@ gaps outer 5
 #######
 
 
+# Start urxvt as floating
+for_window [class="urxvt"] floating enable
+
 ###
 #  Start-up software
 ###################
 
-exec dbus-launch wal -i $HOME/Pictures/Wallpapers/wallpaper-cowboybebop-1.jpg -a "80" &
+exec dbus-launch wal -i "Pictures/Wallpapers/$(ls Pictures/Wallpapers | shuf -n1)" -a "80" &
 exec dbus-launch compton -c --config ~/.config/compton.conf &
 
 ###
@@ -36,9 +39,15 @@ exec dbus-launch compton -c --config ~/.config/compton.conf &
 bindsym $mod+Shift+KP_Add exec amixer -c 0 set Master 5+
 bindsym $mod+Shift+KP_Subtract exec amixer -c 0 set Master 5-
 
+# i3-alt-tab
+bindsym $mod+Tab fullscreen disable, focus right, fullscreen enable
+bindsym $mod+shift+Tab fullscreen disable, focus left, fullscreen enable
+
+
+
 # Screenshots
-bindsym --release Print exec --no-startup-id import -silent -window root "$HOME/scr--$(date '+%Y-%m-%d--%H%M%S').png"
-bindsym --release $mod+Print exec --no-startup-id import -silent "$HOME/scr--$(date '+%Y-%m-%d--%H%M%S').png"
+bindsym --release Print exec import -silent -window root "$HOME/scr--$(date '+%Y-%m-%d--%H%M%S').png"
+bindsym --release $mod+Print exec import -silent "$HOME/scr--$(date '+%Y-%m-%d--%H%M%S').png"
 
 
 # Run Software

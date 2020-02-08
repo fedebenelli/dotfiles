@@ -1,0 +1,3 @@
+#!/bin/sh
+echo $(tail -f /var/log/syslog)
+sudo cat /dev/null > /var/log/syslog

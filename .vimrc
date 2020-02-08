@@ -40,6 +40,10 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'godlygeek/tabular'
 " Plugin 'plasticboy/vim-markdown'
 
+" Goyo (focus)
+Plugin 'junegunn/goyo.vim'
+
+
 
 let g:pymode_rope = 0
 " All of your Plugins must be added before the following line
@@ -60,6 +64,8 @@ filetype plugin indent on    " required
  
 
 
-
-
 set relativenumber
+
+" Copying and pasting to general clipboard
+vnoremap <C-c> "*y :let @+=@*<CR>
+map <C-p> "+P
