@@ -2,4 +2,4 @@
 killall compton
 flatpak run com.obsproject.Studio --startreplaybuffer &
 # python3 ~/Desktop/csgoMouse.py &
-steam steam://rungameid/730
+steam steam://rungameid/730 &
