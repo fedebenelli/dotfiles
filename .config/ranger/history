@@ -16,5 +16,7 @@ shell git clone https://github.com/fedebenelli/automatic-calcurses ./
 shell git clone https://github.com/fedebenelli/automatic-calcurses .calcurse
 delete
 open_with atril
-open_with 
 rename calcs.xlsm
+open_with 
+rename problem-1
+open_with feh

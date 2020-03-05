@@ -111,7 +111,7 @@ label=T=
 interval=10
 T_WARN=50
 T_CRIT=75
-#SENSOR_CHIP=""
+SENSOR_CHIP=""
 
 
 [load_average]
@@ -123,18 +123,17 @@ interval=10
 [calendar]
 interval=1
 LABEL= 
-DATEFMT=+%a %d/%m/%Y %H:%M:%S   
+DATEFMT=+%a %d/%m/%Y %H:%M:%S
 HEIGHT=-0
 WIDTH=220
 
 
 # Battery indicator
-#
+
 # The battery instance defaults to 0.
-#[battery]
-#label=BAT
-#label=⚡
-#interval=30
+[battery]
+label=⚡
+interval=30
 
 
 # Generic media player support
