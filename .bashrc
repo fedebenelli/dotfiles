@@ -124,3 +124,5 @@ PS1='\[\e[1;33m\][\[\e[m\]\[\e[1;32m\]\u\[\e[m\]@\[\e[1;30m\]\h\[\e[m\] \[\e[1;3
 alias dotfiles='/usr/bin/git --git-dir=/home/ruther/.dotfiles/ --work-tree=/home/ruther'
 alias server='/bin/ssh ruther@lucrecita'
 alias thesis='cd /media/Big\ Data/OneDrive/Facultad/PI/Proyecto\ Integrador\ -\ Benelli\,\ Federico/'
+alias i3c='nvim ~/.config/i3/config'
+alias ranwpp='wal -i "Pictures/Wallpapers/$(ls Pictures/Wallpapers | shuf -n1)" -a "80"'
