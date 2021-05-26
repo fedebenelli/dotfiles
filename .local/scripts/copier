@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mimetype=$(file --mime-type "$1" | cut -d' ' -f2)
+xclip -t $mimetype -selection primary < "$1"

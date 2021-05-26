@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case $1 in
+	"bar")
+		spaces=$(df 2> /dev/null | grep "$2$" | awk '{print $3" "$4}')
+
+		used="${spaces% *}"
+		avai="${spaces#* }"
+		total=$(($used + $avai))
+
+		used=$(($used*11/$total))
+		avai=$(($avai*11/$total))
+
+		bar="["
+		for i in $(seq $used); do bar="${bar}+";done
+		for i in $(seq $avai); do bar="${bar}-";done
+		bar="${bar}]"
+		;;
+	"available")
+		free=$(df -h 2> /dev/null | grep "$2$" | awk '{print $4}')
+		printf "$free";;
+esac
+
+printf "$bar\n"

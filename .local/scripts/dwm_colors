@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+colors=( 
+	$(head -n 11 "$HOME/.cache/wal/colors-wal-dwm.h" |
+		cut -d' ' -f6 |
+		sed -r 's/"(.*)".*/\1/' |
+		sed '/^$/d' |
+		xargs) )
+
+echo "
+dwm.normbgcolor:	${colors[1]}	
+dwm.normbordercolor:	${colors[1]}
+dwm.normfgcolor:	${colors[0]}
+dwm.selbgcolor:		${colors[4]}
+dwm.selbordercolor:	${colors[4]}
+dwm.selfgcolor:		${colors[7]}
+" > ${XDG_CACHE_HOME:-$HOME/.cache}/dwm_bar_colors
+xrdb -merge ${XDG_CACHE_HOME:-$HOME/.cache}/dwm_bar_colors
+killall dwm

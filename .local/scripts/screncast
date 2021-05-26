@@ -1,0 +1,57 @@
+#!/bin/sh
+
+get_seconds() {
+	h="10#$(echo $1 | cut -d':' -f1)"
+	m="10#$(echo $1 | cut -d':' -f2)"
+	s="10#$(echo $1 | cut -d':' -f3)"
+	secs=$(( h*3600 + m*60 + s ))
+	echo $secs
+}
+res=$(xdpyinfo | grep dimensions | awk '{print $2}')
+
+# Where to save the videos
+folder="/media/bigdata/vids/tmp"
+
+desktop=alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo.monitor
+mic=alsa_input.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo
+
+mkdir -p "$folder"
+echo res: $res
+echo defout $defaultoutput
+
+case $1 in
+	"webcam")
+		# can make it choose monitor
+		ffmpeg -y -f x11grab -i :0.0 -f v4l2 /dev/video0;;
+
+	"screencast")
+		file="$folder/tmp.mkv"
+		ffmpeg -y \
+			-f x11grab -i :0.0 \
+			-f pulse -ac 2 -i $desktop \
+			-f pulse -i default \
+			-filter_complex amix=inputs=2 \
+			-c:v libx264rgb -crf 0 -preset ultrafast "$file";;
+
+	"clipit")
+		file="$folder/tmp.mkv"
+		total_time=$(get_seconds $(ffmpeg -i "$file" 2>&1 | grep -o "[0-9]\+:[0-9]\+:[0-9]\+"))
+		ffmpeg -ss $((total_time - 31)) -i "$file" -t 30 "$folder/$(date +%s).mkv"
+		#cp "$folder/buffer.mkv" "$folder/$(date +%s).mkv"
+		;;
+
+	"buffer")
+		file="$folder/tmp.mkv"
+		while true; do
+		ffmpeg -y \
+			-f x11grab -i :0.0 \
+			-f pulse -ac 2 -i $desktop \
+			-f pulse -i default \
+			-to 60 \
+			-filter_complex amix=inputs=2 \
+			-c:v libx264rgb \
+			-crf 0 -preset ultrafast "$file"
+		sleep 1s
+		cp "$file" "$folder/buffer.mkv"
+		done;;
+esac

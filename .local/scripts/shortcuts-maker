@@ -1,0 +1,35 @@
+#!/bin/sh
+
+SHORCUTS=${SHORCUTS:-$HOME/.config/shortcuts}
+shorts=$(cat $SHORCUTS | sed '/^$/d' | sed 's/#.*//')
+
+h="
+Shortcuts maker.
+
+Handles my personal shortcuts to folders.
+
+USAGE:
+$(basename $0) [make|show]
+
+$(basename $0) make
+  Makes the shortcuts.
+
+$(basename $0) show
+  Shows the shortcuts as a notification.
+"
+
+
+case $1 in
+
+	"make")
+		# ranger
+		echo "$shorts" | awk '{print "map g"$1" cd "$2}' > ${XDG_CONFIG_HOME}/ranger/shortcuts
+		# shell
+		echo "$shorts" | awk '{print "alias g"$1"=cd "$2}' | sed -r "s/(.*)=(.*)/\1='\2'/g" > ${XDG_CONFIG_HOME}/shell/shortcuts
+		;;
+	"show")
+		notify-send "Shortcuts" "$shorts"
+		;;
+	*)
+		echo "$h"
+esac

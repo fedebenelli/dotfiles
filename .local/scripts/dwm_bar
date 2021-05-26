@@ -1,0 +1,53 @@
+#!/bin/sh
+
+music() {
+	playing="$(mpc | sed '2q;d' | cut -d' ' -f1)"
+	artist="$(mpc current)"
+	volume="v: $(mpc volume | cut -d' ' -f2)"
+	if [ -z $playing ]; then
+		printf ""
+	elif [ $playing = '[paused]' ]; then
+		printf "%s | %s | %s" " (||)" "$artist" "$volume"
+	elif [ $playing == '[playing]' ]; then
+		printf " %s | %s | %s" "(>)" "$artist" "$volume"
+	fi
+}
+
+ram() {
+	printf "$(free -h | grep Mem | awk '{print $3"/"$2}')"
+}
+
+temps() {
+	for temp in $(sensors | grep temp | awk '{print $2}' | sed '/^$/d'); do printf "$temp | "; done
+}
+
+weather() {
+	curl "wttr.in/$1?format=3"
+}
+
+rss() {
+	cat "$XDG_DATA_HOME/newsboat/pending"
+}
+
+bat() {
+	now=$(cat /sys/class/power_supply/BAT0/charge_now) && \
+	full=$(cat /sys/class/power_supply/BAT0/charge_full) && \
+	printf $((now*100/full))
+}
+
+wttr() {
+	printf "$(curl wttr.in/Cordoba,AR?format=3)"
+}
+
+
+sep='|*'
+
+bar() {
+	xsetroot -name "$(wttr) $sep $(music) $sep RSS: $(rss) $sep RAM: $(ram) $sep $(free_drives) $sep $(date '+%Y/%m/%d -- %H:%M')"
+}
+
+while true; do
+	$(bar)
+	echo $(bar)
+	sleep 1s
+done

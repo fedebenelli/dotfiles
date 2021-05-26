@@ -1,0 +1,11 @@
+#!/bin/sh
+
+mountpoint=$(lsblk|
+	awk '{print $7}'|
+	sed -r '/\/home$|\/$/d'|
+	sed '/^$/d'|
+	tail -n +2|
+	dmenu)
+
+sudo umount "$mountpoint" && notify-send "💽 Umount drive" "$mountpoint umounted!"
+rm -r "$mountpoint"

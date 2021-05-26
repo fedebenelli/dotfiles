@@ -1,0 +1,11 @@
+#!/bin/sh
+
+mountpoint=$(lsblk | grep "$1" | awk '{print $7}' | sed '/^$/d'| head -n1)
+tempfile="$mountpoint"/tempfile
+
+for i in {1..5}; do
+	echo "test $i"
+	sync; dd if=/dev/zero of="$tempfile" bs=1M count=1024; sync
+done
+
+rm "$tempfile"

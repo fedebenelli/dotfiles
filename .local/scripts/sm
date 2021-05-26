@@ -1,0 +1,13 @@
+#!/bin/sh
+function press() {
+	sleep 0.1
+	for k in $1; do
+		xdotool key --delay 100 $k
+	done
+}
+
+$(press "super+8")
+$(press "super+n 4")
+$(press "super+n 8")
+$(press "super+n")
+$(press "super+Return")

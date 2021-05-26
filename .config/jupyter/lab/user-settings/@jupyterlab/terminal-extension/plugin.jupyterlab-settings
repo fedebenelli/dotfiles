@@ -1,0 +1,14 @@
+{
+    // Terminal
+    // @jupyterlab/terminal-extension:plugin
+    // Terminal settings.
+    // *************************************
+
+    // Theme
+    // The theme for the terminal.
+    "theme": "dark",
+    
+    // Font family
+    // The font family used to render text
+    "fontFamily": "Hack Nerd Font",
+}

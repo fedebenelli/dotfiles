@@ -1,0 +1,24 @@
+#!/bin/sh
+
+CONFIG_DIR="${XDG_CONFIG_DIR:-$HOME/.config}/dunst"
+DUNST_RC="$CONFIG_DIR/dunstrc"
+
+. ${XDG_CACHE_DIR:-$HOME/.cache}/wal/colors.sh
+cp "$DUNST_RC" "$CONFIG_DIR/dunstrc.b"
+
+conf="$(cat <<LIM
+background = "$background"
+foreground = "$foreground"
+frame_color = "$color2"
+LIM
+)"
+
+IFS=$'\n'
+for setting in $(echo "$conf"); do
+	sett=$(echo "$setting" | cut -d' ' -f1)
+	echo "$setting"
+	sed -i "s/$sett.*/$setting/g" $DUNST_RC
+	echo $sett
+done
+
+killall dunst; notify-send "Dunst reloaded"

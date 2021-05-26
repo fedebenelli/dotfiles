@@ -1,0 +1,54 @@
+#!/bin/sh
+
+files=$(ls)
+IFS=$'\n'
+modifier="$2"
+
+h="
+Batch editor for metadata.
+
+USAGE:
+$(basename -a $0) [title|artist]
+
+$(basename -a $0) title
+     It will set the metadata \"title\" to \"Name of the track\"
+     for each file in the folder.
+     Files must be named like:\"[0-9]+ - Name of the track\"
+
+$(basename -a $0) artist \"Artist\"
+     It will set the metadata \"Artist\" to the \"Artist\"
+     argument for each file in the folder.
+"
+
+case $1 in
+	"title")
+		for file in $files; do
+			tit=${file#[0-9]* - }
+			tit=${tit%.*}
+			track=${file% -*}
+			echo ffmpeg -i "$file" -metadata title="$tit" -metadata track="$track" -c:a copy "tmp.${file#*.}"
+			ffmpeg -i "$file" -metadata title="$tit" -metadata track="$track" -c:a copy "tmp.${file#*.}"
+			wait
+			mv "tmp.${file#*.}" "$file"
+		done;;
+
+	"artist")
+		[ -z "$modifier" ] && modifier="$(pwd | rev | cut -d'/' -f1 | rev)"
+		for file in $files; do
+			ffmpeg -i "$file" -metadata artist="$modifier" -c:a copy tmp.${file#*.}
+			wait
+			mv tmp.${file#*.} "$file"
+			rm tmp.${file#*.}
+		done;;
+	"album")
+		[ -z "$modifier" ] && modifier="$(pwd | rev | cut -d'/' -f2 | rev)"
+		for file in $files; do
+			ffmpeg -i "$file" -metadata album="$2" -c:a copy tmp.${file#*.}
+			wait
+			mv tmp.${file#*.} "$file"
+			rm tmp.${file#*.}
+		done;;
+	
+	*)
+		echo "$h";;
+esac

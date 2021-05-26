@@ -1,0 +1,31 @@
+#!/bin/sh
+
+steamdir="$HOME/.local/share/Steam"
+wineexec="$steamdir/compatibilitytools.d/$(ls $steamdir/compatibilitytools.d/ | grep Proton | head -n1)/dist/bin/wine"
+gamedir="/media/fafb/games/steamgaems/steamapps/common/Battlezone 98 Redux"
+addon="$gamedir/addon"
+mapdir="$HOME/docs/games/bz/bzmaps/maps"
+
+# Get the mapdir lenght to cut it later
+mapdirl=${#mapdir}
+
+# Find all the directories, read through each output, cut first part of the text then pipe into dmenu
+map="$mapdir"$(	
+	find "$mapdir" -name "*bzn" |
+	while read file; do echo ${file:$mapdirl}; done |
+	dmenu -l 10 -p "Select the map that you want to edit"
+)
+
+# Exit the script if no map was given 
+[ -z $map ] && notify-send "operation canceled!" && exit 0
+
+# Remove all the shit inside addon
+rm -r "$addon"/* 2> /dev/null
+
+# Copy all the map files to the addon file
+cp -r "${map%/*}"/* "$addon"
+
+mapfile="${map##*/}"
+cd "$gamedir"
+$wineexec battlezone98redux.exe -edit -win -shellmap=512x512 -startedit $mapfile
+wait

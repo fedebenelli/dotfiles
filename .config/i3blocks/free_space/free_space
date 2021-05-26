@@ -1,0 +1,20 @@
+#!/bin/sh
+
+spaces=$(df 2> /dev/null |
+	grep "$1$" |
+	awk '{print $3" "$4}' 
+)
+
+used="${spaces% *}"
+avai="${spaces#* }"
+total=$(($used + $avai))
+
+used=$(($used*11/$total))
+avai=$(($avai*11/$total))
+
+bar="["
+for i in $(seq $used); do bar="${bar}+";done
+for i in $(seq $avai); do bar="${bar}-";done
+bar="${bar}]"
+
+printf "$bar\n"

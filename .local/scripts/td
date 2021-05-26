@@ -1,0 +1,78 @@
+#!/bin/sh
+
+# Directory where all the notes are stored
+dir=$HOME/.local/share/td
+
+# List of files in the directory
+files=$(ls "$dir")
+
+# Terminal to open editor
+terminal=${TERMINAL:-st}
+
+h () {
+scriptname="$(basename $0)"
+echo "
+Simple To-Do,
+
+Read your notes from the command line,
+ intended to use at the end of a .${SHELL##*/}rc file to show up at the start of a
+ new terminal.
+
+USAGE:
+
+$scriptname [show|edit|remove] [file(optional)]
+
+$scriptname show:
+  prints all the lists
+
+$scriptname edit "file":
+ Edits the selected list, if it doesn't exist it will create it.
+ When no file is passed it prompts dmenu to select a list to edit.
+
+$scriptname remove "file":
+ Removes the selected list.
+ When no file is passed it prompts dmenu to select a list to edit.
+"
+}
+
+case $1 in
+	"show")
+		IFS=$'\n'
+		for file in $files
+		do
+			printf "\n%s\n" "${file^}"
+			i=0
+			while [ $i -lt ${#file} ]; do
+				printf '-'
+				i=$((i+1))
+			done
+			echo ""
+			cat "$dir/$file"
+		done
+		;;
+	"edit")
+		file="$2"
+		if [ "$file" = '' ]; then
+			file="$(echo "$files" | dmenu -l 5 -p "Select wich file to edit (if not listed, it will be made)")"
+		fi
+		if [ "$file" = '' ];
+		then
+			echo "No file chosen!" && exit 0
+		fi
+		exec $terminal -e "${VISUAL:-${EDITOR:-vi}}" "$HOME/.local/share/td/$file"
+		;;
+	"remove") 
+		file="$2"
+		if [ "$file" = '' ]
+		then
+			file="$(echo "$files" | dmenu -l 5 -p "Select wich file to remove")"
+		fi
+		if [ "$file" = '' ];
+		then
+			echo "No file chosen!" && exit 0
+		fi
+		rm "$dir/$file"
+		;;
+	*)
+		h;;
+esac

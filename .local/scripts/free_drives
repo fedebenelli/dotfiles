@@ -1,0 +1,10 @@
+#!/bin/sh
+
+mounted=$(lsblk -l | awk '{print $7}' | sed '/^$/d' | tail -n +2)
+space=" "
+for drive in $mounted
+do
+	printf "/${drive##*/}"
+	printf " $(free_space "available" $drive) "
+	#printf $(free_space "bar" $drive)
+done

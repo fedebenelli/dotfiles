@@ -1,0 +1,16 @@
+#!/bin/bash
+
+dev=$1
+
+case $1 in
+	'parlantes')
+		echo Seteando los parlantes..
+		pactl set-default-sink 'alsa_output.pci-0000_00_14.2.analog-stereo'
+		;;
+	'auris')
+		echo Seteando los auris..
+		pactl set-default-sink 'alsa_output.usb-GeneralPlus_USB_Audio_Device-00.analog-stereo'
+esac
+
+
+

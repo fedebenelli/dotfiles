@@ -1,0 +1,14 @@
+#!/bin/bash
+#xinput --list-props 12
+#xinput --set-prop 11 299 0;
+#xinput --set-prop 11 300 0, 0;
+#xinput --set-prop 11 301 0, 1;
+#xinput --list-props 12
+
+xset q | grep -A 1 Pointer
+xset m 1/1 0
+xset q | grep -A 1 Pointer
+
+#for id in $(xinput | grep "slave  pointer" | cut -f2 | cut -d'=' -f2); do
+#	xinput --list-props $id;
+#done

@@ -1,0 +1,129 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+#
+# The top properties below are applied to every block, but can be overridden.
+# Each block command defaults to the script name to avoid boilerplate.
+# Change $SCRIPT_DIR to the location of your scripts!
+command=$HOME/.config/i3blocks/$BLOCK_NAME/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+
+# Media player
+[mediaplayer]
+instance=mpd
+interval=2
+signal=10
+
+# Weather
+# script from https://github.com/mwallace582/i3blocks-weather
+[i3blocks-weather.py]
+short_text=Weather: 
+command=echo Weather: $($HOME/.config/i3blocks/i3blocks-weather.py/i3blocks-weather.py -c -k 857c24e12e858c572cc5a98b4bfe6620)
+markup=pango
+interval=100
+
+# Disk usage
+#
+# The directory defaults to $HOME if the instance is not specified.
+# The script may be called with a optional argument to set the alert
+# (defaults to 10 for 10%).
+
+#[disk]
+#label=fs/ 
+#DIR=/
+#interval=30
+#separator=false
+#
+#[free_space]
+#command=$HOME/.config/i3blocks/free_space/free_space /
+#separator=true
+#interval=60
+
+[disk]
+label= /home 
+DIR=/home
+interval=30
+separator=false
+
+[free_space]
+command=$HOME/.config/i3blocks/free_space/free_space /home
+separator=true
+interval=60
+
+[disk]
+label= /media/fafb 
+DIR=/media/fafb
+interval=30
+separator=false
+
+[free_space]
+command=$HOME/.config/i3blocks/free_space/free_space /media/fafb
+separator=true
+interval=60
+
+# Memory usage
+# The type defaults to "mem" if the instance is not specified.
+[memory]
+label=RAM:
+separator=true
+interval=30
+
+# Network rates
+# Shows up and down speeds
+[nettraf]
+interval=5
+separator=true
+
+[load_average]
+label=LOAD 
+interval=10
+
+# Calendar
+[calendar]
+interval=1
+LABEL=  
+DATEFMT=+%a %d/%m/%Y %H:%M:%S   
+HEIGHT=-0
+WIDTH=220
+
+
+
+# Key indicators
+#
+# Add the following bindings to i3 config file:
+#
+# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+#[keyindicator]
+#KEY=CAPS
+#markup=pango
+#interval=once
+#signal=11
+
+#[keyindicator]
+#KEY=NUM
+#markup=pango
+#interval=once
+#signal=11

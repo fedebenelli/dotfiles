@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# Little script to fix problems when trying to install python dependencies
+#  with pacman, but they're allready installed with pip.
+# Normally they send errors like:
+#```
+#  python-psutil: /usr/lib/python3.8/site-packages/psutil/tests/test_system.py exists in filesystem
+#  python-psutil: /usr/lib/python3.8/site-packages/psutil/tests/test_unicode.py exists in filesystem
+#  python-psutil: /usr/lib/python3.8/site-packages/psutil/tests/test_windows.py exists in filesystem
+#  python-xlib: /usr/lib/python3.8/site-packages/Xlib/X.py exists in filesystem
+#  python-xlib: /usr/lib/python3.8/site-packages/Xlib/XK.py exists in filesystem
+#  python-xlib: /usr/lib/python3.8/site-packages/Xlib/Xatom.py exists in filesystem
+#```
+#
+# Just copy all the output that looks like that and run this script
+
+
+package=$1
+pkgs="$(xclip -o | sed -r "s/$package: (.*) e.*/ --overwrite \1/" | xargs)"
+echo $pkgs
+sudo pacman -S $package --asdeps $pkgs

@@ -1,0 +1,5 @@
+#!/bin/sh
+
+what=$(echo "" | dmenu -p "What do you want?")
+when=$(echo "" | dmenu -p "In how much time?")
+sleep $when; notify-send "alarm-me: $what"

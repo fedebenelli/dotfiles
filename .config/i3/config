@@ -1,0 +1,277 @@
+##########################################
+#    _ _____
+#   (_)__  /      ____ _____ _____  _____
+#  / / /_ <______/ __ `/ __ `/ __ \/ ___/
+# / /___/ /_____/ /_/ / /_/ / /_/ (__  )
+#/_//____/      \__, /\__,_/ .___/____/
+#              /____/     /_/
+##########################################
+
+# i3 config file (v4)
+#
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+set $terminal st
+
+###
+#  Gaps
+#######
+for_window [class=".*"] border pixel 1
+gaps inner 10
+gaps outer 5
+bindsym $mod+KP_Add exec i3-msg gaps inner current plus 5
+bindsym $mod+KP_Subtract exec i3-msg gaps inner current minus 5
+#######
+
+# Start stuff as floating
+
+#for_window [instance="st"] floating enable
+for_window [instance="st"] resize 405 720
+for_window [instance="st"] move position 100 400
+for_window [class="Display"] floating enable
+for_window [instance="origin.exe"] floating enable
+for_window [instance="feh"] floating enable
+for_window [instance="bzone.exe"] floating enable
+# Make floating i3blocks calendar
+for_window [class="Yad"] floating enable 
+for_window [title="Ripcord Voice Chat"] floating enable
+# - > Start-up software
+##---------------------
+
+# - > My bindings
+# ---------------
+#bindsym $mod+q exec dmenukaomoji
+
+# -> Volume
+#bindsym $mod+Shift+KP_Add exec amixer -c 0 set Master 5+
+#bindsym $mod+Shift+KP_Subtract exec amixer -c 0 set Master 5-
+
+# -> Todo-List
+#bindsym $mod+t exec td edit
+
+# -> rotate-screen
+bindsym $mod+Mod1+Left exec xrandr --output HDMI-0 --rotate left
+bindsym $mod+Mod1+Up exec xrandr --output HDMI-0 --rotate normal
+
+# -> i3-alt-tab
+bindsym $mod+Tab fullscreen disable, focus right, fullscreen enable
+bindsym $mod+shift+Tab fullscreen disable, focus left, fullscreen enable
+
+# -> Drive mounting and umounting
+bindsym $mod+M exec mountdrives
+bindsym $mod+shift+M exec umountdrives
+
+# -> Kill and start picom
+#bindsym $mod+P exec picom --experimental-backends -b
+#bindsym $mod+Shift+P exec killall picom
+
+# -> Screenshots
+#bindsym --release Print exec screenshot -fs
+#bindsym --release $mod+Print exec screenshot -s
+
+# -> Music/mpd
+# bindsym $mod+dead_grave exec mpc toggle
+#bindsym $mod+dead_acute exec mpc toggle
+#bindsym $mod+XF86AudioPlay exec mpc toggle
+#bindsym $mod+Shift+greater exec mpc next
+#bindsym $mod+greater exec mpc prev
+#bindsym $mod+plus exec mpc volume +5
+#bindsym $mod+Shift+plus exec mpc volume -5
+
+# -> Run Software
+#bindsym $mod+Shift+b exec brave
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+n exec $terminal -e ncmpcpp
+bindsym $mod+Shift+r exec $terminal -e ranger
+for_window [title="ranger.*"] floating enable
+for_window [title="ranger.*"] resize 420 720
+for_window [title="ranger.*"] move position 100 300
+
+#
+#
+############################################### 
+
+
+###
+#  Colors
+#################
+
+# class                 	border  backgr. text    indicator child_border
+
+client.focused          	#4f1e2c #4f1e2c #d5eb86 #d53b86   #d5eb86
+client.focused_inactive 	#4f1e2c #5f676a #ffffff #FF000000 #FF000000
+client.unfocused        	#2D1119 #2D1119 #888888 #292d2e   #FF000000
+#client.urgent           	#2f343a #900000 #ffffff #900000   #900000
+#client.placeholder      	#000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+#client.background       	#000000
+################################
+
+# Font
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+# font pango:DejaVu Sans Mono 10 
+font xft:monospace 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec $terminal
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+# The binding has been changed to use i3-dmenu-desktop but
+#  the old dmenu is kept with a similar one
+bindsym $mod+Ctrl+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Resizing
+bindsym $mod+Shift+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+Shift+Down resize grow height 10 px or 10 ppt
+bindsym $mod+Shift+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+Right resize grow width 10 px or 10 ppt
+
+# split in horizontal orientation
+bindsym $mod+i split h
+
+# split in vertical orientation
+bindsym $mod+u split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9: lucrecita"
+set $ws10 "10: PC Stats"
+
+#exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/ruther/.config/i3/layouts/steam'"
+
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+#bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+#bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym ntilde resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+ #Start i3bar to display a workspace bar (plus the system information i3status
+ #finds out, if available)
+ bar {
+	position top
+        status_command i3status
+	#status_command i3blocks
+}
+
+# i3blocks bar
+#bar {
+#	i3bar_command i3bar --transparency
+#	position top
+#	mode hide
+#	hidden_state hide
+#	modifier $mod
+#	status_command i3blocks -c $HOME/.config/i3blocks/config
+#}
+
+# Polybar
+##exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+bindsym $mod+b bar mode toggle

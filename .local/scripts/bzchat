@@ -1,0 +1,29 @@
+#!/bin/sh
+
+IFS=$'\n'
+
+gamedir='/media/fafb/games/steamgaems/steamapps/common/Battlezone 98 Redux'
+chatfile="$gamedir/BZChatLog.txt"
+logfile="$gamedir/BZLogger.txt"
+savedir="${XDG_DOCUMENTS_DIR:-$HOME/docs}/games/bz/chatlogs"
+
+mkdir -p "$savedir" 2> /dev/null
+
+(tail -f -n 1 "$chatfile" | xargs -I a notify-send BZR a) &
+
+first_line0=$(head -n1 "$logfile")
+while true; do
+	sleep 60s
+	first_line1=$(head -n1 "$logfile")
+	if [ "$first_line0" != "$first_line1" ]; then
+		echo "paso la primera"
+		if [ "$(tail -n1 "$logfile" | cut -d' ' -f3-4)" = 'Exiting Game' ]; then
+			echo "paso la segunda"
+			grep "Chat Message" "$logfile"  > "$savedir/$(date '+%Y/%m/%d-%H:%M:%S')--BZCHAT"
+			cat "$logfile"  > "$savedir/$(date '+%Y/%m/%d-%H:%M:%S')--BZCHAT_raw"
+			echo "Logfile saved!" >> "$logfile"
+			notify-send "BZR" "$logfile saved!"
+			first_line0=$(head -n1 "$logfile")
+		fi
+	fi
+done

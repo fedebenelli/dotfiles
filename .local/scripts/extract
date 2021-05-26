@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Extract compressed/packaged files into a 
+#  folder with the same file name.
+
+dir="${1%.*}"
+mkdir -p "$dir"
+
+echo "extracting $1 into $dir"
+echo "Checking extension: ${1##*.}"
+
+case "${1##*.}" in
+	"7z")
+		7z x "$1" -o"$dir"
+		;;
+	"gz")
+		tar -xzvf "$1" -C "$dir"
+		;;
+	"rar")
+		unrar x "$1" "$dir"
+		;;
+	"tar")
+		tar -xvf "$1" -C "$dir"
+		;;
+	"zip")
+		unzip "$1" -d "$dir"
+		;;
+	*)
+		echo "Didn't match with any case"
+esac

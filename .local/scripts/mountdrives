@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Drive mounting and unmounting script.
+SUDO=doas
+
+case $1 in
+	"mount")
+		drive=$(lsblk -lp |
+			grep "part $" |
+			awk '{print  $1 " | ("$4")"}' |
+			dmenu |
+			sed -r 's/.*(sd[a-z][0-9]).*/\1/')
+
+		[ -z $drive ] && echo "No drive chosen!" && notify-send "💽 No drive chosen!" && exit 0
+		
+		media_path=/home/$USER/stg
+		mkdir $media_path
+		mkdir $media_path/$drive
+		echo "Mounting "$drive" at "$media_path/$drive
+		
+		doas mount "/dev/$drive" "$media_path/$drive/" && notify-send "💽 Drive Mounting" "$drive mounted!"
+		;;
+
+	"umount")
+		mountpoint=$(lsblk |
+			awk '{print $7}' |
+			sed -r '/\/home$|\/$/d' |
+			sed '/^$/d' |
+			tail -n +2 |
+			dmenu)
+		[ -z $mountpoint ] && echo "No drive chosen!" && notify-send "💽 No drive chosen!" && exit 0
+		$SUDO umount "$mountpoint" && notify-send "💽 Umount drive" "$mountpoint umounted!"
+		rm -r "$mountpoint"
+		;;
+esac

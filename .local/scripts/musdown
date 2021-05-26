@@ -1,0 +1,126 @@
+#!/bin/sh
+
+OIFS=$IFS
+IFS=$'\n'
+
+#TODO:
+# - make it usable with playlists too
+# - Set metadata (I guess I prefer using it as an argument instead of taking it
+#   from the video, since it tends to vary)
+
+get_seconds() {
+	h="10#$(echo $1 | cut -d':' -f1)"
+	m="10#$(echo $1 | cut -d':' -f2)"
+	s="10#$(echo $1 | cut -d':' -f3)"
+	secs=$(( h*3600 + m*60 + s ))
+	echo $secs
+}
+
+h="$(basename -a $0) [--single|--playlist][h]
+
+Script to download music blablabla
+
+requires the metadata script!
+
+USAGE:
+--single \"youtube url\"
+    Downloads a single YouTube video with multiple songs in it,
+    then it cut it into individual files accordingly to a 
+    timestamps file that must be a file called \"timestamps\", 
+    located in the directory where the command is launched,
+    with the timestamp of the songs with the format: 
+    \"HH:MM:SS song title\" per line.
+
+--playlist \"youtube playlist url\"
+    Downloads all the videos of a YouTube playlist.
+"
+
+timestamps_file="$HOME/.cache/timestamps"
+
+
+case $1 in
+	"--single")
+		# This mode is used for extracting the songs of a single
+		# video that has multiple songs in it. it reads a
+		# timestamps file with the timestamps of the start of
+		# each song and the corresponding title. After it reads
+		# the file it iterates through each timestamp and cuts 
+		# the video file according to the times between the
+		# start time of the song and the start time of the next
+		# one into individual files, when it reaches the last 
+		# song it takes the lenght of the whole file.
+
+		# Make the timestamps file
+		echo "
+Delete this and put here the timestamps for the songs.
+It must be in the format "HH:MM:SS" (HH is optional). 
+-> For example:
+
+00:00:00 Song 1
+00:01:10 Song 2
+00:56:38 Song 15
+01:02:00 Song 17" > "$timestamps_file"
+
+		${EDITOR:-vi} "$timestamps_file"
+
+		# Download the video and convert into an audio file with
+		# the best audio quality
+		youtube-dl -x --audio-format best -o 'video.%(ext)s' "$2"
+		file=$(ls video*)
+		wait
+
+		# Get the timestamps as an array, count the amount of
+		# lines/songs and the total lenght of the audio file.
+		timestamps=( $(cat "$timestamps_file") )
+		count=$(wc -l "$timestamps_file" | cut -d' ' -f1)
+		total_time=$(get_seconds $(ffmpeg -i "$file" 2>&1 |
+			grep -o "[0-9]\+:[0-9]\+:[0-9]\+"))
+		i=0
+		while [ $i -lt "$count" ]; do
+			# Selects the corresponding timestamp and get the
+			# song title and the song start time in seconds.
+			stamp=${timestamps[i]} 
+			title=${stamp#* }
+			t0=$(get_seconds "${stamp%% *}")
+			
+			if [ $i -lt $((count-1)) ]; then
+				time=$(get_seconds "${timestamps[i+1]%% *}")
+				time_diff=$((time-t0))
+				printf "\n\n"
+				echo "----------------------------------------------------------------------------"
+				echo "> working on song $((i+1)): $title..."
+				echo "  ffmpeg -ss $t0 -i "$file" -t $time_diff -b:a 130k "$((i+1)) - $title".opus"
+				echo "----------------------------------------------------------------------------"
+				ffmpeg -ss $t0 -i "$file" -t $time_diff -b:a 130k "$((i+1)) - $title".ogg
+			else
+				time_diff=$((total_time-t0))
+				printf "\n\n"
+				echo "----------------------------------------------------------------------------"
+				echo "> working on song $((i+1)): $title..."
+				echo "  ffmpeg -ss $t0 -i "$file" -t $time_diff -b:a 130k "$((i+1)) - $title".opus"
+				echo "----------------------------------------------------------------------------"
+				ffmpeg -ss $t0 -i "$file" -t $time_diff -b:a 130k "$((i+1)) - $title".ogg
+			fi
+
+			i=$((i+1))
+		done
+		rm "$file"
+
+		# Edit the metadata for the title of the songs
+		IFS=$'\n'
+		for file in $(ls); do
+			tit=${file#[0-9]* - }
+			tit=${tit%.*}
+			track=${file% -*}
+			echo $tit
+			echo ffmpeg -i "$file" -metadata title="$tit" -c:a copy "tmp.${file#*.}"
+			ffmpeg -i "$file" -metadata title="$tit" -metadata track="$track" -c:a copy "tmp.${file#*.}"
+			wait
+			mv "tmp.${file#*.}" "$file"
+			rm "tmp.${file#*.}"
+		done;;
+	"--playlist")
+		youtube-dl -x --audio-format best -o '%(title)s.%(ext)s' "$2";;
+	*)
+		echo "$h";;
+esac

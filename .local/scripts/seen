@@ -1,0 +1,8 @@
+#!/bin/sh
+
+IFS=$' '
+
+ext=."${1#*.}"
+name="${1%.*}"
+
+mv $1 "$name"_seen"$ext"

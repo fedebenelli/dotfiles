@@ -1,0 +1,9 @@
+#!/bin/sh
+
+pendrive=/dev/sdd1
+models=$HOME/models
+
+doas mount $pendrive "$HOME/pen"
+file="$(find $models -name *.gcode | fzf)"
+doas cp "$file" "$HOME/pen/"
+doas umount "$HOME/pen"

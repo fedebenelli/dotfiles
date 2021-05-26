@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd $HOME/installs/rtl8188eu
+sudo make clean
+sudo make
+sudo make install

@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# Extensions
+IFS=$'\n'
+
+h="Batch Renamer
+
+USAGE: 
+
+$(basename -a $0) [ext|gui|spa] [args]
+
+- extension <new-name>:
+  Renames all files in the working directory to \"new-name\",
+  keeping the extension.
+  > example: file1.mp3 file1.zip will be changed into newname.mp3 newname.zip
+
+- delimeter <delimeter>
+  Keeps only the name after the first \"delimeter\".
+  > example: \"01 - song.mp3\" will be changed into \"song.mp3\".
+
+- spaces
+  Removes all the spaces at the start of a file.
+"
+
+
+
+case $1 in
+	"extension")
+		# Extension
+		for f in $(ls); do
+			mv $f "$2.${f#*.}";
+		done
+		;;
+	"delimeter")
+		for f in $(ls); do
+			sep=$2
+			mv $f "${f#*$sep}"
+		done
+		;;
+	"spaces")
+		remaining=1
+		while [ $remaining -eq 1 ]; do
+			remaining=0
+			for f in $(ls); do
+				[ ${f:0:1} = ' ' ]  && remaining=1
+				mv $f "${f# }" 2> /dev/null
+			done
+		done
+		;;
+	*)
+		echo "$h"
+		;;
+esac

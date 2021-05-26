@@ -1,0 +1,116 @@
+# -> Sxhkd
+# --------------------------
+super + Escape
+	killall sxhkd; wait & sxhkd & notify-send "⌨️  sxhkd reloaded!"
+super + shift + Escape
+	$TERMINAL -e $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
+	#$TERMINAL -e $EDITOR "${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/sxhkdrc"
+
+# -> Show info
+# --------------------------
+super + s
+	shortcuts-maker show
+
+# -> Exec and kill picom
+# --------------------------
+super + p
+	exec picom --experimental-backends -b
+
+super + shift + p
+	exec killall picom
+
+# -> Take screenshots 
+# --------------------------
+Print
+	exec screenshot -fs && echo "Screenshot taken!"
+
+shift + Print
+	exec screenshot -s && echo "Screenshot taken!"
+
+# Mount and umount drives
+# --------------------------
+super + alt + m
+	exec mountdrives mount
+
+super + alt + shift + m
+	exec mountdrives umount
+
+# Interaction
+# --------------------------
+ctrl + Return
+	exec dunstctl close-all
+
+ctrl + shift + Return
+	exec dunstctl action
+
+# -> Run Software
+# --------------------------
+super + alt + p
+	exec rofi -show drun
+
+super + shift + b
+	exec $BROWSER
+
+super + shift + r
+	exec $TERMINAL -e ranger
+
+super + shift + k
+	exec dmenukaomoji
+
+super + t
+	exec td edit
+
+super + alt + t
+	exec td remove
+
+super + shift + n
+	$TERMINAL -f "monospace:pixelsize=19:antialias=true:autohint=true" -e newsboat
+
+XF86Calculator
+	exec rofi -show calc
+
+# -> Music/mpd
+# --------------------------
+XF86Tools
+	exec sm
+
+XF86AudioPlay 
+	exec mpc toggle
+
+XF86Audio{Prev,Next}
+	mpc -q {prev,next}
+
+XF86Audio{Raise,Lower}Volume
+	exec mpc volume {+5,-5}
+
+XF86AudioStop
+	exec mpc stop
+
+# -> shellpad
+# --------------------------
+alt + F1
+	exec shellpad 1
+alt + F2
+	exec shellpad 2
+alt + F3
+	exec shellpad 3
+alt + F4
+	exec shellpad 4
+alt + F5
+	exec shellpad 5
+alt + F6
+	exec shellpad 6
+alt + F7
+	exec shellpad 7
+alt + F8
+	exec shellpad 8
+alt + F9
+	exec shellpad 9
+alt + F10
+	exec shellpad 10
+alt + F11
+	exec shellpad 11
+alt + F12
+	exec shellpad 12
+alt + Escape
+	exec shellpad cancel

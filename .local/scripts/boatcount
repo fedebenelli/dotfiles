@@ -1,0 +1,4 @@
+#!/bin/sh
+
+newsboat -x reload
+newsboat -x print-unread | cut -d' ' -f1 > "$HOME"/.local/share/newsboat/pending

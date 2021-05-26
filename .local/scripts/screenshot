@@ -1,0 +1,15 @@
+#!/bin/sh
+
+file="$HOME/pics/screens/scr--$(date '+%Y-%m-%d--%H:%M:%S').png"
+
+# adding -silent argument would stop the audio from the PC speaker,
+# I find it funny tho
+
+case $@ in
+	"-fs")
+		import -window root "$file"
+		xclip -i -t image/png -sel clip < "$file";;
+	"-s")
+		import "$file"
+		xclip -i -t image/png -sel clip < "$file";;
+esac
