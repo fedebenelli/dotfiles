@@ -1,0 +1,48 @@
+urxvt.font: xft:monospace
+URxvt.scrollBar: false
+st.alpha: 0.9
+
+Xft.dpi:                    101
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
+
+
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.background: #000000
+*.color0:     #020005
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #BFBFBF
+
+!Green shit below
+!*.foreground: #00FF21
+!*.color7:     #00FF21
+
+dwm.normbgcolor:	#211638
+dwm.normbordercolor:	#4D4D4D
+dwm.normfgcolor:	#bf408a
+dwm.selbgcolor:		#0D0D0D
+dwm.selbordercolor:	#20FA7B
+dwm.selfgcolor:		#67ff83
+dwm.borderpx:		2
+dwm.snap:		32
+dwm.showbar:		1
+dwm.topbar:		1
+dwm.nmaster:		1
+dwm.resizehints:	1
+dwm.mfact:		0.60
