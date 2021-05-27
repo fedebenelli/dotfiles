@@ -94,7 +94,6 @@ alias \
 	"yeet"='sudo yay -Rcsn' \
 	"ls"='ls --color=auto' \
 	"sysup"='yay -Syu' \
-	"sudo"='doas' \
 	"df"='df -h' \
 
 # My name
