@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo Loading default Xresources
+xrdb $XRESOURCES
+echo Merging pywal Xresources
+#xrdb -merge "$HOME/.cache/wal/colors.Xresources"
+xrdb -merge "$XDG_CACHE_HOME/wal/colors.Xresources"
