@@ -3,8 +3,7 @@
 super + Escape
 	killall sxhkd; wait & sxhkd & notify-send "⌨️  sxhkd reloaded!"
 super + shift + Escape
-	$TERMINAL -e $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
-	#$TERMINAL -e $EDITOR "${XDG_CONFIG_HOME:-$HOME/.config}/sxhkd/sxhkdrc"
+	echo $TERMINAL -e $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
 
 # -> Show info
 # --------------------------
@@ -45,6 +44,12 @@ ctrl + shift + Return
 
 # -> Run Software
 # --------------------------
+super + d
+	exec dmenu_run
+
+super + shift + Return
+	exec $TERMINAL
+
 super + alt + p
 	exec rofi -show drun
 
@@ -71,6 +76,9 @@ XF86Calculator
 
 # -> Music/mpd
 # --------------------------
+super + n
+	$TERMINAL -e ncmpcpp
+
 XF86Tools
 	exec sm
 
@@ -81,7 +89,7 @@ XF86Audio{Prev,Next}
 	mpc -q {prev,next}
 
 XF86Audio{Raise,Lower}Volume
-	exec mpc volume {+5,-5}
+	pamixer {-i,-d} 5;notify-send "Volume:" "$(pamixer --get-volume)%"
 
 XF86AudioStop
 	exec mpc stop
