@@ -1,14 +1,3 @@
-urxvt.font: xft:monospace
-URxvt.scrollBar: false
-st.alpha: 0.9
-
-Xft.dpi:                    101
-Xft.antialias:              true
-Xft.rgba:                   rgb
-Xft.hinting:                true
-Xft.hintstyle:              hintslight
-
-
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
 *.background: #000000
@@ -29,10 +18,49 @@ Xft.hintstyle:              hintslight
 *.color7:     #BFBFBF
 *.color15:    #BFBFBF
 
+
+! urxvt settings
+urxvt.font: 		xft:monospace:size=8
+urxvt.boldFont: 	xft:monospace:size=8:style=Bold
+urxvt.italicFont: 	xft:monospace:size=8:style=Italic
+urxvt.boldItalicFont: 	xft:monospace:size=8:style=Bold Italic
+urxvt.scrollBar: 	false
+urxvt.background:	[90]#111111
+urxvt.depth:		32
+
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
+
+URxvt.keysym.M-k: command:\033]720;1\007
+URxvt.keysym.M-j: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+URxvt.keysym.M-J:	resize-font:smaller
+URxvt.keysym.M-K:	resize-font:bigger
+
+URxvt.url-select.launcher:  firefox
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+
+
+! st settings
+st.alpha: 0.9
+
+!Xft.dpi:                    96
+!Xft.antialias:              true
+!Xft.rgba:                   rgb
+!Xft.hinting:                true
+!Xft.hintstyle:              hintslight
+
 !Green shit below
 !*.foreground: #00FF21
 !*.color7:     #00FF21
 
+! dwm settings
 dwm.normbgcolor:	#211638
 dwm.normbordercolor:	#4D4D4D
 dwm.normfgcolor:	#bf408a
