@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # Drive mounting and unmounting script.
-SUDO=doas
 
 case $1 in
 	"mount")
@@ -29,6 +28,7 @@ case $1 in
 			tail -n +2 |
 			dmenu)
 		[ -z $mountpoint ] && echo "No drive chosen!" && notify-send "💽 No drive chosen!" && exit 0
+
 		$SUDO umount "$mountpoint" && notify-send "💽 Umount drive" "$mountpoint umounted!"
 		rm -r "$mountpoint"
 		;;
