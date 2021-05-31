@@ -16,9 +16,7 @@ LIM
 IFS=$'\n'
 for setting in $(echo "$conf"); do
 	sett=$(echo "$setting" | cut -d' ' -f1)
-	echo "$setting"
 	sed -i "s/$sett.*/$setting/g" $DUNST_RC
-	echo $sett
 done
 
 killall dunst; notify-send "Dunst reloaded"
