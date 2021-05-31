@@ -7,3 +7,4 @@ echo Merging pywal Xresources
 [ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors-wal-dwm.h" ] && dwm_colors
 update-dunstrc
 update-zathurarc
+update-alacritty

@@ -1,0 +1,16 @@
+#!/bin/sh
+FILE=$HOME/.local/share/bat-history/bat_history
+
+pgrep record-bat-usage && exit 1
+
+while true; do
+	cpu=$((100 - $(top -bn1 | grep Cpu | cut -d',' -f7 | sed 's/\.[0-9] id//g')))
+	ram=$(free | grep Mem | awk '{print $3}')
+	date=$(date +'%s')
+	state=$(cat /sys/class/power_supply/BAT0/status)
+	bat=$(cat /sys/class/power_supply/BAT0/capacity)
+	
+	echo $date,$cpu,$ram,$state,$bat >> "$FILE"
+
+	sleep 5m
+done
