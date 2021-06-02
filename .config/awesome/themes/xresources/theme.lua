@@ -131,6 +131,7 @@ theme.wallpaper = function(s)
 end
 
 theme.wallpaper = "/home/ruther/.config/wallpaper.png"
+theme.tasklist_disable_icon = true
 
 return theme
 
