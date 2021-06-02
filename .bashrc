@@ -44,10 +44,14 @@ nap() {
 
 hline() {
 	printf "\n <"
-	for i in $(seq 1 $(($(tput cols)-18))); do
+	bat=$(battery)
+	printf "%s" "$bat"
+	dat=$(date +%d/%m-%H:%M:%S)
+	len=$(($(tput cols) - ${#bat} - ${#dat} - 4))
+	for i in $(seq 1 $len); do
 		printf "-"
 	done
-	printf "[$(date +%d/%m-%H:%M:%S)]"
+	printf "[$dat]\n"
 }
 
 pdftitle() {
