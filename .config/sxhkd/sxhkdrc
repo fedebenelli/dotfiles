@@ -3,7 +3,7 @@
 super + Escape
 	killall sxhkd; wait & sxhkd & notify-send "⌨️  sxhkd reloaded!"
 super + shift + Escape
-	echo $TERMINAL -e $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
+	$TERMINAL -e $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
 
 # -> Show info
 # --------------------------
@@ -71,8 +71,22 @@ super + alt + t
 super + shift + n
 	$TERMINAL -f "monospace:pixelsize=19:antialias=true:autohint=true" -e newsboat
 
-XF86Calculator
+{XF86Calculator, alt + c}
 	exec rofi -show calc
+
+# -> Volumes
+# --------------------------
+XF86Audio{Raise,Lower}Volume
+	pamixer {-i,-d} 5;notify-send "Volume:" "$(pamixer --get-volume)%"
+
+XF86AudioMute
+	pamixer --toggle-mute
+
+XF86AudioMicMute
+	source=$(pactl info | grep "Default Source" | cut -d':' -f2 | sed 's/ //g'); pamixer --toggle-mute --source $source
+
+ctrl + XF86Audio{Raise,Lower}Volume
+	source=$(pactl info | grep "Default Source" | cut -d':' -f2 | sed 's/ //g'); pamixer {-i,-d} 5 --source $source;notify-send "Sink Volume:" "$(pamixer --get-volume --source $source)%"
 
 # -> Music/mpd
 # --------------------------
@@ -88,8 +102,6 @@ XF86AudioPlay
 XF86Audio{Prev,Next}
 	mpc -q {prev,next}
 
-XF86Audio{Raise,Lower}Volume
-	pamixer {-i,-d} 5;notify-send "Volume:" "$(pamixer --get-volume)%"
 
 XF86AudioStop
 	exec mpc stop
