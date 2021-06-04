@@ -64,12 +64,12 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
-    frame_color = "#aaaaaa"
+    frame_color = "#aa1cf3"
 
     # Define a color for the separator.
     # possible values are:
-    #  * auto: dunst tries to find a color fitting to the background;
-    #  * foreground: use the same color as the foreground;
+    #  * auto: dunst tries to find a color fitting to the background = "#0F0926"
+    #  * foreground = "#cccad9"
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
     separator_color = frame
@@ -292,23 +292,23 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#222222"
-    foreground = "#888888"
+    background = "#0F0926"
+    foreground = "#cccad9"
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#0F0926"
+    foreground = "#cccad9"
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
-    frame_color = "#ff0000"
+    background = "#0F0926"
+    foreground = "#cccad9"
+    frame_color = "#aa1cf3"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
@@ -328,10 +328,10 @@
 #    summary
 #
 # and you can override the
-#    background
-#    foreground
+#    background = "#0F0926"
+#    foreground = "#cccad9"
 #    format
-#    frame_color
+#    frame_color = "#aa1cf3"
 #    fullscreen
 #    new_icon
 #    set_stack_tag
