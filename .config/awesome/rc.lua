@@ -211,6 +211,7 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
+	    require("battery-widget") {},
             mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
@@ -345,7 +346,7 @@ clientkeys = gears.table.join(
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+    awful.key({ modkey, "Shift"	}, "s",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
 --    awful.key({ modkey,           }, "n",
 --        function (c)

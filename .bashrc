@@ -51,7 +51,7 @@ hline() {
 	for i in $(seq 1 $len); do
 		printf "-"
 	done
-	printf "[$dat]\n"
+	printf "[$dat]\n\n"
 }
 
 pdftitle() {
