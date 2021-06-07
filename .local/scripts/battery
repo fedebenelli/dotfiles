@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ "$(hostname)" != "thiccpad" ] && exit 0
+[ "$(cat /etc/hostname)" != "thiccpad" ] && exit 0
 
 charge=$(cat /sys/class/power_supply/BAT*/capacity)
 plugged=$(cat /sys/class/power_supply/AC/online)
