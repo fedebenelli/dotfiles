@@ -64,12 +64,21 @@
     frame_width = 3
 
     # Defines color of the frame around the notification window.
+<<<<<<< HEAD
     frame_color = "#aa1cf3"
 
     # Define a color for the separator.
     # possible values are:
     #  * auto: dunst tries to find a color fitting to the background = "#0F0926"
     #  * foreground = "#cccad9"
+=======
+    frame_color = "#0c21ec"
+
+    # Define a color for the separator.
+    # possible values are:
+    #  * auto: dunst tries to find a color fitting to the background = "#0F1624"
+    #  * foreground = "#c5c6e7"
+>>>>>>> f52a5e3 (just looks)
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
     separator_color = frame
@@ -86,7 +95,7 @@
 
     ### Text ###
 
-    font = sans#Hack Nerd Font 8
+    font = bitmap#Hack Nerd Font 8
 
     # The spacing between lines.  If the height is smaller than the
     # font height, it will get raised to the font height.
@@ -292,23 +301,39 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
+<<<<<<< HEAD
     background = "#0F0926"
     foreground = "#cccad9"
+=======
+    background = "#0F1624"
+    foreground = "#c5c6e7"
+>>>>>>> f52a5e3 (just looks)
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
+<<<<<<< HEAD
     background = "#0F0926"
     foreground = "#cccad9"
+=======
+    background = "#0F1624"
+    foreground = "#c5c6e7"
+>>>>>>> f52a5e3 (just looks)
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_critical]
+<<<<<<< HEAD
     background = "#0F0926"
     foreground = "#cccad9"
     frame_color = "#aa1cf3"
+=======
+    background = "#0F1624"
+    foreground = "#c5c6e7"
+    frame_color = "#0c21ec"
+>>>>>>> f52a5e3 (just looks)
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
@@ -328,10 +353,17 @@
 #    summary
 #
 # and you can override the
+<<<<<<< HEAD
 #    background = "#0F0926"
 #    foreground = "#cccad9"
 #    format
 #    frame_color = "#aa1cf3"
+=======
+#    background = "#0F1624"
+#    foreground = "#c5c6e7"
+#    format
+#    frame_color = "#0c21ec"
+>>>>>>> f52a5e3 (just looks)
 #    fullscreen
 #    new_icon
 #    set_stack_tag
