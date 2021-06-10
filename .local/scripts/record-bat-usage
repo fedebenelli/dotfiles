@@ -9,8 +9,9 @@ while true; do
 	date=$(date +'%s')
 	state=$(cat /sys/class/power_supply/BAT0/status)
 	bat=$(cat /sys/class/power_supply/BAT0/capacity)
+	cpu_speeds=$(cat /proc/cpuinfo | grep MHz | cut -d':' -f2 | tr '\n' ',' | sed 's/,$//')
 	
-	echo $date,$cpu,$ram,$state,$bat >> "$FILE"
+	echo "$date,$cpu,$ram,$state,$bat,$cpu_speeds" >> "$FILE"
 
 	sleep 5m
 done
