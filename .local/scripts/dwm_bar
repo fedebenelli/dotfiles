@@ -17,6 +17,16 @@ ram() {
 	printf "$(free -h | grep Mem | awk '{print $3"/"$2}')"
 }
 
+max_cpu() {
+	sum=0
+	count=0
+	for cpu in $(cat /proc/cpuinfo  | grep MHz | awk '{print $4}');do
+		sum=$(($sum+${cpu%.*}));
+		count=$(($count+1));
+	done
+	printf $(($sum/$count))
+}
+
 temps() {
 	for temp in $(sensors | grep temp | awk '{print $2}' | sed '/^$/d'); do printf "$temp | "; done
 }
@@ -40,14 +50,20 @@ wttr() {
 }
 
 
+print_bar() {
+	echo "$(wttr) $sep $(music) $sep RAM: $(ram) $sep $(max_cpu) $sep $(free_drives) $sep $(date '+%Y/%m/%d -- %H:%M')" 2> /dev/null
+}
+
 sep='|*'
 
 bar() {
-	xsetroot -name "$(wttr) $sep $(music) $sep RSS: $(rss) $sep RAM: $(ram) $sep $(free_drives) $sep $(date '+%Y/%m/%d -- %H:%M')"
+	xsetroot -name "$(print_bar)"
 }
 
-while true; do
-	$(bar)
-	echo $(bar)
-	sleep 1s
-done
+echo "$(print_bar)"
+
+#while true; do
+#	$(bar)
+#	print_bar
+#	sleep 1s
+#done

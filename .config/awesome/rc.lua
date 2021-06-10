@@ -210,11 +210,15 @@ awful.screen.connect_for_each_screen(function(s)
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
+	    wibox.widget.textbox(' | '),
             layout = wibox.layout.fixed.horizontal,
+	    awful.widget.watch('bash "dwm_bar"', 1),
+	    wibox.widget.textbox(' |* '),
 	    require("battery-widget") {},
-            mykeyboardlayout,
+	    wibox.widget.textbox(' |* '),
+            --mykeyboardlayout,
             wibox.widget.systray(),
-            mytextclock,
+            --mytextclock,
             s.mylayoutbox,
         },
     }
