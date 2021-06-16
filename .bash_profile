@@ -10,6 +10,7 @@ export VISUAL=nvim
 export BROWSER=firefox
 export SUDO=sudo
 
+
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
@@ -48,5 +49,3 @@ export FMOD_ALSA_DEVICE=pipewire
 [ -f ~/.bashrc ] && . ~/.bashrc
 
 [ $(tty) = "/dev/tty1" ] && exec startx
-
-

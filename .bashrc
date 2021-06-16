@@ -113,6 +113,9 @@ printf '\n--------------------------------'
 while [ "$i" -le "${#t}" ]; do printf "-"; i=$((i+1)); done
 echo
 cal -3
+echo
+echo "-> Appointments"
+calcurse -a   
 hline
 echo "-> To-do"
 td show
