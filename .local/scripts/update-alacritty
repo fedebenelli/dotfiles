@@ -1,4 +1,8 @@
 #!/bin/sh
-file="${XDG_CACHE_HOME:-$HOME/.cache}/wal/alacritty-colors.yml"
-[ -f "$file" ] && cp "$file" "${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/colors/wal.yml"
+
+file="$1"
+[ -z "$1" ] && file="${XDG_CACHE_HOME:-$HOME/.cache}/wal/alacritty-colors.yml"
+[ -f "$file" ] &&
+	echo "Setting Alacritty colors with $file"
+	cp "$file" "${XDG_CONFIG_HOME:-$HOME/.config}/alacritty/colors/wal.yml"
 alacritty-colorscheme apply wal.yml

@@ -77,7 +77,7 @@ super + shift + n
 # -> Volumes
 # --------------------------
 XF86Audio{Raise,Lower}Volume
-	pamixer {-i,-d} 5;notify-send "Volume:" "$(pamixer --get-volume)%"
+	pamixer {-i,-d} 5
 
 XF86AudioMute
 	pamixer --toggle-mute

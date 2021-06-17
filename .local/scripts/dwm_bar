@@ -5,7 +5,7 @@ music() {
 	artist="$(mpc current)"
 	volume="v: $(mpc volume | cut -d' ' -f2)"
 	if [ -z $playing ]; then
-		printf ""
+		printf "[]"
 	elif [ $playing = '[paused]' ]; then
 		printf "%s | %s | %s" " (||)" "$artist" "$volume"
 	elif [ $playing == '[playing]' ]; then
@@ -49,17 +49,26 @@ wttr() {
 	printf "$(curl wttr.in/Cordoba,AR?format=3)"
 }
 
-
-print_bar() {
-	echo "$(wttr) $sep $(music) $sep RAM: $(ram) $sep $(max_cpu) $sep $(free_drives) $sep $(date '+%Y/%m/%d -- %H:%M')" 2> /dev/null
+volume() {
+	vol=$(pamixer --get-volume)	
+	symbol="🔈" 
+	[ $vol -gt 30 ] && symbol="🔉" 
+	[ $vol -gt 70 ] && symbol="🔊" 
+	[ $(pamixer --get-mute) = true ] && symbol="🔇" 
+	printf "%s $vol%s" "$symbol" "%"
 }
 
-sep='|*'
+print_bar() {
+	echo "$wttr $sep $(music) $sep RAM: $(ram) $sep $(max_cpu) $sep $(free_drives) $sep $(volume) $sep $(date '+%Y/%m/%d -- %H:%M')" 2> /dev/null
+}
+
+sep='|'
 
 bar() {
 	xsetroot -name "$(print_bar)"
 }
 
+$(bar)
 echo "$(print_bar)"
 
 #while true; do
