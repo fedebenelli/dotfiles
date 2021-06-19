@@ -1,12 +1,10 @@
 #!/bin/sh
 
-[ "$(cat /etc/hostname)" != "thiccpad" ] && exit 0
-
-charge=$(cat /sys/class/power_supply/BAT*/capacity)
+charge=$(cat /sys/class/power_supply/BAT*/capacity || exit 0)
 plugged=$(cat /sys/class/power_supply/AC/online)
 
 i=0
 
 [ $plugged -eq 1 ] &&
-	printf "AC:  %s $(acpi | cut -d',' -f3 | cut -d' ' -f2)" "%$charge" ||
+	printf "AC: %s $(acpi | cut -d',' -f3 | cut -d' ' -f2)" "%$charge" ||
 	printf "BAT: %s $(acpi | cut -d',' -f3 | cut -d' ' -f2)" "%$charge"
