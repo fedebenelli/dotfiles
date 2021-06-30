@@ -65,19 +65,19 @@
 
     # Defines color of the frame around the notification window.
 <<<<<<< HEAD
-    frame_color = "#aa1cf3"
+    frame_color = "#12f21a"
 
     # Define a color for the separator.
     # possible values are:
-    #  * auto: dunst tries to find a color fitting to the background = "#0F0926"
-    #  * foreground = "#cccad9"
+    #  * auto: dunst tries to find a color fitting to the background = "#121516"
+    #  * foreground = "#9ab9bb"
 =======
-    frame_color = "#0c21ec"
+    frame_color = "#12f21a"
 
     # Define a color for the separator.
     # possible values are:
-    #  * auto: dunst tries to find a color fitting to the background = "#0F1624"
-    #  * foreground = "#c5c6e7"
+    #  * auto: dunst tries to find a color fitting to the background = "#121516"
+    #  * foreground = "#9ab9bb"
 >>>>>>> f52a5e3 (just looks)
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
@@ -302,11 +302,11 @@
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
 <<<<<<< HEAD
-    background = "#0F0926"
-    foreground = "#cccad9"
+    background = "#121516"
+    foreground = "#9ab9bb"
 =======
-    background = "#0F1624"
-    foreground = "#c5c6e7"
+    background = "#121516"
+    foreground = "#9ab9bb"
 >>>>>>> f52a5e3 (just looks)
     timeout = 10
     # Icon for notifications with low urgency, uncomment to enable
@@ -314,11 +314,11 @@
 
 [urgency_normal]
 <<<<<<< HEAD
-    background = "#0F0926"
-    foreground = "#cccad9"
+    background = "#121516"
+    foreground = "#9ab9bb"
 =======
-    background = "#0F1624"
-    foreground = "#c5c6e7"
+    background = "#121516"
+    foreground = "#9ab9bb"
 >>>>>>> f52a5e3 (just looks)
     timeout = 10
     # Icon for notifications with normal urgency, uncomment to enable
@@ -326,13 +326,13 @@
 
 [urgency_critical]
 <<<<<<< HEAD
-    background = "#0F0926"
-    foreground = "#cccad9"
-    frame_color = "#aa1cf3"
+    background = "#121516"
+    foreground = "#9ab9bb"
+    frame_color = "#12f21a"
 =======
-    background = "#0F1624"
-    foreground = "#c5c6e7"
-    frame_color = "#0c21ec"
+    background = "#121516"
+    foreground = "#9ab9bb"
+    frame_color = "#12f21a"
 >>>>>>> f52a5e3 (just looks)
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
@@ -354,15 +354,15 @@
 #
 # and you can override the
 <<<<<<< HEAD
-#    background = "#0F0926"
-#    foreground = "#cccad9"
+#    background = "#121516"
+#    foreground = "#9ab9bb"
 #    format
-#    frame_color = "#aa1cf3"
+#    frame_color = "#12f21a"
 =======
-#    background = "#0F1624"
-#    foreground = "#c5c6e7"
+#    background = "#121516"
+#    foreground = "#9ab9bb"
 #    format
-#    frame_color = "#0c21ec"
+#    frame_color = "#12f21a"
 >>>>>>> f52a5e3 (just looks)
 #    fullscreen
 #    new_icon

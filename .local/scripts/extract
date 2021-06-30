@@ -22,6 +22,9 @@ case "${1##*.}" in
 	"tar")
 		tar -xvf "$1" -C "$dir"
 		;;
+	"tgz")
+		tar -xzvf "$1" -C "$dir"
+		;;
 	"zip")
 		unzip "$1" -d "$dir"
 		;;
