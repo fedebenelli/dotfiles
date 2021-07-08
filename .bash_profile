@@ -27,6 +27,8 @@ export XDG_TEMPLATES_DIR="$HOME/docs/templates"
 export XDG_PUBLICSHARE_DIR="$HOME/docs/public"
 export XDG_VIDEOS_DIR="$HOME/vids"
 
+export PAPERS_DIR="$HOME/docs/research/papers"
+
 
 # Cleaning a bit home directory
 export LESSHISTFILE=-
@@ -42,7 +44,7 @@ export PYTHONHISTFILE="$XDG_CONFIG_HOME"/python/python_history
 
 export FMOD_ALSA_DEVICE=pipewire 
 
-
+source "${XDG_CONFIG_HOME/mendeley-cli-settings}"
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]
 
