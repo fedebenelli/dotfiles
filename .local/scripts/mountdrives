@@ -2,6 +2,8 @@
 
 # Drive mounting and unmounting script.
 
+SUDO=${SUDO:-sudo}
+
 case $1 in
 	"mount")
 		drive=$(lsblk -lp |
@@ -17,7 +19,7 @@ case $1 in
 		mkdir $media_path/$drive
 		echo "Mounting "$drive" at "$media_path/$drive
 		
-		doas mount "/dev/$drive" "$media_path/$drive/" && notify-send "💽 Drive Mounting" "$drive mounted!"
+		$SUDO mount "/dev/$drive" "$media_path/$drive/" && notify-send "💽 Drive Mounting" "$drive mounted!"
 		;;
 
 	"umount")

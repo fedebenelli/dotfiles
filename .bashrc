@@ -34,6 +34,17 @@ yta() {
     mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 }
 
+get_paper() {
+	doi="$1"
+	sci_hub="sci-hub.se"
+	pdf_link="$(curl https://$sci_hub/$doi | grep -o "$sci_hub.*pdf" | head -n1)"
+	pdf_name="$(curl https://$sci_hub/$doi | grep title | cut -d'|' -f2)"
+	pdf_name="${pdf_name# *}"
+	pdf_name="${pdf_name%* }"
+	wget "$pdf_link" -O "${PAPERS_DIR:-${XDG_DOWNLOAD_DIR:-$HOME/Downloads}}/$pdf_name.pdf"
+}
+
+
 nap() {
 	mkdir "$1"
 	cp $HOME/docs/programming/arduino/Makefile "$1/"
@@ -77,14 +88,16 @@ jupyterfolder='/media/bigdata/OneDrive/Documentos/Programming/Python/jupyter'
 #------------------
 source $HOME/.config/shell/shortcuts
 alias \
+	"qemu"='qemu-system-x86_64 -m 2048 -monitor stdio "$1"' \
 	"showcolors"='for x in {0..8}; do for i in {30..37}; do for a in {40..47}; do echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "; done; echo; done; done; echo ""' \
-	"dotfiles"="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME" \
 	"proton"='PROTON_NO_ESYNC=1 $HOME/.steam/root/compatibilitytools.d/Proton-5.21-GE-1/dist/bin/wine64' \
-	"ward"="stty -F /dev/ttyACM* speed 9600; tail -f /dev/ttyACM*" \
+	"dotfiles"="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME" \
 	"jl"='cd "$jupyterfolder"; jupyter lab --ip 192.168.100.2 --port 8888' \
 	"conlucrecita"='ssh ruther@lucrecita -t "tmux attach || tmux new"' \
+	"ward"="stty -F /dev/ttyACM* speed 9600; tail -f /dev/ttyACM*" \
 	"cdsteam"='cd $HOME/.local/share/Steam/steamapps/common/' \
 	"myweb"='cd $HOME/docs/learning/markup/web/mywebsite' \
+	"nvi"='$EDITOR ${XDG_CONFIG_HOME}/nvim/init.vim' \
 	"ranco"='$EDITOR $HOME/.config/ranger/rc.conf' \
 	"isomount"='sudo mount -o loop $1 /media/iso/' \
 	"picomex"='picom --experimental-backends -b' \

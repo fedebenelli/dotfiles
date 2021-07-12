@@ -83,6 +83,15 @@ handle_extension() {
             lynx -dump -- "${FILE_PATH}" && exit 5
             elinks -dump "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
+
+        #DOCX
+        docx)
+            docx2txt < "${FILE_PATH}" && exit 5 
+            ;;
+        # Compiled Fortran (most of the time I will cross this ext)
+	o)
+	    ${FILE_PATH} && exit 5
+	    ;;
     esac
 }
 
