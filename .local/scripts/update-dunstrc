@@ -4,6 +4,7 @@ CONFIG_DIR="${XDG_CONFIG_DIR:-$HOME/.config}/dunst"
 DUNST_RC="$CONFIG_DIR/dunstrc"
 
 . ${XDG_CACHE_DIR:-$HOME/.cache}/wal/colors.sh
+[ -z "$1"  ] || . "$1"/colors.sh
 cp "$DUNST_RC" "$CONFIG_DIR/dunstrc.b"
 
 conf="$(cat <<LIM
@@ -19,4 +20,4 @@ for setting in $(echo "$conf"); do
 	sed -i "s/$sett.*/$setting/g" $DUNST_RC
 done
 
-killall dunst; notify-send "Dunst reloaded"
+killall dunst && notify-send "Dunst reloaded"
