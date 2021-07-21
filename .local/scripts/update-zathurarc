@@ -4,6 +4,7 @@ CONFIG_DIR="${XDG_CONFIG_DIR:-$HOME/.config}/zathura"
 ZATH_RC="$CONFIG_DIR/zathurarc"
 
 . ${XDG_CACHE_DIR:-$HOME/.cache}/wal/zathura.sh
+[ -z "$1" ] || . "$1"/zathura.sh
 cp "$ZATH_RC" "$CONFIG_DIR/zathurarc.b"
 
 conf="$(cat <<LIM
