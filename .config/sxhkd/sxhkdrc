@@ -69,7 +69,7 @@ super + alt + t
 	exec td remove
 
 super + shift + n
-	$TERMINAL -f "monospace:pixelsize=19:antialias=true:autohint=true" -e newsboat
+	$TERMINAL -o "font:monospace:pixelsize=19:antialias=true:autohint=true" -e newsboat
 
 {XF86Calculator, alt + c}
 	exec rofi -show calc
