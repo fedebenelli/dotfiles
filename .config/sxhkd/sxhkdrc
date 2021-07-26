@@ -74,6 +74,9 @@ super + shift + n
 {XF86Calculator, alt + c}
 	exec rofi -show calc
 
+super + shift + c
+	exec $TERMINAL -e calcurse
+
 # -> Volumes
 # --------------------------
 XF86Audio{Raise,Lower}Volume
