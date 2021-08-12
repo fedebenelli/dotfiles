@@ -2,6 +2,7 @@
 
 echo Loading default Xresources
 xrdb "$XRESOURCES"
+
 echo Merging pywal Xresources
 [ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.Xresources" ] && xrdb -merge ${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.Xresources
 [ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors-wal-dwm.h" ] && dwm_colors
@@ -15,5 +16,3 @@ update-alacritty
 	update-dunstrc "$1";
 	update-zathurarc "$1";
 	update-alacritty "$1/alacritty-colors.yml")
-
-
