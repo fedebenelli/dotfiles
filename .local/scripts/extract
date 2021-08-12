@@ -3,6 +3,7 @@
 # Extract compressed/packaged files into a 
 #  folder with the same file name.
 
+
 dir="${1%.*}"
 mkdir -p "$dir"
 

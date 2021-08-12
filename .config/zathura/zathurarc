@@ -1,8 +1,6 @@
 set zoom-step 20
-<<<<<<< HEAD
-=======
->>>>>>> f52a5e3 (just looks)
 set recolor "true"
+set recolor-keephue
 set completion-bg "rgba(18,21,22,0.9)"
 set completion-fg "rgba(154,185,187,0.9)"
 set completion-group-bg "rgba(18,21,22,0.9)"
