@@ -115,7 +115,7 @@ alias \
 
 # My name
 #------------------
-PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']') \n$(blinking-green '└-------------$(ls -a ~ | wc -l)---->') "
+PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']') \n$(blinking-green '└-------------$(($(ls -la ~ | wc -l)-3))---->') "
 
 
 # Stuff to show when starting bash
@@ -128,7 +128,8 @@ echo
 cal -3
 echo
 echo "-> Appointments"
-calcurse -a   
+# Show
+calcurse -d 8 
 hline
 echo "-> To-do"
 td show
