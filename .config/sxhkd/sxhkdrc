@@ -13,10 +13,10 @@ super + s
 # -> Exec and kill picom
 # --------------------------
 super + p
-	exec picom --experimental-backends -b
+	exec prata add
 
 super + shift + p
-	exec killall picom
+	exec prata list
 
 # -> Take screenshots 
 # --------------------------
@@ -25,6 +25,8 @@ Print
 
 shift + Print
 	exec screenshot -s && echo "Screenshot taken!"
+super + shift + Print
+	exec screenshot -sw && echo "Screenshot taken!"
 
 # Mount and umount drives
 # --------------------------
@@ -86,10 +88,12 @@ XF86AudioMute
 	pamixer --toggle-mute
 
 XF86AudioMicMute
-	source=$(pactl info | grep "Default Source" | cut -d':' -f2 | sed 's/ //g'); pamixer --toggle-mute --source $source
+	source=$(pactl info | grep "Default Source:" | sed 's/Default Source: //g'); pamixer --toggle-mute --source $source && notify-send "Mic Toggled"
 
 ctrl + XF86Audio{Raise,Lower}Volume
-	source=$(pactl info | grep "Default Source" | cut -d':' -f2 | sed 's/ //g'); pamixer {-i,-d} 5 --source $source;notify-send "Sink Volume:" "$(pamixer --get-volume --source $source)%"
+	source=$(pactl info | grep "Default Source:" | sed 's/Default Source: //g');
+	pamixer {-i,-d} 5 --source $source;
+	notify-send "Sink Volume:" "$(pamixer --get-volume --source $source)%"
 
 # -> Music/mpd
 # --------------------------
@@ -104,7 +108,6 @@ XF86AudioPlay
 
 XF86Audio{Prev,Next}
 	mpc -q {prev,next}
-
 
 XF86AudioStop
 	exec mpc stop

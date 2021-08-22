@@ -46,7 +46,7 @@ bat() {
 }
 
 wttr() {
-	printf "$(curl wttr.in/Cordoba,AR?format=3)"
+	printf "$(curl wttr.in/Cordoba,AR?format=3 || echo '')"
 }
 
 volume() {
@@ -59,7 +59,7 @@ volume() {
 }
 
 print_bar() {
-	echo "$(wttr) $sep $(music) $sep RAM: $(ram) $sep $(max_cpu) $sep $(free_drives) $sep $(volume) $sep $(date '+%Y/%m/%d -- %H:%M')" 2> /dev/null
+	echo "$sep $(music) $sep RAM: $(ram) $sep $(max_cpu) $sep $(free_drives) $sep $(volume) $sep $(date '+%Y/%m/%d -- %H:%M')" 2> /dev/null
 }
 
 sep='|'

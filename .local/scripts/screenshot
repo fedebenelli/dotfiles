@@ -7,9 +7,13 @@ file="$HOME/pics/screens/scr--$(date '+%Y-%m-%d--%H:%M:%S').png"
 
 case $@ in
 	"-fs")
-		import -window root "$file"
+		import -silent -window root "$file"
 		xclip -i -t image/png -sel clip < "$file";;
 	"-s")
-		import "$file"
+		import -silent "$file"
 		xclip -i -t image/png -sel clip < "$file";;
+	"-sw")
+		file="/tmp/scr--$(date '+%Y-%m-%d--%H:%M:%S').png"
+		import -silent "$file"
+		sxiv "$file"
 esac

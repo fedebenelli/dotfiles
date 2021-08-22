@@ -11,21 +11,21 @@ export BROWSER=firefox
 export SUDO=sudo
 
 
-export XDG_CONFIG_HOME=$HOME/.config
-export XDG_CACHE_HOME=$HOME/.cache
-export XDG_DATA_HOME=$HOME/.local/share
+export XDG_CONFIG_HOME="$HOME/.config/"
+export XDG_CACHE_HOME="$HOME/.cache/"
+export XDG_DATA_HOME="$HOME/.local/share/"
 
 # XDG PATHS acording to user.dirs
 export XDG_HOME_DIR="$HOME/"
-export XDG_CONFIG_DIR="$HOME/.config"
-export XDG_DESKTOP_DIR="$HOME/.local/share/applications"
-export XDG_DOCUMENTS_DIR="$HOME/docs"
-export XDG_DOWNLOAD_DIR="$HOME/downs"
-export XDG_MUSIC_DIR="$HOME/music"
-export XDG_PICTURES_DIR="$HOME/pics"
-export XDG_TEMPLATES_DIR="$HOME/docs/templates"
-export XDG_PUBLICSHARE_DIR="$HOME/docs/public"
-export XDG_VIDEOS_DIR="$HOME/vids"
+export XDG_CONFIG_DIR="$HOME/.config/"
+export XDG_DESKTOP_DIR="$HOME/.local/share/applications/"
+export XDG_DOCUMENTS_DIR="$HOME/docs/"
+export XDG_DOWNLOAD_DIR="$HOME/downs/"
+export XDG_MUSIC_DIR="$HOME/music/"
+export XDG_PICTURES_DIR="$HOME/pics/"
+export XDG_TEMPLATES_DIR="$HOME/docs/templates/"
+export XDG_PUBLICSHARE_DIR="$HOME/docs/public/"
+export XDG_VIDEOS_DIR="$HOME/vids/"
 
 export PAPERS_DIR="$HOME/docs/research/papers"
 
