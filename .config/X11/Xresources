@@ -59,10 +59,10 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 st.alpha: 0.9
 
 !Xft.dpi:                    96
-!Xft.antialias:              true
-!Xft.rgba:                   rgb
-!Xft.hinting:                true
-!Xft.hintstyle:              hintslight
+Xft.antialias:              true
+Xft.rgba:                   rgb
+Xft.hinting:                true
+Xft.hintstyle:              hintslight
 
 !Green shit below
 !*.foreground: #00FF21
