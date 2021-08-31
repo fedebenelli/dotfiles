@@ -8,6 +8,10 @@ local awful = require("awful")
 require("awful.autofocus")
 -- Widget and layout library
 local wibox = require("wibox")
+--- Custom widgets
+local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
+local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
+
 -- Theme handling library
 local beautiful = require("beautiful")
 -- Notification library
@@ -107,8 +111,21 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
+--
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget.textclock()
+local cw = calendar_widget({
+	theme = 'outrun',
+	placement = 'top_right',
+	radius = 8
+})
+
+mytextclock:connect_signal("button::press", 
+    function(_, _, _, button)
+        if button == 1 then cw.toggle() end
+    end)
+
+
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -212,13 +229,22 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
 	    wibox.widget.textbox(' | '),
             layout = wibox.layout.fixed.horizontal,
-	    awful.widget.watch('bash "dwm_bar"', 1),
-	    wibox.widget.textbox(' |* '),
+	    weather_widget({
+			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
+			     coordinates = {-31.4122, -64.1705},
+			 }),
+	    wibox.widget.textbox(' | '),
+	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
+	    require("awesome-wm-widgets.fs-widget.fs-widget") {mounts = {'/','/home'}},
+	    wibox.widget.textbox(' | '),
+	    require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
+	    wibox.widget.textbox(' | '),
 	    require("battery-widget") {},
-	    wibox.widget.textbox(' |* '),
-            --mykeyboardlayout,
+	    wibox.widget.textbox(' | '),
             wibox.widget.systray(),
-            --mytextclock,
+	    wibox.widget.textbox(' | '),
+            mytextclock,
+	    wibox.widget.textbox(' | '),
             s.mylayoutbox,
         },
     }
