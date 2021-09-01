@@ -1,7 +1,10 @@
 #
 # ~/.bash_profile
 #
+export BIBFILE="$HOME/docs/research/bibliography.bib"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/scripts:$HOME/.local/bin"
+
+
 
 # Default software to use
 export TERMINAL=alacritty
@@ -9,7 +12,6 @@ export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=firefox
 export SUDO=sudo
-
 
 export XDG_CONFIG_HOME="$HOME/.config/"
 export XDG_CACHE_HOME="$HOME/.cache/"
