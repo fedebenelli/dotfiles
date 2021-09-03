@@ -55,8 +55,8 @@ nap() {
 
 hline() {
 	printf "\n <"
-	bat=$(battery)
-	printf "%s" "$bat"
+	#bat=$(battery)
+	#printf "%s" "$bat"
 	dat=$(date +%d/%m-%H:%M:%S)
 	len=$(($(tput cols) - ${#bat} - ${#dat} - 4))
 	for i in $(seq 1 $len); do
@@ -129,7 +129,7 @@ cal -3
 echo
 echo "-> Appointments"
 # Show
-calcurse -d 8 
+calcurse -a
 hline
 echo "-> To-do"
 td show
