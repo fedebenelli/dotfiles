@@ -134,3 +134,5 @@ hline
 echo "-> To-do"
 td show
 echo ""
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
