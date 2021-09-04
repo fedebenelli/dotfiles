@@ -20,7 +20,7 @@
 # each instance of Alacritty. If it is not present, alacritty will
 # check the local terminfo database and use `alacritty` if it is
 # available, otherwise `xterm-256color` is used.
-#TERM: alacritty
+TERM: alacritty
 window:
   # Window dimensions (changes require restart)
   #
@@ -42,8 +42,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
-    y: 10
+    x: 15
+    y: 15
   # Spread additional padding evenly around the terminal content.
 dynamic_padding: true
 
@@ -321,26 +321,26 @@ colors:
   name: Dotshare
   author: ''
   primary:
-    background: '#121516'
-    foreground: '#9ab9bb'
+    background: '#1c2319'
+    foreground: '#be9e61'
   cursor:
     text: '#000000'
     cursor: '#ffffff'
   normal:
-    black: '#121516'
-    red: '#895744'
-    green: '#689D6A'
-    yellow: '#669E70'
-    blue: '#DA991F'
-    magenta: '#D69922'
-    cyan: '#988E74'
-    white: '#9ab9bb'
+    black: '#1c2319'
+    red: '#c14d38'
+    green: '#a0ce52'
+    yellow: '#be9e61'
+    blue: '#4c7e89'
+    magenta: '#814d61'
+    cyan: '#79a69d'
+    white: '#bcbebb'
   bright:
-    black: '#6b8182'
-    red: '#895744'
-    green: '#689D6A'
-    yellow: '#669E70'
-    blue: '#DA991F'
-    magenta: '#D69922'
-    cyan: '#988E74'
-    white: '#9ab9bb'
+    black: '#35422f'
+    red: '#c14d38'
+    green: '#a0ce52'
+    yellow: '#be9e61'
+    blue: '#4c7e89'
+    magenta: '#814d61'
+    cyan: '#79a69d'
+    white: '#bcbebb'
