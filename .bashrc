@@ -105,12 +105,13 @@ alias \
 	"mysc"="$EDITOR $HOME/.local/scripts" \
 	"i3c"='$EDITOR ~/.config/i3/config' \
 	"sizes"='du . -h --max-depth=1' \
+	"csgocfg"='$EDITOR "$csgocfg"' \
 	"downurl"='wget -mkEpnp '$1 \
 	"ll"="ls --color=auto -lAh" \
-	"csgocfg"='$EDITOR "$csgocfg"' \
 	"yeet"='sudo yay -Rcsn' \
 	"ls"='ls --color=auto' \
 	"sysup"='yay -Syu' \
+	"sxiv"='sxiv -a' \
 	"df"='df -h' \
 
 # My name
