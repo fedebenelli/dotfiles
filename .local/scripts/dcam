@@ -1,4 +1,4 @@
 #!/bin/sh
 
 cd $HOME/installs/droidcam_v
-doas ./install
+sudo ./install

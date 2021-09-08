@@ -514,6 +514,7 @@ awful.rules.rules = {
         name = {
           "Event Tester",  -- xev.
 	  "Elder Scrolls Online",
+	  "float",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
