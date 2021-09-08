@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/ruther/.config/wallpaper.png"
+let background = "#0F1624"
+let foreground = "#c5c6e7"
+let cursor     = "#c5c6e7"
+
+" Colors
+let color0  = "#0F1624"
+let color1  = "#0c1dee"
+let color2  = "#0c21ec"
+let color3  = "#4051f4"
+let color4  = "#e118f2"
+let color5  = "#4897f5"
+let color6  = "#21d1f3"
+let color7  = "#c5c6e7"
+let color8  = "#898aa1"
+let color9  = "#0c1dee"
+let color10 = "#0c21ec"
+let color11 = "#4051f4"
+let color12 = "#e118f2"
+let color13 = "#4897f5"
+let color14 = "#21d1f3"
+let color15 = "#c5c6e7"

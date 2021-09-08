@@ -1,0 +1,21 @@
+set $wallpaper /home/ruther/.config/wallpaper.png
+
+set $background #0F1624
+set $foreground #c5c6e7
+
+set $color0 #0F1624
+set $color1 #0c1dee
+set $color2 #0c21ec
+set $color3 #4051f4
+set $color4 #e118f2
+set $color5 #4897f5
+set $color6 #21d1f3
+set $color7 #c5c6e7
+set $color8 #898aa1
+set $color9 #0c1dee
+set $color10 #0c21ec
+set $color11 #4051f4
+set $color12 #e118f2
+set $color13 #4897f5
+set $color14 #21d1f3
+set $color15 #c5c6e7
