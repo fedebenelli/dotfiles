@@ -3,9 +3,10 @@
 CONFIG_DIR="${XDG_CONFIG_DIR:-$HOME/.config}/dunst"
 DUNST_RC="$CONFIG_DIR/dunstrc"
 
+# Get the data from the pywal cache folder.
 . ${XDG_CACHE_DIR:-$HOME/.cache}/wal/colors.sh
+# If a folder is given, read the data from there
 [ -z "$1"  ] || . "$1"/colors.sh
-cp "$DUNST_RC" "$CONFIG_DIR/dunstrc.b"
 
 conf="$(cat <<LIM
 background = "$background"
