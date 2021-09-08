@@ -2,6 +2,7 @@ set fileencoding=utf-8
 set encoding=utf-8
 set colorcolumn=80
 set nu rnu
+set spelllang=es,en,technical
 
 " Vim-Plug
 call plug#begin()
@@ -42,7 +43,8 @@ let g:tex_conceal='abdmg'
 " Julia
 Plug 'JuliaEditorSupport/julia-vim'
 
-
+" Linter
+Plug 'dense-analysis/ale'
 
 call plug#end()
 
