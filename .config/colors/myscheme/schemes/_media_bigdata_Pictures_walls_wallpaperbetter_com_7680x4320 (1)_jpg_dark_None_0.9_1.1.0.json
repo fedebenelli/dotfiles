@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/media/bigdata/Pictures/walls/wallpaperbetter.com_7680x4320 (1).jpg",
+    "alpha": "80",
+    "special": {
+        "background": "#0D1A1E",
+        "foreground": "#dbcbd0",
+        "cursor": "#dbcbd0"
+    },
+    "colors": {
+        "color0": "#0D1A1E",
+        "color1": "#ba0915",
+        "color2": "#ca0a3e",
+        "color3": "#f21433",
+        "color4": "#0a42c7",
+        "color5": "#f324af",
+        "color6": "#10f2de",
+        "color7": "#dbcbd0",
+        "color8": "#998e91",
+        "color9": "#ba0915",
+        "color10": "#ca0a3e",
+        "color11": "#f21433",
+        "color12": "#0a42c7",
+        "color13": "#f324af",
+        "color14": "#10f2de",
+        "color15": "#dbcbd0"
+    }
+}

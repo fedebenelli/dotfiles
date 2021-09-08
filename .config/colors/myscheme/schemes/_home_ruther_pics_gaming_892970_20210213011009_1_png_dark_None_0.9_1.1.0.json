@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/gaming/892970_20210213011009_1.png",
+    "alpha": "100",
+    "special": {
+        "background": "#131512",
+        "foreground": "#dbd8dc",
+        "cursor": "#dbd8dc"
+    },
+    "colors": {
+        "color0": "#131512",
+        "color1": "#f6ae59",
+        "color2": "#1784f2",
+        "color3": "#f55643",
+        "color4": "#f7ad72",
+        "color5": "#f7b877",
+        "color6": "#f8a287",
+        "color7": "#dbd8dc",
+        "color8": "#99979a",
+        "color9": "#f6ae59",
+        "color10": "#1784f2",
+        "color11": "#f55643",
+        "color12": "#f7ad72",
+        "color13": "#f7b877",
+        "color14": "#f8a287",
+        "color15": "#dbd8dc"
+    }
+}

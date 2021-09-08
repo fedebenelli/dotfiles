@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/temp.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#060203",
+        "foreground": "#b5a1bd",
+        "cursor": "#b5a1bd"
+    },
+    "colors": {
+        "color0": "#060203",
+        "color1": "#58041b",
+        "color2": "#6a051b",
+        "color3": "#0c044e",
+        "color4": "#390566",
+        "color5": "#490681",
+        "color6": "#6608a1",
+        "color7": "#b5a1bd",
+        "color8": "#7e7084",
+        "color9": "#58041b",
+        "color10": "#6a051b",
+        "color11": "#0c044e",
+        "color12": "#390566",
+        "color13": "#490681",
+        "color14": "#6608a1",
+        "color15": "#b5a1bd"
+    }
+}

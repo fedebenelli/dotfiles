@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/.config/wallpaper.png",
+    "alpha": "0.8",
+    "special": {
+        "background": "#0e0a1f",
+        "foreground": "#ddcee6",
+        "cursor": "#ddcee6"
+    },
+    "colors": {
+        "color0": "#0e0a1f",
+        "color1": "#0043d0",
+        "color2": "#1300fb",
+        "color3": "#0029f8",
+        "color4": "#b426ff",
+        "color5": "#308fff",
+        "color6": "#8278ff",
+        "color7": "#ddcee6",
+        "color8": "#9a90a1",
+        "color9": "#0043d0",
+        "color10": "#1300fb",
+        "color11": "#0029f8",
+        "color12": "#b426ff",
+        "color13": "#308fff",
+        "color14": "#8278ff",
+        "color15": "#ddcee6"
+    }
+}

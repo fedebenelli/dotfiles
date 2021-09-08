@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/anime/wallpaper-evangelion-2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#030205",
+        "foreground": "#9fc0e0",
+        "cursor": "#9fc0e0"
+    },
+    "colors": {
+        "color0": "#030205",
+        "color1": "#082598",
+        "color2": "#630671",
+        "color3": "#094fbc",
+        "color4": "#0c3fe5",
+        "color5": "#0c65ec",
+        "color6": "#0d8cf2",
+        "color7": "#9fc0e0",
+        "color8": "#6f869c",
+        "color9": "#082598",
+        "color10": "#630671",
+        "color11": "#094fbc",
+        "color12": "#0c3fe5",
+        "color13": "#0c65ec",
+        "color14": "#0d8cf2",
+        "color15": "#9fc0e0"
+    }
+}

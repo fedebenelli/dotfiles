@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/gaems/wallpaper-portal-1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#241100",
+        "foreground": "#e8c37f",
+        "cursor": "#e8c37f"
+    },
+    "colors": {
+        "color0": "#241100",
+        "color1": "#a56b08",
+        "color2": "#bb8709",
+        "color3": "#c27e0a",
+        "color4": "#bd8e09",
+        "color5": "#c4930a",
+        "color6": "#e3970b",
+        "color7": "#e8c37f",
+        "color8": "#a28858",
+        "color9": "#a56b08",
+        "color10": "#bb8709",
+        "color11": "#c27e0a",
+        "color12": "#bd8e09",
+        "color13": "#c4930a",
+        "color14": "#e3970b",
+        "color15": "#e8c37f"
+    }
+}

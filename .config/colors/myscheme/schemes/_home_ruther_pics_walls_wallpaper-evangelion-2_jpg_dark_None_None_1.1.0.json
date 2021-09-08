@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/wallpaper-evangelion-2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#030205",
+        "foreground": "#9fc0e0",
+        "cursor": "#9fc0e0"
+    },
+    "colors": {
+        "color0": "#030205",
+        "color1": "#303D70",
+        "color2": "#521E5A",
+        "color3": "#305896",
+        "color4": "#425CB0",
+        "color5": "#4571B4",
+        "color6": "#4886B8",
+        "color7": "#9fc0e0",
+        "color8": "#6f869c",
+        "color9": "#303D70",
+        "color10": "#521E5A",
+        "color11": "#305896",
+        "color12": "#425CB0",
+        "color13": "#4571B4",
+        "color14": "#4886B8",
+        "color15": "#9fc0e0"
+    }
+}

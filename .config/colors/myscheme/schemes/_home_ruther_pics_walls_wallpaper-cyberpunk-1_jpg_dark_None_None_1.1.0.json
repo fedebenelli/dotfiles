@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/wallpaper-cyberpunk-1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#091118",
+        "foreground": "#a5c7c3",
+        "cursor": "#a5c7c3"
+    },
+    "colors": {
+        "color0": "#091118",
+        "color1": "#2B9E70",
+        "color2": "#609071",
+        "color3": "#9DAA6F",
+        "color4": "#256598",
+        "color5": "#AE4F97",
+        "color6": "#31A9B0",
+        "color7": "#a5c7c3",
+        "color8": "#738b88",
+        "color9": "#2B9E70",
+        "color10": "#609071",
+        "color11": "#9DAA6F",
+        "color12": "#256598",
+        "color13": "#AE4F97",
+        "color14": "#31A9B0",
+        "color15": "#a5c7c3"
+    }
+}

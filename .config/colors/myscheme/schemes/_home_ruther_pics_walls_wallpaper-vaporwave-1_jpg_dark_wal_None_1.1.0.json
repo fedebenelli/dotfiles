@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/wallpaper-vaporwave-1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#3c193d",
+        "foreground": "#cac0c9",
+        "cursor": "#cac0c9"
+    },
+    "colors": {
+        "color0": "#3c193d",
+        "color1": "#666398",
+        "color2": "#8B3487",
+        "color3": "#936397",
+        "color4": "#2D879F",
+        "color5": "#698FA4",
+        "color6": "#9394A0",
+        "color7": "#cac0c9",
+        "color8": "#8d868c",
+        "color9": "#666398",
+        "color10": "#8B3487",
+        "color11": "#936397",
+        "color12": "#2D879F",
+        "color13": "#698FA4",
+        "color14": "#9394A0",
+        "color15": "#cac0c9"
+    }
+}

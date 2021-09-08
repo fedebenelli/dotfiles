@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/profile/steam/asoka.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0E0D0E",
+        "foreground": "#ebe3e0",
+        "cursor": "#ebe3e0"
+    },
+    "colors": {
+        "color0": "#0E0D0E",
+        "color1": "#f37128",
+        "color2": "#f47f3c",
+        "color3": "#f211ba",
+        "color4": "#1bf3ed",
+        "color5": "#4ad9f5",
+        "color6": "#f9ab8d",
+        "color7": "#ebe3e0",
+        "color8": "#a49e9c",
+        "color9": "#f37128",
+        "color10": "#f47f3c",
+        "color11": "#f211ba",
+        "color12": "#1bf3ed",
+        "color13": "#4ad9f5",
+        "color14": "#f9ab8d",
+        "color15": "#ebe3e0"
+    }
+}

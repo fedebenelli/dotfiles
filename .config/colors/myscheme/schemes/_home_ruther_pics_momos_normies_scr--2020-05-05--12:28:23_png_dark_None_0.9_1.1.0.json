@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/momos/normies/scr--2020-05-05--12:28:23.png",
+    "alpha": "100",
+    "special": {
+        "background": "#181410",
+        "foreground": "#dac5ac",
+        "cursor": "#dac5ac"
+    },
+    "colors": {
+        "color0": "#181410",
+        "color1": "#bd7909",
+        "color2": "#b96909",
+        "color3": "#d1770b",
+        "color4": "#e6630c",
+        "color5": "#60eb0c",
+        "color6": "#f2a314",
+        "color7": "#dac5ac",
+        "color8": "#988978",
+        "color9": "#bd7909",
+        "color10": "#b96909",
+        "color11": "#d1770b",
+        "color12": "#e6630c",
+        "color13": "#60eb0c",
+        "color14": "#f2a314",
+        "color15": "#dac5ac"
+    }
+}

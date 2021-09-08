@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/media/bigdata/Pictures/walls/cocovw.png",
+    "alpha": "80",
+    "special": {
+        "background": "#0F0926",
+        "foreground": "#cccad9",
+        "cursor": "#cccad9"
+    },
+    "colors": {
+        "color0": "#0F0926",
+        "color1": "#f212c8",
+        "color2": "#aa1cf3",
+        "color3": "#13b9f2",
+        "color4": "#5f4ef5",
+        "color5": "#9e58f6",
+        "color6": "#6f67f7",
+        "color7": "#cccad9",
+        "color8": "#8e8d97",
+        "color9": "#f212c8",
+        "color10": "#aa1cf3",
+        "color11": "#13b9f2",
+        "color12": "#5f4ef5",
+        "color13": "#9e58f6",
+        "color14": "#6f67f7",
+        "color15": "#cccad9"
+    }
+}

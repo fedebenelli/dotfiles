@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/momos/reactions/presio.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0B1410",
+        "foreground": "#d5d6d7",
+        "cursor": "#d5d6d7"
+    },
+    "colors": {
+        "color0": "#0B1410",
+        "color1": "#64e70c",
+        "color2": "#b3f20f",
+        "color3": "#0e3cf2",
+        "color4": "#2a8ef3",
+        "color5": "#4949f5",
+        "color6": "#6696f6",
+        "color7": "#d5d6d7",
+        "color8": "#959596",
+        "color9": "#64e70c",
+        "color10": "#b3f20f",
+        "color11": "#0e3cf2",
+        "color12": "#2a8ef3",
+        "color13": "#4949f5",
+        "color14": "#6696f6",
+        "color15": "#d5d6d7"
+    }
+}

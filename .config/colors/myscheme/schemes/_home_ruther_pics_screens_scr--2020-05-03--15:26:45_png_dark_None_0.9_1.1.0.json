@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/screens/scr--2020-05-03--15:26:45.png",
+    "alpha": "100",
+    "special": {
+        "background": "#080610",
+        "foreground": "#c3d3e3",
+        "cursor": "#c3d3e3"
+    },
+    "colors": {
+        "color0": "#080610",
+        "color1": "#074489",
+        "color2": "#0879a7",
+        "color3": "#e2b90b",
+        "color4": "#0a59d0",
+        "color5": "#298cf3",
+        "color6": "#44a1f5",
+        "color7": "#c3d3e3",
+        "color8": "#88939e",
+        "color9": "#074489",
+        "color10": "#0879a7",
+        "color11": "#e2b90b",
+        "color12": "#0a59d0",
+        "color13": "#298cf3",
+        "color14": "#44a1f5",
+        "color15": "#c3d3e3"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/media/bigdata/Pictures/screens/scr--2021-07-12--19:59:35.png",
+    "alpha": "80",
+    "special": {
+        "background": "#2b2520",
+        "foreground": "#c8e7ef",
+        "cursor": "#c8e7ef"
+    },
+    "colors": {
+        "color0": "#2b2520",
+        "color1": "#0ce9d4",
+        "color2": "#58a0f6",
+        "color3": "#1be4f3",
+        "color4": "#5cebf6",
+        "color5": "#f7b776",
+        "color6": "#f193f9",
+        "color7": "#c8e7ef",
+        "color8": "#8ca1a7",
+        "color9": "#0ce9d4",
+        "color10": "#58a0f6",
+        "color11": "#1be4f3",
+        "color12": "#5cebf6",
+        "color13": "#f7b776",
+        "color14": "#f193f9",
+        "color15": "#c8e7ef"
+    }
+}

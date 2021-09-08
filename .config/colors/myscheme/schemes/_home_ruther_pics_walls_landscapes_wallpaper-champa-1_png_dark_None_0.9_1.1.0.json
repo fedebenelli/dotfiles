@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/landscapes/wallpaper-champa-1.png",
+    "alpha": "100",
+    "special": {
+        "background": "#12100c",
+        "foreground": "#d1d3d9",
+        "cursor": "#d1d3d9"
+    },
+    "colors": {
+        "color0": "#12100c",
+        "color1": "#e8d60c",
+        "color2": "#f0db0c",
+        "color3": "#0c5ce7",
+        "color4": "#1ba1f3",
+        "color5": "#48a5f5",
+        "color6": "#9c42f5",
+        "color7": "#d1d3d9",
+        "color8": "#929397",
+        "color9": "#e8d60c",
+        "color10": "#f0db0c",
+        "color11": "#0c5ce7",
+        "color12": "#1ba1f3",
+        "color13": "#48a5f5",
+        "color14": "#9c42f5",
+        "color15": "#d1d3d9"
+    }
+}

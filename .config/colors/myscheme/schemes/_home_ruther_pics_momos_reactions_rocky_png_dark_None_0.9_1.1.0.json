@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/momos/reactions/rocky.png",
+    "alpha": "100",
+    "special": {
+        "background": "#3b2c1e",
+        "foreground": "#dfe0da",
+        "cursor": "#dfe0da"
+    },
+    "colors": {
+        "color0": "#3b2c1e",
+        "color1": "#9d2af3",
+        "color2": "#23f3a4",
+        "color3": "#33d9f4",
+        "color4": "#60e5f6",
+        "color5": "#7df884",
+        "color6": "#def98e",
+        "color7": "#dfe0da",
+        "color8": "#9c9c98",
+        "color9": "#9d2af3",
+        "color10": "#23f3a4",
+        "color11": "#33d9f4",
+        "color12": "#60e5f6",
+        "color13": "#7df884",
+        "color14": "#def98e",
+        "color15": "#dfe0da"
+    }
+}

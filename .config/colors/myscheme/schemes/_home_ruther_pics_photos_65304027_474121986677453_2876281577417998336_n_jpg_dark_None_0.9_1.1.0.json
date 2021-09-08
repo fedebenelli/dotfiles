@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/photos/65304027_474121986677453_2876281577417998336_n.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#090A02",
+        "foreground": "#f4f4df",
+        "cursor": "#f4f4df"
+    },
+    "colors": {
+        "color0": "#090A02",
+        "color1": "#a93e08",
+        "color2": "#b54e09",
+        "color3": "#f1660c",
+        "color4": "#f59e4d",
+        "color5": "#f5b94b",
+        "color6": "#f9f09b",
+        "color7": "#f4f4df",
+        "color8": "#aaaa9c",
+        "color9": "#a93e08",
+        "color10": "#b54e09",
+        "color11": "#f1660c",
+        "color12": "#f59e4d",
+        "color13": "#f5b94b",
+        "color14": "#f9f09b",
+        "color15": "#f4f4df"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/media/bigdata/Pictures/walls/illustration-palm-trees-Microsoft-Windows-vaporwave-Windows-95-mural-ART-screenshot-21184.jpg",
+    "alpha": "80",
+    "special": {
+        "background": "#302533",
+        "foreground": "#c3c4c4",
+        "cursor": "#c3c4c4"
+    },
+    "colors": {
+        "color0": "#302533",
+        "color1": "#0b3fd4",
+        "color2": "#0b6ad1",
+        "color3": "#0c2cef",
+        "color4": "#f219a9",
+        "color5": "#11aff2",
+        "color6": "#3ca4f4",
+        "color7": "#c3c4c4",
+        "color8": "#888989",
+        "color9": "#0b3fd4",
+        "color10": "#0b6ad1",
+        "color11": "#0c2cef",
+        "color12": "#f219a9",
+        "color13": "#11aff2",
+        "color14": "#3ca4f4",
+        "color15": "#c3c4c4"
+    }
+}

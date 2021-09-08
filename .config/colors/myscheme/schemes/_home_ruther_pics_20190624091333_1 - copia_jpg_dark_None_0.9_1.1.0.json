@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/20190624091333_1 - copia.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#050505",
+        "foreground": "#d0c9aa",
+        "cursor": "#d0c9aa"
+    },
+    "colors": {
+        "color0": "#050505",
+        "color1": "#079763",
+        "color2": "#084498",
+        "color3": "#9d7f08",
+        "color4": "#094cab",
+        "color5": "#0a5cbf",
+        "color6": "#bf4d0a",
+        "color7": "#d0c9aa",
+        "color8": "#918c76",
+        "color9": "#079763",
+        "color10": "#084498",
+        "color11": "#9d7f08",
+        "color12": "#094cab",
+        "color13": "#0a5cbf",
+        "color14": "#bf4d0a",
+        "color15": "#d0c9aa"
+    }
+}

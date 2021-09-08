@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/music/wallpaper-pinkfloyd-5.png",
+    "alpha": "100",
+    "special": {
+        "background": "#000000",
+        "foreground": "#bdc7e3",
+        "cursor": "#bdc7e3"
+    },
+    "colors": {
+        "color0": "#000000",
+        "color1": "#f3b027",
+        "color2": "#73f434",
+        "color3": "#9ef43e",
+        "color4": "#f5dc53",
+        "color5": "#f43fb1",
+        "color6": "#f8e881",
+        "color7": "#bdc7e3",
+        "color8": "#848b9e",
+        "color9": "#f3b027",
+        "color10": "#73f434",
+        "color11": "#9ef43e",
+        "color12": "#f5dc53",
+        "color13": "#f43fb1",
+        "color14": "#f8e881",
+        "color15": "#bdc7e3"
+    }
+}

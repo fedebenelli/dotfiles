@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/futuristic/wallpaper-cyberpunk-6.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#090E11",
+        "foreground": "#c9d1d9",
+        "cursor": "#c9d1d9"
+    },
+    "colors": {
+        "color0": "#090E11",
+        "color1": "#075885",
+        "color2": "#096fad",
+        "color3": "#0b2dd4",
+        "color4": "#0b40e3",
+        "color5": "#f31f9d",
+        "color6": "#1fb4f3",
+        "color7": "#c9d1d9",
+        "color8": "#8c9297",
+        "color9": "#075885",
+        "color10": "#096fad",
+        "color11": "#0b2dd4",
+        "color12": "#0b40e3",
+        "color13": "#f31f9d",
+        "color14": "#1fb4f3",
+        "color15": "#c9d1d9"
+    }
+}

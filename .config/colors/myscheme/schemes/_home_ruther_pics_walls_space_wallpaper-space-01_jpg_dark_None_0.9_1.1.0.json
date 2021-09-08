@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/space/wallpaper-space-01.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#02020D",
+        "foreground": "#9cc7cd",
+        "cursor": "#9cc7cd"
+    },
+    "colors": {
+        "color0": "#02020D",
+        "color1": "#ea230c",
+        "color2": "#0ce37f",
+        "color3": "#f5a445",
+        "color4": "#0976b2",
+        "color5": "#0a4cc6",
+        "color6": "#0cd3e4",
+        "color7": "#9cc7cd",
+        "color8": "#6d8b8f",
+        "color9": "#ea230c",
+        "color10": "#0ce37f",
+        "color11": "#f5a445",
+        "color12": "#0976b2",
+        "color13": "#0a4cc6",
+        "color14": "#0cd3e4",
+        "color15": "#9cc7cd"
+    }
+}

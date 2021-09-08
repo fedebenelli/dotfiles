@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/anime/wallpaper-sel-1.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0A1213",
+        "foreground": "#e7d8c6",
+        "cursor": "#e7d8c6"
+    },
+    "colors": {
+        "color0": "#0A1213",
+        "color1": "#e95a0c",
+        "color2": "#f4872f",
+        "color3": "#f5904a",
+        "color4": "#06797a",
+        "color5": "#f6a462",
+        "color6": "#f7ae67",
+        "color7": "#e7d8c6",
+        "color8": "#a1978a",
+        "color9": "#e95a0c",
+        "color10": "#f4872f",
+        "color11": "#f5904a",
+        "color12": "#06797a",
+        "color13": "#f6a462",
+        "color14": "#f7ae67",
+        "color15": "#e7d8c6"
+    }
+}

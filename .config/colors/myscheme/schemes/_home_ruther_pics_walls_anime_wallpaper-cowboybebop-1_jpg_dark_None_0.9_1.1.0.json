@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/anime/wallpaper-cowboybebop-1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#010100",
+        "foreground": "#98cdf3",
+        "cursor": "#98cdf3"
+    },
+    "colors": {
+        "color0": "#010100",
+        "color1": "#2ab209",
+        "color2": "#57f216",
+        "color3": "#d89a0b",
+        "color4": "#e6ab0c",
+        "color5": "#e7b50c",
+        "color6": "#0b64d6",
+        "color7": "#98cdf3",
+        "color8": "#6a8faa",
+        "color9": "#2ab209",
+        "color10": "#57f216",
+        "color11": "#d89a0b",
+        "color12": "#e6ab0c",
+        "color13": "#e7b50c",
+        "color14": "#0b64d6",
+        "color15": "#98cdf3"
+    }
+}

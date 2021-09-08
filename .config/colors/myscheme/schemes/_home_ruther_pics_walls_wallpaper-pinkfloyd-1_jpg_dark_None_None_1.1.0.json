@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/wallpaper-pinkfloyd-1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0a0f11",
+        "foreground": "#d6c79c",
+        "cursor": "#d6c79c"
+    },
+    "colors": {
+        "color0": "#0a0f11",
+        "color1": "#6D4B34",
+        "color2": "#243549",
+        "color3": "#374A4F",
+        "color4": "#596250",
+        "color5": "#965C33",
+        "color6": "#975D37",
+        "color7": "#d6c79c",
+        "color8": "#958b6d",
+        "color9": "#6D4B34",
+        "color10": "#243549",
+        "color11": "#374A4F",
+        "color12": "#596250",
+        "color13": "#965C33",
+        "color14": "#975D37",
+        "color15": "#d6c79c"
+    }
+}

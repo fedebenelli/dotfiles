@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/media/bigdata/Pictures/walls/I_0006670158.jpg",
+    "alpha": "80",
+    "special": {
+        "background": "#0F1117",
+        "foreground": "#e6dcd4",
+        "cursor": "#e6dcd4"
+    },
+    "colors": {
+        "color0": "#0F1117",
+        "color1": "#f21d0c",
+        "color2": "#f57940",
+        "color3": "#0b42d8",
+        "color4": "#f54362",
+        "color5": "#552df4",
+        "color6": "#f89479",
+        "color7": "#e6dcd4",
+        "color8": "#a19a94",
+        "color9": "#f21d0c",
+        "color10": "#f57940",
+        "color11": "#0b42d8",
+        "color12": "#f54362",
+        "color13": "#552df4",
+        "color14": "#f89479",
+        "color15": "#e6dcd4"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/downs/download (3).png",
+    "alpha": "80",
+    "special": {
+        "background": "#0f0d15",
+        "foreground": "#e2edf2",
+        "cursor": "#e2edf2"
+    },
+    "colors": {
+        "color0": "#0f0d15",
+        "color1": "#34b3f4",
+        "color2": "#48caf5",
+        "color3": "#f8dd7f",
+        "color4": "#6fb4f7",
+        "color5": "#92d2f9",
+        "color6": "#b0fafa",
+        "color7": "#e2edf2",
+        "color8": "#9ea5a9",
+        "color9": "#34b3f4",
+        "color10": "#48caf5",
+        "color11": "#f8dd7f",
+        "color12": "#6fb4f7",
+        "color13": "#92d2f9",
+        "color14": "#b0fafa",
+        "color15": "#e2edf2"
+    }
+}

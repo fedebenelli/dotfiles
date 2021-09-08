@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/profile/thinkpad.png",
+    "alpha": "100",
+    "special": {
+        "background": "#19191a",
+        "foreground": "#e8e4eb",
+        "cursor": "#e8e4eb"
+    },
+    "colors": {
+        "color0": "#19191a",
+        "color1": "#f5d050",
+        "color2": "#f210bd",
+        "color3": "#f545a2",
+        "color4": "#f882cd",
+        "color5": "#fbb9b9",
+        "color6": "#e1b1fa",
+        "color7": "#e8e4eb",
+        "color8": "#a29fa4",
+        "color9": "#f5d050",
+        "color10": "#f210bd",
+        "color11": "#f545a2",
+        "color12": "#f882cd",
+        "color13": "#fbb9b9",
+        "color14": "#e1b1fa",
+        "color15": "#e8e4eb"
+    }
+}

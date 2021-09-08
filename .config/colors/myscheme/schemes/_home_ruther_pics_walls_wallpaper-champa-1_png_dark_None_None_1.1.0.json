@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/wallpaper-champa-1.png",
+    "alpha": "100",
+    "special": {
+        "background": "#12100c",
+        "foreground": "#d1d3d9",
+        "cursor": "#d1d3d9"
+    },
+    "colors": {
+        "color0": "#12100c",
+        "color1": "#ACA449",
+        "color2": "#9A9563",
+        "color3": "#6B7689",
+        "color4": "#718D9E",
+        "color5": "#74A2CA",
+        "color6": "#9C9A9E",
+        "color7": "#d1d3d9",
+        "color8": "#929397",
+        "color9": "#ACA449",
+        "color10": "#9A9563",
+        "color11": "#6B7689",
+        "color12": "#718D9E",
+        "color13": "#74A2CA",
+        "color14": "#9C9A9E",
+        "color15": "#d1d3d9"
+    }
+}

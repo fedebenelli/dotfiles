@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/ruther/pics/walls/wallpaper-synthwave-1.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f070c",
+        "foreground": "#f2e2c9",
+        "cursor": "#f2e2c9"
+    },
+    "colors": {
+        "color0": "#0f070c",
+        "color1": "#e9190c",
+        "color2": "#f4cc33",
+        "color3": "#f68d56",
+        "color4": "#f54c91",
+        "color5": "#f58b53",
+        "color6": "#f8aa82",
+        "color7": "#f2e2c9",
+        "color8": "#a99e8c",
+        "color9": "#e9190c",
+        "color10": "#f4cc33",
+        "color11": "#f68d56",
+        "color12": "#f54c91",
+        "color13": "#f58b53",
+        "color14": "#f8aa82",
+        "color15": "#f2e2c9"
+    }
+}
