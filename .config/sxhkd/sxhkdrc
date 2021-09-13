@@ -93,7 +93,7 @@ XF86AudioMute
 	pamixer --toggle-mute
 
 XF86AudioMicMute
-	source=$(pactl info | grep "Default Source:" | sed 's/Default Source: //g'); pamixer --toggle-mute --source $source && notify-send "Mic Toggled"
+	source=$(pactl info | grep "Default Source:" | sed 's/Default Source: //g'); pamixer --toggle-mute --source $source
 
 ctrl + XF86Audio{Raise,Lower}Volume
 	source=$(pactl info | grep "Default Source:" | sed 's/Default Source: //g');
