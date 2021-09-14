@@ -23,6 +23,7 @@ Plug 'python-mode/python-mode' ", { 'for': 'python', 'branch': 'develop' }
 "-Vimf90
 Plug 'rudrab/vimf90'
 let fortran_leader = ','
+"let fortran_linter = '2'
 let fortran_linter = '-1'
 let fortran_completer = '<F3>'
 let fortran_compiler = 'gfortran'
