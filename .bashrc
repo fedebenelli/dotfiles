@@ -9,6 +9,27 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+PROMPT_COMMAND=__prompt_command    # Function to generate PS1 after CMDs
+__prompt_command() {
+    local EXIT="$?"                # This needs to be first
+    PS1=""
+
+    local RCol='\[\e[0m\]'
+
+    local Red='\[\e[0;31m\]'
+    local Gre='\[\e[0;32m\]'
+    local BYel='\[\e[1;33m\]'
+    local BBlu='\[\e[1;34m\]'
+    local Pur='\[\e[0;35m\]'
+
+    if [ $EXIT != 0 ]; then
+        PS1+="[${Red}\u${RCol}"        # Add red if exit code non 0
+    else
+        PS1+="[${Gre}\u${RCol}"
+    fi
+
+    PS1+="${RCol}@${BBlu}\h ${Pur}\w${BYel}${RCol}]$ "
+}
 
 yellow() {
 	echo "\[\e[1;33m\]$1\[\e[m\]"
@@ -116,7 +137,7 @@ alias \
 
 # My name
 #------------------
-PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']') \n$(blinking-green '└-------------$(($(ls -la ~ | wc -l)-3))---->') "
+#PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']') \n$(blinking-green '└-------------$(($(ls -la ~ | wc -l)-3))---->') "
 
 
 # Stuff to show when starting bash
