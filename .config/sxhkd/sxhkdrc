@@ -8,7 +8,10 @@ super + shift + Escape
 # Show camera
 # --------------------------
 super + c
-	mpv av://v4l2:/dev/video0 --profile=low-latency --untimed --no-osd-bar --script-opts=osc-visibility=never --title=float
+	mpv av://v4l2:/dev/video0 \
+	--profile=low-latency \
+	--untimed --no-osd-bar \
+	--script-opts=osc-visibility=never --title=float
 
 # -> Show info
 # --------------------------
