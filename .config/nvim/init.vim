@@ -78,7 +78,6 @@ inoremap <C-v> <ESC>"+pa
 vnoremap <C-d> "+d
 nnoremap <Space> @q
 
-
 " --> LaTeX
 autocmd FileType tex nmap cc :VimtexCompile<CR>
 nnoremap <C-t> :VimtexTocToggle<CR>
