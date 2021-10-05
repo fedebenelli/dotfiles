@@ -16,3 +16,5 @@ update-alacritty
 	update-dunstrc "$1";
 	update-zathurarc "$1";
 	update-alacritty "$1/alacritty-colors.yml")
+
+pgrep awesome && echo 'awesome.restart()' | awesome-client
