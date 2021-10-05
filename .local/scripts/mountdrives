@@ -19,7 +19,9 @@ case $1 in
 		mkdir $media_path/$drive
 		echo "Mounting "$drive" at "$media_path/$drive
 		
-		$SUDO mount "/dev/$drive" "$media_path/$drive/" && notify-send "💽 Drive Mounting" "$drive mounted!"
+		$SUDO mount "/dev/$drive" "$media_path/$drive/" &&
+			notify-send "💽 Drive Mounting" "\n$drive mounted!" ||
+			notify-send "💽 Drive Mounting" "\nCouldn't mount $drive" 
 		;;
 
 	"umount")
@@ -31,7 +33,9 @@ case $1 in
 			dmenu)
 		[ -z $mountpoint ] && echo "No drive chosen!" && notify-send "💽 No drive chosen!" && exit 0
 
-		$SUDO umount "$mountpoint" && notify-send "💽 Umount drive" "$mountpoint umounted!"
+		$SUDO umount "$mountpoint" &&
+			notify-send "💽 Umount drive" "\n$mountpoint umounted!" ||
+			notify-send "💽 Umount drive" "\nCouldn't umount $mountpoint"
 		rm -r "$mountpoint"
 		;;
 esac
