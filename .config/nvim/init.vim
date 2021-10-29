@@ -8,6 +8,9 @@ set spelllang=es,en,technical
 " Vim-Plug
 call plug#begin()
 
+" Colors
+Plug 'chrisbra/Colorizer'
+
 "Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -18,7 +21,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'Shougo/neosnippet-sn
 Plug 'junegunn/goyo.vim'
 
 "Python
-Plug 'python-mode/python-mode' ", { 'for': 'python', 'branch': 'develop' }
+Plug 'python-mode/python-mode' 
 
 " Fortran
 "-Vimf90
@@ -32,8 +35,6 @@ let fortran_exeExt = 'o'
 let fortran_fcflags = '-Wall -O0 -fcheck=all -c'
 let fortran_flflags = '-Wall -O0 -fcheck=all'
 let g:fprettify_options = '--silent --indent 4'
-
-Plug 'fpnick/flowhighlight'
 
 " LaTeX
 Plug 'lervag/vimtex'
@@ -66,7 +67,6 @@ endfunction
 vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr) > 0\|exec '/'.g:srchstr\|endif<CR>
 vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|exec '?'.g:srchstr\|endif<CR>
 
-
 " Figure out the system Python for Neovim.
 if exists("$VIRTUAL_ENV")
     let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
@@ -84,6 +84,7 @@ vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-d> "+d
 nnoremap <Space> @q
+nnoremap <Leader>l :ALEToggle<cr>
 
 
 " --> LaTeX
