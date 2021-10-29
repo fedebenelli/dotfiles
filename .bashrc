@@ -88,9 +88,10 @@ jupyterfolder='/media/bigdata/OneDrive/Documentos/Programming/Python/jupyter'
 #------------------
 source $HOME/.config/shell/shortcuts
 alias \
+	"fast"='sudo cpupower frequency-set --max 1500MHz' \
+	"slow"='sudo cpupower frequency-set --max 3200MHz' \
 	"qemu"='qemu-system-x86_64 -m 2048 -monitor stdio "$1"' \
 	"showcolors"='for x in {0..8}; do for i in {30..37}; do for a in {40..47}; do echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "; done; echo; done; done; echo ""' \
-	"proton"='PROTON_NO_ESYNC=1 $HOME/.steam/root/compatibilitytools.d/Proton-5.21-GE-1/dist/bin/wine64' \
 	"dotfiles"="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME" \
 	"jl"='cd "$jupyterfolder"; jupyter lab --ip 192.168.100.2 --port 8888' \
 	"conlucrecita"='ssh ruther@lucrecita -t "tmux attach || tmux new"' \
