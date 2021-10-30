@@ -15,5 +15,15 @@ case $@ in
 	"-sw")
 		file="/tmp/scr--$(date '+%Y-%m-%d--%H:%M:%S').png"
 		import -silent "$file"
-		sxiv "$file"
+		sxiv "$file";;
+	"-tex")
+		mkdir "./figs" 2> /dev/null
+		file="$(pwd)/figs/scr--$(date '+%Y-%m-%d--%H:%M:%S').png"
+		import -silent "$file"
+		echo -n "
+\begin{center}
+\begin{figure}[h]
+	\includegraphics[width=0.7\textwidth]{$file}
+\end{figure}
+\end{center}" 
 esac
