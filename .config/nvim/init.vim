@@ -7,6 +7,12 @@ set spelllang=es,en,technical
 " Vim-Plug
 call plug#begin()
 
+"Git
+Plug 'tpope/vim-fugitive'
+
+"Multiple cursos
+Plug 'terryma/vim-multiple-cursors'
+
 "Autocompletion
 Plug 'neoclide/coc.nvim'
 
@@ -81,6 +87,7 @@ nnoremap <Space> @q
 " --> LaTeX
 autocmd FileType tex nmap cc :VimtexCompile<CR>
 nnoremap <C-t> :VimtexTocToggle<CR>
+nnoremap <Leader>if :r!screenshot -tex<CR>
 "----------------------------------------------
 
 " --> Lazy presentation
