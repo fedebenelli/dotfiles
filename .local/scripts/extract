@@ -12,23 +12,17 @@ echo "Checking extension: ${1##*.}"
 
 case "${1##*.}" in
 	"7z")
-		7z x "$1" -o"$dir"
-		;;
+		7z x "$1" -o "$dir";;
 	"gz")
-		tar -xzvf "$1" -C "$dir"
-		;;
+		tar -xzvf "$1" -C "$dir";;
 	"rar")
-		unrar x "$1" "$dir"
-		;;
+		unrar x "$1" "$dir";;
 	"tar")
-		tar -xvf "$1" -C "$dir"
-		;;
+		tar -xvf "$1" -C "$dir";;
 	"tgz")
-		tar -xzvf "$1" -C "$dir"
-		;;
+		tar -xzvf "$1" -C "$dir";;
 	"zip")
-		unzip "$1" -d "$dir"
-		;;
+		unzip "$1" -d "$dir";;
 	*)
-		echo "Didn't match with any case"
+		7z x "$1" -o "$dir" || echo "Didn't match with any case";;
 esac
