@@ -28,6 +28,7 @@ export XDG_PICTURES_DIR="$HOME/pics/"
 export XDG_TEMPLATES_DIR="$HOME/docs/templates/"
 export XDG_PUBLICSHARE_DIR="$HOME/docs/public/"
 export XDG_VIDEOS_DIR="$HOME/vids/"
+export XDG_TRASH_DIR="$HOME/.local/share/Trash/"
 
 export PAPERS_DIR="$HOME/docs/research/papers/"
 
