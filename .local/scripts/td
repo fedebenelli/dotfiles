@@ -35,20 +35,25 @@ $scriptname remove "file":
 "
 }
 
+show() {
+	IFS=$'\n'
+	for file in $files
+	do
+		printf "\n%s\n" "${file^}"
+		i=0
+		while [ $i -lt ${#file} ]; do
+			printf '-'
+			i=$((i+1))
+		done
+		echo ""
+		cat "$dir/$file"
+	done
+}
+
+
 case $1 in
 	"show")
-		IFS=$'\n'
-		for file in $files
-		do
-			printf "\n%s\n" "${file^}"
-			i=0
-			while [ $i -lt ${#file} ]; do
-				printf '-'
-				i=$((i+1))
-			done
-			echo ""
-			cat "$dir/$file"
-		done
+		show
 		;;
 	"edit")
 		file="$2"
@@ -59,13 +64,15 @@ case $1 in
 		then
 			echo "No file chosen!" && exit 0
 		fi
-		exec $terminal -e "${VISUAL:-${EDITOR:-vi}}" "$HOME/.local/share/td/$file"
+		exec $terminal -e \
+			"${VISUAL:-${EDITOR:-vi}}" "$HOME/.local/share/td/$file"
 		;;
 	"remove") 
 		file="$2"
 		if [ "$file" = '' ]
 		then
-			file="$(echo "$files" | dmenu -l 5 -p "Select wich file to remove")"
+			file="$(echo "$files" |
+				dmenu -l 5 -p "Select wich file to remove")"
 		fi
 		if [ "$file" = '' ];
 		then
