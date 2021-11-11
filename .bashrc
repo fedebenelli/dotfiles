@@ -76,6 +76,11 @@ wttr() {
 	curl wttr.in/cordoba,ar
 }
 
+cpuspeed() {
+	echo "Setting CPU max speed to: $1 MHz"
+	sudo cpupower frequency-set --max $1Mhz
+}
+
 # Vi mode
 #------------------
 set -o vi
@@ -88,8 +93,6 @@ jupyterfolder='/media/bigdata/OneDrive/Documentos/Programming/Python/jupyter'
 #------------------
 source $HOME/.config/shell/shortcuts
 alias \
-	"fast"='sudo cpupower frequency-set --max 1500MHz' \
-	"slow"='sudo cpupower frequency-set --max 3200MHz' \
 	"qemu"='qemu-system-x86_64 -m 2048 -monitor stdio "$1"' \
 	"showcolors"='for x in {0..8}; do for i in {30..37}; do for a in {40..47}; do echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "; done; echo; done; done; echo ""' \
 	"dotfiles"="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME" \
