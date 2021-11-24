@@ -4,7 +4,6 @@
 export BIBFILE="$HOME/docs/research/bibliography.bib"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/scripts:$HOME/.local/bin"
 export TZ='America/Argentina/Cordoba'
-export WORKON_HOME="${XDG_DOCUMENTS_DIR}/programming/python/envs"
 
 # Default software to use
 export TERMINAL=alacritty
@@ -31,6 +30,7 @@ export XDG_VIDEOS_DIR="$HOME/vids/"
 
 export PAPERS_DIR="$HOME/docs/research/papers/"
 
+export WORKON_HOME="${XDG_DOCUMENTS_DIR}/programming/python/envs"
 
 # Cleaning a bit home directory
 export LESSHISTFILE=-
