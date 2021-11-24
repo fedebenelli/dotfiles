@@ -30,5 +30,7 @@ case "${1##*.}" in
 		unzip "$1" -d "$dir"
 		;;
 	*)
-		echo "Didn't match with any case"
+		echo "Didn't match with any case, using 7z as fallback"
+		7z x "$1" -o"$dir"
+		;;
 esac
