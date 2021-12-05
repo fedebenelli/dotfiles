@@ -28,3 +28,5 @@ set render-loading-fg "rgba(255,255,255,1.0)"
 set window-title-home-tilde true
 set statusbar-basename true
 set selection-clipboard clipboard
+set recolor-lightcolor "rgba(224, 201, 166, 0.4)"
+set recolor-darkcolor "rgba(0, 0, 0, 0.8)"
