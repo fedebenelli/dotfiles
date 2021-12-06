@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 export BIBFILE="$HOME/docs/research/bibliography.bib"
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/scripts:$HOME/.local/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/scripts:$HOME/.local/bin:$HOME/.emacs.d/bin"
 
 
 
@@ -12,6 +12,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=firefox
 export SUDO=sudo
+export WINEPREFIX="$HOME/installs/winepfx"
 
 export XDG_CONFIG_HOME="$HOME/.config/"
 export XDG_CACHE_HOME="$HOME/.cache/"
@@ -28,6 +29,7 @@ export XDG_PICTURES_DIR="$HOME/pics/"
 export XDG_TEMPLATES_DIR="$HOME/docs/templates/"
 export XDG_PUBLICSHARE_DIR="$HOME/docs/public/"
 export XDG_VIDEOS_DIR="$HOME/vids/"
+export XDG_TRASH_DIR="$HOME/.local/share/Trash/"
 
 export PAPERS_DIR="$HOME/docs/research/papers/"
 

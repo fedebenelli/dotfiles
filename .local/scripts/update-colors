@@ -3,15 +3,18 @@
 echo Loading default Xresources
 xrdb "$XRESOURCES"
 
-echo Merging pywal Xresources
-[ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.Xresources" ] && xrdb -merge ${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.Xresources
-[ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors-wal-dwm.h" ] && dwm_colors
+[ $1 = "-nowal" ] ||
+	echo Merging pywal Xresources &&
+	([ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.Xresources" ] && xrdb -merge ${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.Xresources
+	[ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors-wal-dwm.h" ] && dwm_colors)
 
 update-dunstrc
-update-zathurarc
+echo "Remember that you disabled updating zathurarc!"
+#update-zathurarc
 update-alacritty
 
-[ -z "$1" ] || (echo "Using colorscheme: $1";
+[ -z "$1" ] ||
+	(echo "Using colorscheme: $1";
 	xrdb -merge "$1/colors.Xresources";
 	update-dunstrc "$1";
 	update-zathurarc "$1";

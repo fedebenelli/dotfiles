@@ -235,7 +235,17 @@ awful.screen.connect_for_each_screen(function(s)
 			 }),
 	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
-	    require("awesome-wm-widgets.fs-widget.fs-widget") {mounts = {'/','/home'}},
+	    require("awesome-wm-widgets.fs-widget.fs-widget") {
+		    mounts = {
+			    '/', 
+			    '/home', 
+			    '/media/fafb', 
+			    '/media/fafb2', 
+			    '/media/bigdata', 
+			    '/media/chia',
+			    '/media/chia2'
+		    }
+		    },
 	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
 	    wibox.widget.textbox(' | '),
@@ -509,12 +519,14 @@ awful.rules.rules = {
           "xtightvncviewer",
   	  "Connman-gtk"},
 
-        -- Note that the name property shown in xprop might be set slightly after creation of the client
-        -- and the name shown there might not match defined rules here.
+	-- Note that the name property shown in xprop might be set slightly
+	-- after creation of the client and the name shown there might not
+	-- match defined rules here.
         name = {
           "Event Tester",  -- xev.
 	  "Elder Scrolls Online",
-	  "float",
+	  "float", -- Windows called just "float", using this with some scripts.
+	  "Volume Control",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.

@@ -1,0 +1,51 @@
+clear
+ls
+ls
+clear
+clear
+ls
+ll
+ll
+clear
+ls -la
+exit
+nvim .zshrc
+ls
+clear
+ls
+ls
+clear
+ls
+nvim .zshrc
+ls
+ranger
+clear
+ls
+ps -p $$
+echo $SHELL
+echo "$SHELL"
+ps -p $$
+ps -hp $$|awk '{echo $5}'
+clear
+ps -hp $$|awk '{echo $5}'
+ps -hp $$|awk '{echo $5}'
+clear
+cd .config
+ls
+ls
+ll
+clear
+ls
+nvim .shellrc
+ls
+clear
+ls
+cd
+ls
+clear
+echo $0
+ls
+exit
+exit
+ls --color=auto
+exit
