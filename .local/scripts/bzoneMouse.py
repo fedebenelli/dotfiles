@@ -13,6 +13,7 @@ def on_click(x,y,button, pressed):
     if str(button) == 'Button.button9' and pressed==False:
         Kcontroller.release(Key.f10)
         Kcontroller.release(Key.ctrl_l)
+
     if str(button) == 'Button.button8' and pressed:
         print("8")
         Kcontroller.press(Key.ctrl_l)
