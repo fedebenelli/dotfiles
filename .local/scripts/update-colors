@@ -9,7 +9,8 @@ xrdb "$XRESOURCES"
 	[ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors-wal-dwm.h" ] && dwm_colors)
 
 update-dunstrc
-update-zathurarc
+echo "Remember that you disabled updating zathurarc!"
+#update-zathurarc
 update-alacritty
 
 [ -z "$1" ] ||
