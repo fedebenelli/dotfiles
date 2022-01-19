@@ -1,0 +1,68 @@
+#!/bin/sh
+
+
+yellow() {
+	echo "\e[1;33m$1\e[m"
+}
+
+green() {
+	echo "\e[1;32m$1\e[m"
+}
+
+red() {
+	echo "\e[1;31m$1\e[m"
+}
+
+blue() {
+	echo "\e[1;34m$1\e[m"
+}
+
+blinking-green() {
+	echo "\e[5;32m$1\e[m"
+}
+
+yta() {
+    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+}
+
+get_paper() {
+	doi="$1"
+	sci_hub="sci-hub.se"
+	pdf_link="$(curl https://$sci_hub/$doi | grep -o "$sci_hub.*pdf" | head -n1)"
+	pdf_name="$(curl https://$sci_hub/$doi | grep title | cut -d'|' -f2)"
+	pdf_name="${pdf_name# *}"
+	pdf_name="${pdf_name%* }"
+	wget "$pdf_link" -O "${PAPERS_DIR:-${XDG_DOWNLOAD_DIR:-$HOME/Downloads}}/$pdf_name.pdf"
+}
+
+
+nap() {
+	mkdir "$1"
+	cp $HOME/docs/programming/arduino/Makefile "$1/"
+	cd $1
+	cp "${XDG_TEMPLATES_DIR:-$HOME/Templates}/arduino/default.ino" "$1.ino"
+	$EDITOR $1.ino
+}
+
+hline() {
+	printf "\n <"
+	#bat=$(battery)
+	#printf "%s" "$bat"
+	dat=$(date +%d/%m-%H:%M:%S)
+	len=$(($(tput cols) - ${#bat} - ${#dat} - 4))
+	for i in $(seq 1 $len); do
+		printf "-"
+	done
+	printf "[$dat]\n\n"
+}
+
+pdftitle() {
+	title="$(pdfinfo "$1" | grep Title | cut -d':' -f2)"
+	# double echo to delete whitespace at the start,
+	#  guess could just do another strint cut.
+	echo "$(echo ${title% .*})"
+}
+
+wttr() {
+	curl wttr.in/cordoba,ar
+}

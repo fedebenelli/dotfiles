@@ -1,0 +1,29 @@
+prompt walters
+promptinit
+exit
+ls
+clear
+ls
+clear
+ls
+exit
+promt -p
+prompt -p
+prompt elite
+ls
+clear
+ls
+cd docs
+ls
+clear
+cd books/
+ls
+prompt -p
+prompt redhat
+ls
+clear
+prompt clint
+ls
+prompt adam1
+ls
+exit
