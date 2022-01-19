@@ -1,37 +1,48 @@
 set fileencoding=utf-8
 set encoding=utf-8
+"set runtimepath^=~/.config/nvim/plugged/coc.nvim
 filetype on
 set colorcolumn=80
 set nu rnu
 set spelllang=es,en,technical
 set splitbelow
 set splitright
+set nowrap
+
+packadd termdebug
 
 " Vim-Plug
 call plug#begin()
 
-" Git
-Plug 'kdheepak/lazygit.nvim'
-Plug 'nvim-lua/plenary.nvim' "required for neogit
-Plug 'TimUntersberger/neogit'
+Plug 'ldelossa/litee.nvim'
+"
+Plug 'chrisbra/csv.vim'
+
+" Treesiter for syntaxhighlighting
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+Plug 'nvim-treesitter/playground'
+
+Plug 'vim-airline/vim-airline'
 
 " Colors
 Plug 'chrisbra/Colorizer'
+Plug 'Mofiqul/dracula.nvim'
 
 "Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'Shougo/neosnippet-snippets'
+let g:ultisnips_python_style = 'numpy'
 
 "Goyo
 Plug 'junegunn/goyo.vim'
 
 "Python
-Plug 'python-mode/python-mode' 
+Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
+"Plug 'python-mode/python-mode' 
 
 " Fortran
-"-Vimf90
 Plug 'rudrab/vimf90'
 let fortran_leader = ','
 "let fortran_linter = '2'
@@ -55,7 +66,22 @@ Plug 'JuliaEditorSupport/julia-vim'
 
 " Linter
 Plug 'dense-analysis/ale'
+
+" Git
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
+Plug 'yasuhiroki/github-actions-yaml.vim'
+
 call plug#end()
+
+" Figure out the system Python for Neovim.
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+else
+    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+endif
 
 function! RangeSearch(direction)
 " -> Search inside a visual selection
@@ -70,22 +96,15 @@ function! RangeSearch(direction)
     let g:srchstr = ''
   endif
 endfunction
-
-vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr) > 0\|exec '/'.g:srchstr\|endif<CR>
-vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) > 0\|exec '?'.g:srchstr\|endif<CR>
-
-" Figure out the system Python for Neovim, this is to work in virtualenvs
-if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-endif
+vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr)
+			\> 0\|exec '/'.g:srchstr\|endif<CR>
+vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) 
+			\> 0\|exec '?'.g:srchstr\|endif<CR>
+" -----------------------------------------------------------------------------
 
 " -> Binds
-
 " --> General
 let mapleader = ','
-nnoremap <Leader>w :w<CR>
 vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-d> "+d
@@ -94,25 +113,48 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <Leader>e :w<CR>:e<CR>
-
-" --> Git
-nnoremap <Leader>gc :Neogit commit<CR>
-
-" --> Linting
-nnoremap <Leader>l :ALEToggle<CR>
-
+nnoremap <C-Left> :vertical resize +5<CR>
+nnoremap <C-Right> :vertical resize -5<CR>
+nnoremap <Leader>w :w<CR> 
+nnoremap <Leader><Leader> :source $MYVIMRC<CR>
 " --> LaTeX
-autocmd FileType tex nnoremap <Leader>c :VimtexCompile<CR>
-autocmd FileType tex nnoremap <C-t> :VimtexTocToggle<CR>
-
-"----------------------------------------------
-
+autocmd FileType tex nmap cc :VimtexCompile<CR>
+autocmd FileType tex nmap <C-t> :VimtexTocToggle<CR>
 " --> Lazy presentation
 noremap <Left> :silent bp<CR> :redraw!<CR>
 noremap <Right> :silent bn<CR> :redraw!<CR>
+" --> ALE
+nnoremap <Leader>l :ALEToggle<cr>
+nnoremap gd :ALEGoToDefinition<CR>
+" --> Git
+nnoremap <Leader>gl :GV<CR>
+nnoremap <Leader>gd :Git diff %<CR>
+nnoremap <Leader>gc :Git commit %<CR>
+" --> CSV
+autocmd FileType csv nmap <Leader>a :ArrangeColumn<CR>
+autocmd FileType csv nmap <Leader>dc :DeleteColumn<CR>
+" --> Magma-nvim
+nnoremap <silent><expr> <Leader>r  :MagmaEvaluateOperator<CR>
+nnoremap <silent>       <Leader>rr :MagmaEvaluateLine<CR>
+xnoremap <silent>       <Leader>r  :<C-u>MagmaEvaluateVisual<CR>
+nnoremap <silent>       <Leader>rc :MagmaReevaluateCell<CR>
+nnoremap <silent>       <Leader>rd :MagmaDelete<CR>
+nnoremap <silent>       <Leader>ro :MagmaShowOutput<CR>
 
-" -> VimTex
+let g:magma_automatically_open_output = v:false
+" -----------------------------------------------------------------------------
+
+" -> Settings
+set background=dark
+colorscheme dracula
+
+" --> IPython
+let g:ipy_celldef = '^##'
+
+" --> Treesitter
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
+" --> LaTeX
 let g:vimtex_compiler_latexmk = {
 	\ 'build_dir' : '',
 	\ 'callback' : 1,
@@ -125,11 +167,10 @@ let g:vimtex_compiler_latexmk = {
 	\   '-synctex=1',
 	\   '-interaction=nonstopmode',
 	\ ],
-	\}
+\}
 
-" -> CoC
+" --> CoC
 let g:coc_start_at_startup = 1
-
 augroup coc
   autocmd!
   autocmd VimEnter * :silent CocStart
@@ -144,6 +185,4 @@ let g:coc_user_config = {
       \       'rootPatterns': ['.fortls', '.git/'],
       \     }
       \},
-      \}
-
-autocmd FileType pyf :set syntax=fortran<CR>
+\}
