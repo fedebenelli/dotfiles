@@ -232,6 +232,8 @@ awful.screen.connect_for_each_screen(function(s)
 	    weather_widget({
 			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
 			     coordinates = {-31.4122, -64.1705},
+			     show_daily_forecast = true,
+			     show_hourly_forecast = true,
 			 }),
 	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.ram-widget.ram-widget") {},

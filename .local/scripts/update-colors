@@ -1,20 +1,66 @@
 #!/bin/sh
 
-echo Loading default Xresources
-xrdb "$XRESOURCES"
+WAL_DIR="$WAL_DIR"
+CONF_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 
-echo Merging pywal Xresources
-[ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.Xresources" ] && xrdb -merge ${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors.Xresources
-[ -f "${XDG_CACHE_HOME:-$HOME/.cache}/wal/colors-wal-dwm.h" ] && dwm_colors
+update_dunst() {
+	DUNST_RC="$CONF_DIR/dunst/dunstrc"
 
-update-dunstrc
-update-zathurarc
-update-alacritty
+	# Get the data from the pywal cache folder.
+	# If a folder is given, read the data from there
+	[ -z "$1"  ] ||
+		. "$1"/colors.sh &&
+		. ${XDG_CACHE_DIR:-$HOME/.cache}/wal/colors.sh
 
-[ -z "$1" ] || (echo "Using colorscheme: $1";
-	xrdb -merge "$1/colors.Xresources";
-	update-dunstrc "$1";
-	update-zathurarc "$1";
-	update-alacritty "$1/alacritty-colors.yml")
+conf="$(cat <<LIM
+background = "$background"
+foreground = "$foreground"
+frame_color = "$color2"
+LIM
+)"
+	IFS=$'\n'
+	for setting in $(echo "$conf"); do
+		sett=$(echo "$setting" | cut -d' ' -f1)
+		sed -i "s/$sett.*/$setting/g" $DUNST_RC
+	done
+}
 
-pgrep awesome && echo 'awesome.restart()' | awesome-client
+update_alacritty() {
+	file="$1"
+	[ -z "$1" ] && file="$WAL_DIR/alacritty-colors.yml"
+	[ -f "$file" ] &&
+		echo "Setting Alacritty colors with $file" &&
+		cp "$file" "$CONFIG_DIR/alacritty/colors/wal.yml"
+	alacritty-colorscheme apply wal.yml
+}
+
+reload_managers() {
+	pgrep awesome && echo 'awesome.restart()' | awesome-client
+	killall dunst && notify-send "Dunst reloaded"
+}
+
+load_xresources() {
+	echo Loading default Xresources
+	xrdb "$XRESOURCES"
+	[ -z "$1" ] || xrdb -merge "$1/colors.Xresources"
+	merge_pywal
+}
+
+merge_pywal(){
+	echo Merging pywal Xresources
+	[ -f "$WAL_DIR/colors-wal-dwm.h" ] && pgrep dwm && dwm_colors
+	[ -f "$WAL_DIR/colors.Xresources" ] &&
+		xrdb -merge "$WAL_DIR/colors.Xresources"
+}
+
+update_programs(){
+	[ -z "$1" ] && echo "Using colorscheme: $1" || echo "Using wal theme"
+	load_xresources "$1"
+	update-dunstrc "$1"
+	update-zathurarc "$1"
+	update-alacritty "$1"
+
+	reload_managers
+}
+
+update_programs

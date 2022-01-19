@@ -110,6 +110,7 @@ alias \
 	"i3c"='$EDITOR ~/.config/i3/config' \
 	"sizes"='du . -h --max-depth=1' \
 	"csgocfg"='$EDITOR "$csgocfg"' \
+	"vino"='wine $@ 2> /dev/null' \
 	"downurl"='wget -mkEpnp '$1 \
 	"ll"="ls --color=auto -lAh" \
 	"yeet"='sudo yay -Rcsn' \

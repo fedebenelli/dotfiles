@@ -317,30 +317,57 @@ font:
 # The value `0.0` is completely transparent and `1.0` is opaque.
 background_opacity: 0.9
 colors:
-  # COLORSCHEME: wal.yml
+  # COLORSCHEME: dracula.yml
   name: Dotshare
   author: ''
   primary:
-    background: '#151515'
-    foreground: '#D0D0D0'
+    background: '#282a36'
+    foreground: '#f8f8f2'
+    bright_foreground: '#ffffff'
   cursor:
-    text: '#000000'
-    cursor: '#ffffff'
+    text: CellBackground
+    cursor: CellForeground
   normal:
-    black: '#151515'
-    red: '#AC4142'
-    green: '#90A959'
-    yellow: '#F4BF75'
-    blue: '#6A9FB5'
-    magenta: '#AA759F'
-    cyan: '#75B5AA'
-    white: '#D0D0D0'
+    black: '#21222c'
+    red: '#ff5555'
+    green: '#50fa7b'
+    yellow: '#f1fa8c'
+    blue: '#bd93f9'
+    magenta: '#ff79c6'
+    cyan: '#8be9fd'
+    white: '#f8f8f2'
   bright:
-    black: '#505050'
-    red: '#AC4142'
-    green: '#90A959'
-    yellow: '#F4BF75'
-    blue: '#6A9FB5'
-    magenta: '#AA759F'
-    cyan: '#75B5AA'
-    white: '#F5F5F5'
+    black: '#6272a4'
+    red: '#ff6e6e'
+    green: '#69ff94'
+    yellow: '#ffffa5'
+    blue: '#d6acff'
+    magenta: '#ff92df'
+    cyan: '#a4ffff'
+    white: '#ffffff'
+  vi_mode_cursor:
+    text: CellBackground
+    cursor: CellForeground
+  search:
+    matches:
+      foreground: '#44475a'
+      background: '#50fa7b'
+    focused_match:
+      foreground: '#44475a'
+      background: '#ffb86c'
+    bar:
+      background: '#282a36'
+      foreground: '#f8f8f2'
+  hints:
+    start:
+      foreground: '#282a36'
+      background: '#f1fa8c'
+    end:
+      foreground: '#f1fa8c'
+      background: '#282a36'
+  line_indicator:
+    foreground: None
+    background: None
+  selection:
+    text: CellForeground
+    background: '#44475a'
