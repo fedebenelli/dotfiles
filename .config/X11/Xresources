@@ -20,8 +20,8 @@
 
 ! Xterm settings
 XTerm*transparent: true
-XTerm*internalBorder:	0
-XTerm*font:	xft:monospace:size=8
+XTerm*internalBorder:	10
+XTerm*font:	xft:monospace:size=9
 XTerm.xterm.translations: #override \n\
   Ctrl <Key> j: smaller-vt-font() \n\
   Ctrl <Key> k: larger-vt-font()
@@ -35,6 +35,7 @@ urxvt.boldItalicFont: 	xft:monospace:size=8:style=Bold Italic
 urxvt.scrollBar: 	false
 urxvt.background:	[90]#111111
 urxvt.depth:		32
+URxvt*internalBorder: 4
 
 URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,resize-font
 
