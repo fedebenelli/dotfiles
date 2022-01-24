@@ -1,6 +1,6 @@
 set fileencoding=utf-8
 set encoding=utf-8
-"set runtimepath^=~/.config/nvim/plugged/coc.nvim
+set runtimepath^=~/.config/nvim/plugged/coc.nvim
 filetype on
 set colorcolumn=80
 set nu rnu
@@ -8,6 +8,7 @@ set spelllang=es,en,technical
 set splitbelow
 set splitright
 set nowrap
+set mouse=a
 
 packadd termdebug
 
@@ -17,6 +18,8 @@ call plug#begin()
 Plug 'ldelossa/litee.nvim'
 "
 Plug 'chrisbra/csv.vim'
+
+Plug 'beauwilliams/focus.nvim'
 
 " Treesiter for syntaxhighlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
@@ -101,6 +104,8 @@ vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr)
 vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) 
 			\> 0\|exec '?'.g:srchstr\|endif<CR>
 " -----------------------------------------------------------------------------
+lua require("focus").setup()
+
 
 " -> Binds
 " --> General
@@ -109,10 +114,6 @@ vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-d> "+d
 nnoremap <Space> @q
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
 nnoremap <C-Left> :vertical resize +5<CR>
 nnoremap <C-Right> :vertical resize -5<CR>
 nnoremap <Leader>w :w<CR> 
@@ -130,6 +131,7 @@ nnoremap gd :ALEGoToDefinition<CR>
 nnoremap <Leader>gl :GV<CR>
 nnoremap <Leader>gd :Git diff %<CR>
 nnoremap <Leader>gc :Git commit %<CR>
+nnoremap <Leader>gs :Git status %<CR>
 " --> CSV
 autocmd FileType csv nmap <Leader>a :ArrangeColumn<CR>
 autocmd FileType csv nmap <Leader>dc :DeleteColumn<CR>
@@ -140,6 +142,11 @@ xnoremap <silent>       <Leader>r  :<C-u>MagmaEvaluateVisual<CR>
 nnoremap <silent>       <Leader>rc :MagmaReevaluateCell<CR>
 nnoremap <silent>       <Leader>rd :MagmaDelete<CR>
 nnoremap <silent>       <Leader>ro :MagmaShowOutput<CR>
+" --> Focus
+nnoremap <C-h> :FocusSplitLeft<CR>
+nnoremap <C-j> :FocusSplitDown<CR>
+nnoremap <C-k> :FocusSplitUp<CR>
+nnoremap <C-l> :FocusSplitRight<CR>
 
 let g:magma_automatically_open_output = v:false
 " -----------------------------------------------------------------------------
@@ -150,6 +157,7 @@ colorscheme dracula
 
 " --> IPython
 let g:ipy_celldef = '^##'
+
 
 " --> Treesitter
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
