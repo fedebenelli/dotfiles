@@ -1,5 +1,5 @@
 # News
-https://www.infobae.com/argentina-rss.xml					News Argentina
+#https://www.infobae.com/argentina-rss.xml					News Argentina
 https://www.telam.com.ar/rss2/internacional.xml					News
 https://www.telam.com.ar/rss2/provincias.xml					News
 https://www.telam.com.ar/rss2/ultimasnoticias.xml				News
@@ -69,8 +69,6 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCQsv8oEdtmGlfsXZ2sdDcxw 	Vi
 https://www.youtube.com/feeds/videos.xml?channel_id=UCmo3YHm8GaHk0ZWovjow65A 	Videos #joelG (ENA)
 
 # Series
-#https://www.erai-raws.info/rss-batch-1080			Series Anime Batch
-https://www.erai-raws.info/rss-1080				Series Anime Going
 
 # Music
 https://www.youtube.com/feeds/videos.xml?channel_id=UCFpGI5tOfL1n9oyF8pS9SOg 	Music #partiboi69
