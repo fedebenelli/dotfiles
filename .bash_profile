@@ -11,6 +11,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=firefox
 export SUDO=sudo
+export WINEPREFIX="$HOME/installs/winepfx"
 
 export XDG_CONFIG_HOME="$HOME/.config/"
 export XDG_CACHE_HOME="$HOME/.cache/"
@@ -34,15 +35,15 @@ export WORKON_HOME="${XDG_DOCUMENTS_DIR}/programming/python/envs"
 
 # Cleaning a bit home directory
 export LESSHISTFILE=-
-export CARGO_HOME="$XDG_DATA_HOME"/cargo
-export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
-export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
-export IPYTHONDIR="$XDG_CONFIG_HOME"/ipython
-export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
-export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
-export XRESOURCES="$XDG_CONFIG_HOME"/X11/Xresources
-export SHORTCUTS="$XDG_CONFIG_HOME"/shortcuts
-export PYTHONHISTFILE="$XDG_CONFIG_HOME"/python/python_history
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export GRADLE_USER_HOME="$XDG_DATA_HOME/gradle"
+export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME/jupyter"
+export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export XRESOURCES="$XDG_CONFIG_HOME/X11/Xresources"
+export SHORTCUTS="$XDG_CONFIG_HOME/shortcuts"
+export PYTHONHISTFILE="$XDG_CONFIG_HOME/python/python_history"
 
 export FMOD_ALSA_DEVICE=pipewire 
 
