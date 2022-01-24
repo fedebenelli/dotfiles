@@ -540,6 +540,13 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
+    { rule = { class = "Steam" },
+      properties = { screen = 1, tag = "7" }
+    },
+    { rule = {name = "Friends List*"},
+      properties = { floating = true }
+    }
+
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
