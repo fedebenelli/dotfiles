@@ -21,9 +21,9 @@ blinking-green() {
 	echo "\e[5;32m$1\e[m"
 }
 
-yta() {
-    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
-}
+#yta() {
+#	mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+#}
 
 get_paper() {
 	doi="$1"
@@ -65,4 +65,8 @@ pdftitle() {
 
 wttr() {
 	curl wttr.in/cordoba,ar
+}
+
+plot() {
+	gnuplot -p -e 'plot "/dev/stdin" using 1:2 with lines; pause -1'
 }
