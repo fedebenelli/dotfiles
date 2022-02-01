@@ -12,30 +12,31 @@ alias \
 	ffmpeg="ffmpeg -hide_banner"
 
 alias \
-	showcolors='for x in {0..8}; do for i in {30..37}; do for a in {40..47}; do echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "; done; echo; done; done; echo ""'  \
+	showcolors='for x in {0..8}; do for i in {30..37}; do for a in {40..47}; do echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "; done; echo; done; done; echo ""' \
 	downsite='wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains website.org --no-parent "$1"' \
 	cdgo='cd ".local/share/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg"' \
 	walt='wal --theme $(wal --theme | fzf | cut -d" " -f3)' \
-	qemu='qemu-system-x86_64 -m 2048 -monitor stdio "$1"'  \
-	dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"  \
-	jl='cd "$jupyterfolder"; jupyter lab --ip 192.168.100.2 --port 8888'  \
-	conlucrecita='ssh ruther@lucrecita -t "tmux attach || tmux new"'  \
-	ward="stty -F /dev/ttyACM* speed 9600; tail -f /dev/ttyACM*"  \
-	cdsteam='cd $HOME/.local/share/Steam/steamapps/common/'  \
-	myweb='cd $HOME/docs/learning/markup/web/mywebsite'  \
-	nvi='$EDITOR ${XDG_CONFIG_HOME}/nvim/init.vim'  \
-	ranco='$EDITOR $HOME/.config/ranger/rc.conf'  \
-	isomount='sudo mount -o loop $1 /media/iso/'  \
-	picomex='picom --experimental-backends -b'  \
-	i3bc="$EDITOR ~/.config/i3blocks/config"  \
-	mysc="$EDITOR $HOME/.local/scripts"  \
-	i3c='$EDITOR ~/.config/i3/config'  \
-	sizes='du . -h --max-depth=1'  \
-	autoedit='$EDITOR "$csgocfg"'  \
-	downurl='wget -mkEpnp '$1  \
-	ll="ls --color=auto -lAh"  \
-	yeet='sudo yay -Rcsn'  \
-	ls='ls --color=auto'  \
-	sysup='yay -Syu'  \
-	sxiv='sxiv -a'  \
+	qemu='qemu-system-x86_64 -m 2048 -monitor stdio "$1"' \
+	dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME" \
+	jl='cd "$jupyterfolder"; jupyter lab --ip 192.168.100.2 --port 8888' \
+	conlucrecita='ssh ruther@lucrecita -t "tmux attach || tmux new"' \
+	ward="stty -F /dev/ttyACM* speed 9600; tail -f /dev/ttyACM*" \
+	cdsteam='cd $HOME/.local/share/Steam/steamapps/common/' \
+	myweb='cd $HOME/docs/learning/markup/web/mywebsite' \
+	nvi='$EDITOR ${XDG_CONFIG_HOME}/nvim/init.vim' \
+	ranco='$EDITOR $HOME/.config/ranger/rc.conf' \
+	isomount='sudo mount -o loop $1 /media/iso/' \
+	picomex='picom --experimental-backends -b' \
+	i3bc="$EDITOR ~/.config/i3blocks/config" \
+	mysc="$EDITOR $HOME/.local/scripts" \
+	vino='wine $@ 2> /dev/null'
+	i3c='$EDITOR ~/.config/i3/config' \
+	sizes='du . -h --max-depth=1' \
+	autoedit='$EDITOR "$csgocfg"' \
+	downurl='wget -mkEpnp '$1 \
+	ll="ls --color=auto -lAh" \
+	yeet='sudo yay -Rcsn' \
+	ls='ls --color=auto' \
+	sysup='yay -Syu' \
+	sxiv='sxiv -a' \
 	df='df -h'  
