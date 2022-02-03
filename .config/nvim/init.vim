@@ -1,6 +1,6 @@
 set fileencoding=utf-8
 set encoding=utf-8
-set runtimepath^=~/.config/nvim/plugged/coc.nvim
+set runtimepath^=~/.config/nvim/
 filetype on
 set colorcolumn=80
 set nu rnu
@@ -9,13 +9,20 @@ set splitbelow
 set splitright
 set nowrap
 set mouse=a
-
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
+set fillchars=fold:\ 
+set foldnestmax=3
+set foldminlines=1
 packadd termdebug
+
+let g:ale_disable_lsp = 1
 
 " Vim-Plug
 call plug#begin()
 
-Plug 'ldelossa/litee.nvim'
+"Plug 'ldelossa/litee.nvim'
 "
 Plug 'chrisbra/csv.vim'
 
@@ -150,17 +157,25 @@ nnoremap <C-l> :FocusSplitRight<CR>
 
 let g:magma_automatically_open_output = v:false
 " -----------------------------------------------------------------------------
-
 " -> Settings
 set background=dark
 colorscheme dracula
+hi Normal guibg=NONE ctermbg=NONE
 
 " --> IPython
 let g:ipy_celldef = '^##'
 
+"" --> Ale
+let g:ale_linters = {
+\   'python': ['flake8'],
+\}
+let g:ale_linters_explicit = 1
+
 
 " --> Treesitter
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
+
 
 " --> LaTeX
 let g:vimtex_compiler_latexmk = {
