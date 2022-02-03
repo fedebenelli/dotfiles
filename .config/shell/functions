@@ -66,3 +66,11 @@ pdftitle() {
 wttr() {
 	curl wttr.in/cordoba,ar
 }
+
+ltx2wd() {
+	file="$1"
+	name="${file%.tex}"
+	latexml "$file" --dest="$name".xml
+	latexmlpost --dest "$name".html "$name".xml
+	pandoc -f html -t docx -o "$name".docx "$name".html
+}
