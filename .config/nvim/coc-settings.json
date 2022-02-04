@@ -1,0 +1,10 @@
+{
+"languageserver": {
+	"fortran": {
+		"command": "/usr/bin/fortls",
+		"args": ["--lowercase_intrinsics", "--hover_signature"],
+		"filetypes": ["fortran"],
+		"rootPatterns": [".fortls", ".git/"]
+	}
+}
+}
