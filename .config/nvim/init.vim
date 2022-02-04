@@ -199,13 +199,15 @@ augroup coc
   autocmd VimEnter * :silent CocStart
 augroup end
 
-let g:coc_user_config = {
-      \   'languageserver': {
-      \     'fortran': {
-      \       'command': '/usr/bin/fortls',
-      \       'args': ['--lowercase_intrinsics', '--hover_signature'],
-      \       'filetypes': ['fortran'],
-      \       'rootPatterns': ['.fortls', '.git/'],
-      \     }
-      \},
-\}
+"" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
