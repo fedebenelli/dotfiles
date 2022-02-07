@@ -1,7 +1,6 @@
 set fileencoding=utf-8
 set encoding=utf-8
 set runtimepath^=~/.config/nvim/
-filetype on
 set colorcolumn=80
 set nu rnu
 set spelllang=es,en,technical
@@ -15,9 +14,15 @@ set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'.
 set fillchars=fold:\ 
 set foldnestmax=3
 set foldminlines=1
+set nocompatible
+filetype plugin on
+
 packadd termdebug
 
 let g:ale_disable_lsp = 1
+let g:vimwiki_list = [{'path': '~/docs/vimwiki',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
 
 " Vim-Plug
 call plug#begin()
@@ -34,6 +39,8 @@ Plug 'nvim-treesitter/playground'
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'vimwiki/vimwiki'
+
 " Colors
 Plug 'chrisbra/Colorizer'
 Plug 'Mofiqul/dracula.nvim'
@@ -49,7 +56,7 @@ let g:ultisnips_python_style = 'numpy'
 Plug 'junegunn/goyo.vim'
 
 "Python
-Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins<CR>' }
 "Plug 'python-mode/python-mode' 
 
 " Fortran
@@ -87,11 +94,11 @@ Plug 'yasuhiroki/github-actions-yaml.vim'
 call plug#end()
 
 " Figure out the system Python for Neovim.
-if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-endif
+"if exists("$VIRTUAL_ENV")
+"    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+"else
+"    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+"endif
 
 function! RangeSearch(direction)
 " -> Search inside a visual selection
