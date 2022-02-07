@@ -74,3 +74,15 @@ ltx2wd() {
 	latexmlpost --dest "$name".html "$name".xml
 	pandoc -f html -t docx -o "$name".docx "$name".html
 }
+
+vw () {
+    if [[ $# == 0 ]]
+    then
+        nvim +'VimwikiIndex'
+    elif [[ $1 == 'git' ]]
+    then
+        git -C ~/docs/vimwiki/ ${@:2}
+    else
+        echo 'Usage: vimwiki [git] [args ...]'
+    fi
+}
