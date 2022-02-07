@@ -34,7 +34,6 @@ export WINEPREFIX="$HOME/installs/winepfx"
 export PAPERS_DIR="$HOME/docs/research/papers/"
 export WORKON_HOME="${XDG_HOME_DIR}/docs/programming/python/virtualenvs"
 
-
 # Cleaning a bit home directory
 export LESSHISTFILE=-
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
@@ -47,7 +46,9 @@ export XRESOURCES="$XDG_CONFIG_HOME"/X11/Xresources
 export SHORTCUTS="$XDG_CONFIG_HOME"/shortcuts
 export PYTHONHISTFILE="$XDG_CONFIG_HOME"/python/python_history
 
+# Other settings
 export FMOD_ALSA_DEVICE=pipewire 
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 source "${XDG_CONFIG_HOME/mendeley-cli-settings}"
 
