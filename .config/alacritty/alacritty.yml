@@ -49,8 +49,7 @@ window:
 
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 
-    0.9
+  opacity: 0.9
 
 # Window decorations
 #
@@ -317,34 +316,33 @@ font:
   #command: None
 
 colors:
-  # COLORSCHEME: dracula.yml
+  # COLORSCHEME: wal.yml
   name: Dotshare
   author: ''
   primary:
-    background: '#282a36'
-    foreground: '#f8f8f2'
-    bright_foreground: '#ffffff'
+    background: '#031A16'
+    foreground: '#81B5AC'
   cursor:
     text: CellBackground
     cursor: CellForeground
   normal:
-    black: '#21222c'
-    red: '#ff5555'
-    green: '#50fa7b'
-    yellow: '#f1fa8c'
-    blue: '#bd93f9'
-    magenta: '#ff79c6'
-    cyan: '#8be9fd'
-    white: '#f8f8f2'
+    black: '#031A16'
+    red: '#3E9688'
+    green: '#883E96'
+    yellow: '#3E4C96'
+    blue: '#96883E'
+    magenta: '#4C963E'
+    cyan: '#963E4C'
+    white: '#81B5AC'
   bright:
-    black: '#6272a4'
-    red: '#ff6e6e'
-    green: '#69ff94'
-    yellow: '#ffffa5'
-    blue: '#d6acff'
-    magenta: '#ff92df'
-    cyan: '#a4ffff'
-    white: '#ffffff'
+    black: '#2B685E'
+    red: '#3E9688'
+    green: '#883E96'
+    yellow: '#3E4C96'
+    blue: '#96883E'
+    magenta: '#4C963E'
+    cyan: '#963E4C'
+    white: '#D2E7E4'
   vi_mode_cursor:
     text: CellBackground
     cursor: CellForeground
