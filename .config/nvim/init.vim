@@ -30,6 +30,7 @@ Plug 'vim-airline/vim-airline'
 " Colors
 Plug 'chrisbra/Colorizer'
 Plug 'Mofiqul/dracula.nvim'
+Plug 'ellisonleao/gruvbox.nvim'
 
 "Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
