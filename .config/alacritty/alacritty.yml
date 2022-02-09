@@ -320,29 +320,29 @@ colors:
   name: Dotshare
   author: ''
   primary:
-    background: '#031A16'
-    foreground: '#81B5AC'
+    background: '#1d2021'
+    foreground: '#d5c4a1'
   cursor:
     text: CellBackground
     cursor: CellForeground
   normal:
-    black: '#031A16'
-    red: '#3E9688'
-    green: '#883E96'
-    yellow: '#3E4C96'
-    blue: '#96883E'
-    magenta: '#4C963E'
-    cyan: '#963E4C'
-    white: '#81B5AC'
+    black: '#1d2021'
+    red: '#fb4934'
+    green: '#b8bb26'
+    yellow: '#fabd2f'
+    blue: '#83a598'
+    magenta: '#d3869b'
+    cyan: '#8ec07c'
+    white: '#d5c4a1'
   bright:
-    black: '#2B685E'
-    red: '#3E9688'
-    green: '#883E96'
-    yellow: '#3E4C96'
-    blue: '#96883E'
-    magenta: '#4C963E'
-    cyan: '#963E4C'
-    white: '#D2E7E4'
+    black: '#665c54'
+    red: '#fb4934'
+    green: '#b8bb26'
+    yellow: '#fabd2f'
+    blue: '#83a598'
+    magenta: '#d3869b'
+    cyan: '#8ec07c'
+    white: '#fbf1c7'
   vi_mode_cursor:
     text: CellBackground
     cursor: CellForeground
