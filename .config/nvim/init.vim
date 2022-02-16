@@ -3,11 +3,12 @@ set encoding=utf-8
 set runtimepath^=~/.config/nvim/
 set colorcolumn=80
 set nu rnu
-set spelllang=es,en,technical
+set spelllang=es,en
 set splitbelow
 set splitright
 set nowrap
 set mouse=a
+set tabstop=4 shiftwidth=4 expandtab
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
@@ -27,6 +28,9 @@ let g:vimwiki_global_ext = 0
 " Vim-Plug
 call plug#begin()
 
+Plug 'salkin-mada/openscad.nvim'
+Plug 'kevinoid/vim-jsonc'
+
 "Plug 'ldelossa/litee.nvim'
 "
 Plug 'chrisbra/csv.vim'
@@ -40,6 +44,7 @@ Plug 'nvim-treesitter/playground'
 Plug 'vim-airline/vim-airline'
 
 Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
 
 " Colors
 Plug 'chrisbra/Colorizer'
@@ -56,7 +61,7 @@ let g:ultisnips_python_style = 'numpy'
 Plug 'junegunn/goyo.vim'
 
 "Python
-Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins<CR>' }
+Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'python-mode/python-mode' 
 
 " Fortran
@@ -94,11 +99,11 @@ Plug 'yasuhiroki/github-actions-yaml.vim'
 call plug#end()
 
 " Figure out the system Python for Neovim.
-"if exists("$VIRTUAL_ENV")
-"    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-"else
-"    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-"endif
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+else
+    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+endif
 
 function! RangeSearch(direction)
 " -> Search inside a visual selection
@@ -119,6 +124,9 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr)
 			\> 0\|exec '?'.g:srchstr\|endif<CR>
 " -----------------------------------------------------------------------------
 lua require("focus").setup()
+" --> Treesitter
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+lua require('openscad')
 
 
 " -> Binds
@@ -169,19 +177,17 @@ set background=dark
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 
+" -- Fortran
+let fortran_more_precise=1
+
 " --> IPython
 let g:ipy_celldef = '^##'
 
 "" --> Ale
-let g:ale_linters = {
-\   'python': ['flake8'],
-\}
-let g:ale_linters_explicit = 1
-
-
-" --> Treesitter
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-
+"let g:ale_linters = {
+"\   'python': ['flake8'],
+"\   'fortran': ['language_server', 'gcc']
+"\}
 
 
 " --> LaTeX
@@ -206,6 +212,17 @@ augroup coc
   autocmd VimEnter * :silent CocStart
 augroup end
 
+let g:coc_user_config = {
+      \   'languageserver': {
+      \     'fortran': {
+      \       'command': '/usr/bin/fortls',
+      \       'args': ['--lowercase_intrinsics', '--hover_signature'],
+      \       'filetypes': ['fortran'],
+      \       'rootPatterns': ['.fortls', '.git/'],
+      \     }
+      \},
+\}
+
 "" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -218,3 +235,27 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_left_sep = "\uE0B4"
+let g:airline_right_sep = "\uE0B6"
