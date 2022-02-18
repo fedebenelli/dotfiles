@@ -68,20 +68,16 @@ wttr() {
 }
 
 plot() {
-	data="$(cat /dev/stdin)"
-	N=$(echo "$data" | awk 'NR==1{print NF}')
-	echo $N
-	echo "$data" |
-	gnuplot -p -e "
-	plot for [i=1:$N] /dev/stdin u 0:i w l title .i
-	"
-
-	"plot '/dev/stdin' using 1:2 with lines; pause -1"
+	gnuplot -p -e "plot '/dev/stdin' using 0:1 with lines; pause -1"
 }
 
 clean_gpec() {
 	case "$1" in
 		PXYOUT.DAT) awk '{print $1, $2, $3}' "$1" |
+			tail -n+6 |
+			sed 's/E/e/g'
+			;;
+		TXYOUT.DAT) awk '{print $1, $2, $3}' "$1" |
 			tail -n+6 |
 			sed 's/E/e/g'
 			;;
