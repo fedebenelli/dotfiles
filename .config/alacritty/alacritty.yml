@@ -45,7 +45,7 @@ window:
     x: 15
     y: 15
   # Spread additional padding evenly around the terminal content.
-  opacity: 0.9
+  opacity: 0.8
 dynamic_padding: true
 
 # Window decorations
@@ -343,23 +343,23 @@ font:
 colors:
   # COLORSCHEME: wal.yml
   primary:
-    background: '#282936'
-    foreground: '#e9e9f4'
+    background: '#000000'
+    foreground: '#ffffff'
   normal:
-    black: '#282936'
-    red: '#ea51b2'
-    green: '#00f769'
-    yellow: '#ebff87'
-    blue: '#62d6e8'
-    magenta: '#b45bcf'
-    cyan: '#a1efe4'
-    white: '#e9e9f4'
+    black: '#666666'
+    red: '#cc6666'
+    green: '#66cc99'
+    yellow: '#cc9966'
+    blue: '#6699cc'
+    magenta: '#cc6699'
+    cyan: '#66cccc'
+    white: '#cccccc'
   bright:
-    black: '#4d4f68'
-    red: '#ea51b2'
-    green: '#00f769'
-    yellow: '#ebff87'
-    blue: '#62d6e8'
-    magenta: '#b45bcf'
-    cyan: '#a1efe4'
-    white: '#f7f7fb'
+    black: '#999999'
+    red: '#cc6666'
+    green: '#66cc99'
+    yellow: '#cc9966'
+    blue: '#6699cc'
+    magenta: '#cc6699'
+    cyan: '#66cccc'
+    white: '#cccccc'
