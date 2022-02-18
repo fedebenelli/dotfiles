@@ -1,3 +1,26 @@
+" =============================================================================
+"  Functions
+" -----------------------------------------------------------------------------
+
+function! RangeSearch(direction)
+" -> Search inside a visual selection
+  call inputsave()
+  let g:srchstr = input(a:direction)
+  call inputrestore()
+  if strlen(g:srchstr) > 0
+    let g:srchstr = g:srchstr.
+          \ '\%>'.(line("'<")-1).'l'.
+          \ '\%<'.(line("'>")+1).'l'
+  else
+    let g:srchstr = ''
+  endif
+endfunction
+vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr)
+			\> 0\|exec '/'.g:srchstr\|endif<CR>
+vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) 
+			\> 0\|exec '?'.g:srchstr\|endif<CR>
+" -----------------------------------------------------------------------------
+
 set fileencoding=utf-8
 set encoding=utf-8
 set runtimepath^=~/.config/nvim/
@@ -20,116 +43,51 @@ filetype plugin on
 
 packadd termdebug
 
-let g:ale_disable_lsp = 1
-let g:vimwiki_list = [{'path': '~/docs/vimwiki',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-let g:vimwiki_global_ext = 0
 
-" Vim-Plug
-call plug#begin()
+" ==============================================================================
+" PLUGINS
+" ------------------------------------------------------------------------------
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
 
+call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'puremourning/vimspector'
 Plug 'salkin-mada/openscad.nvim'
 Plug 'kevinoid/vim-jsonc'
-
-"Plug 'ldelossa/litee.nvim'
-"
 Plug 'chrisbra/csv.vim'
-
 Plug 'beauwilliams/focus.nvim'
-
-" Treesiter for syntaxhighlighting
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 Plug 'nvim-treesitter/playground'
-
 Plug 'vim-airline/vim-airline'
-
 Plug 'vimwiki/vimwiki'
 Plug 'mattn/calendar-vim'
-
-" Colors
 Plug 'chrisbra/Colorizer'
 Plug 'Mofiqul/dracula.nvim'
-
-"Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Snippets
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets' | Plug 'Shougo/neosnippet-snippets'
-let g:ultisnips_python_style = 'numpy'
-
-"Goyo
 Plug 'junegunn/goyo.vim'
-
-"Python
 Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'python-mode/python-mode' 
-
-" Fortran
 Plug 'rudrab/vimf90'
-let fortran_leader = ','
-"let fortran_linter = '2'
-let fortran_linter = '-1'
-let fortran_completer = '<F3>'
-let fortran_compiler = 'gfortran'
-let fortran_exeExt = 'o'
-let fortran_fcflags = '-Wall -O0 -fcheck=all -c'
-let fortran_flflags = '-Wall -O0 -fcheck=all'
-let g:fprettify_options = '--silent --indent 4'
-
-" LaTeX
 Plug 'lervag/vimtex'
-let g:tex_flavor='xelatex'
-let g:vimtex_quickfix_mode=0
-"set conceallevel=1
-let g:tex_conceal='abdmg'
-
-" Julia
 Plug 'JuliaEditorSupport/julia-vim'
-
-" Linter
 Plug 'dense-analysis/ale'
-
-" Git
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
-
+Plug 'rhysd/git-messenger.vim'
 call plug#end()
 
-" Figure out the system Python for Neovim.
-if exists("$VIRTUAL_ENV")
-    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-else
-    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-endif
 
-function! RangeSearch(direction)
-" -> Search inside a visual selection
-  call inputsave()
-  let g:srchstr = input(a:direction)
-  call inputrestore()
-  if strlen(g:srchstr) > 0
-    let g:srchstr = g:srchstr.
-          \ '\%>'.(line("'<")-1).'l'.
-          \ '\%<'.(line("'>")+1).'l'
-  else
-    let g:srchstr = ''
-  endif
-endfunction
-vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr)
-			\> 0\|exec '/'.g:srchstr\|endif<CR>
-vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) 
-			\> 0\|exec '?'.g:srchstr\|endif<CR>
-" -----------------------------------------------------------------------------
-lua require("focus").setup()
-" --> Treesitter
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-lua require('openscad')
 
 
 " -> Binds
+let g:vimspector_enable_mappings = 'HUMAN'
 " --> General
 let mapleader = ','
 vnoremap <C-c> "+y
@@ -171,26 +129,57 @@ nnoremap <C-k> :FocusSplitUp<CR>
 nnoremap <C-l> :FocusSplitRight<CR>
 
 let g:magma_automatically_open_output = v:false
+
+" =============================================================================
+"  Settings
 " -----------------------------------------------------------------------------
-" -> Settings
-set background=dark
+
+" -> General
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
+"set background=dark
 
-" -- Fortran
+" --> Treesitter
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+lua require('openscad')
+lua require("focus").setup()
+
+
+" --> Git
+let g:gitblame_display_virtual_text = 1
+
+
+" --> Fortran
 let fortran_more_precise=1
+let fortran_leader = ','
+"let fortran_linter = '2'
+let fortran_linter = '-1'
+let fortran_completer = '<F3>'
+let fortran_compiler = 'gfortran'
+let fortran_exeExt = 'o'
+let fortran_fcflags = '-Wall -O0 -fcheck=all -c'
+let fortran_flflags = '-Wall -O0 -fcheck=all'
+let g:fprettify_options = '--silent --indent 4'
+
+
+" --> Python
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+else
+    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+endif
 
 " --> IPython
 let g:ipy_celldef = '^##'
 
-"" --> Ale
-"let g:ale_linters = {
-"\   'python': ['flake8'],
-"\   'fortran': ['language_server', 'gcc']
-"\}
-
+" --> Ale
+let g:ale_disable_lsp = 1
 
 " --> LaTeX
+let g:tex_flavor='xelatex'
+let g:vimtex_quickfix_mode=0
+"set conceallevel=1
+let g:tex_conceal='abdmg'
 let g:vimtex_compiler_latexmk = {
 	\ 'build_dir' : '',
 	\ 'callback' : 1,
@@ -236,8 +225,10 @@ function! s:show_documentation()
   endif
 endfunction
 
+" -> Snippets
+let g:ultisnips_python_style = 'numpy'
 
-" air-line
+" -> airline
 let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
@@ -259,3 +250,8 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 let g:airline_left_sep = "\uE0B4"
 let g:airline_right_sep = "\uE0B6"
+
+" -> VimWiki
+let g:vimwiki_list = [{'path': '~/docs/vimwiki',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
