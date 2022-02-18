@@ -1,21 +1,39 @@
 set fileencoding=utf-8
 set encoding=utf-8
-set runtimepath^=~/.config/nvim/plugged/coc.nvim
-filetype on
+set runtimepath^=~/.config/nvim/
 set colorcolumn=80
 set nu rnu
-set spelllang=es,en,technical
+set spelllang=es,en
 set splitbelow
 set splitright
 set nowrap
 set mouse=a
+set tabstop=4 shiftwidth=4 expandtab
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
+set fillchars=fold:\ 
+set foldnestmax=3
+set foldminlines=1
+set nocompatible
+filetype plugin on
 
 packadd termdebug
+
+let g:ale_disable_lsp = 1
+let g:vimwiki_list = [{'path': '~/docs/vimwiki',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_global_ext = 0
 
 " Vim-Plug
 call plug#begin()
 
-Plug 'ldelossa/litee.nvim'
+Plug 'puremourning/vimspector'
+
+Plug 'salkin-mada/openscad.nvim'
+Plug 'kevinoid/vim-jsonc'
+
+"Plug 'ldelossa/litee.nvim'
 "
 Plug 'chrisbra/csv.vim'
 
@@ -27,10 +45,12 @@ Plug 'nvim-treesitter/playground'
 
 Plug 'vim-airline/vim-airline'
 
+Plug 'vimwiki/vimwiki'
+Plug 'mattn/calendar-vim'
+
 " Colors
 Plug 'chrisbra/Colorizer'
 Plug 'Mofiqul/dracula.nvim'
-Plug 'ellisonleao/gruvbox.nvim'
 
 "Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -106,9 +126,14 @@ vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr)
 			\> 0\|exec '?'.g:srchstr\|endif<CR>
 " -----------------------------------------------------------------------------
 lua require("focus").setup()
+" --> Treesitter
+lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+lua require('openscad')
 
 
 " -> Binds
+" --> Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
 " --> General
 let mapleader = ','
 vnoremap <C-c> "+y
@@ -151,17 +176,23 @@ nnoremap <C-l> :FocusSplitRight<CR>
 
 let g:magma_automatically_open_output = v:false
 " -----------------------------------------------------------------------------
-
 " -> Settings
 set background=dark
 colorscheme dracula
+hi Normal guibg=NONE ctermbg=NONE
+
+" -- Fortran
+let fortran_more_precise=1
 
 " --> IPython
 let g:ipy_celldef = '^##'
 
+"" --> Ale
+"let g:ale_linters = {
+"\   'python': ['flake8'],
+"\   'fortran': ['language_server', 'gcc']
+"\}
 
-" --> Treesitter
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 
 " --> LaTeX
 let g:vimtex_compiler_latexmk = {
@@ -195,3 +226,40 @@ let g:coc_user_config = {
       \     }
       \},
 \}
+
+"" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+
+" air-line
+let g:airline_powerline_fonts = 1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = ''
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_left_sep = "\uE0B4"
+let g:airline_right_sep = "\uE0B6"
