@@ -21,9 +21,9 @@ blinking-green() {
 	echo "\e[5;32m$1\e[m"
 }
 
-yta() {
-    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
-}
+#yta() {
+#    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+#}
 
 get_paper() {
 	doi="$1"
