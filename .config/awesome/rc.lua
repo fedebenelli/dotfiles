@@ -527,15 +527,16 @@ awful.rules.rules = {
 	  "Elder Scrolls Online",
 	  "float", -- Windows called just "float", using this with some scripts.
 	  "Volume Control",
+	  "Friends List*",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
           "ConfigManager",  -- Thunderbird's about:config.
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
-      }, properties = { floating = true }},
+      }, properties = { floating = true, ontop = true }},
 
-    -- Add titlebars to normal clients and dialogs
+    -- (Do not) Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
       }, properties = { titlebars_enabled = false }
     },
@@ -543,13 +544,9 @@ awful.rules.rules = {
     { rule = { class = "Steam" },
       properties = { screen = 1, tag = "7" }
     },
-    { rule = {name = "Friends List*"},
-      properties = { floating = true }
-    }
-
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    { rule = { class = "discord" },
+      properties = { screen = 1, tag = "6" }
+    },
 }
 -- }}}
 
