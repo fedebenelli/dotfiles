@@ -21,9 +21,9 @@ blinking-green() {
 	echo "\e[5;32m$1\e[m"
 }
 
-yta() {
-    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
-}
+#yta() {
+#    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
+#}
 
 get_paper() {
 	doi="$1"
@@ -65,4 +65,24 @@ pdftitle() {
 
 wttr() {
 	curl wttr.in/cordoba,ar
+}
+
+ltx2wd() {
+	file="$1"
+	name="${file%.tex}"
+	latexml "$file" --dest="$name".xml
+	latexmlpost --dest "$name".html "$name".xml
+	pandoc -f html -t docx -o "$name".docx "$name".html
+}
+
+vw () {
+    if [[ $# == 0 ]]
+    then
+        nvim +'VimwikiIndex'
+    elif [[ $1 == 'git' ]]
+    then
+        git -C ~/docs/vimwiki/ ${@:2}
+    else
+        echo 'Usage: vimwiki [git] [args ...]'
+    fi
 }

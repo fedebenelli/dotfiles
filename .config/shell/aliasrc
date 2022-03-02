@@ -32,6 +32,7 @@ alias \
 	i3c='$EDITOR ~/.config/i3/config'  \
 	sizes='du . -h --max-depth=1'  \
 	autoedit='$EDITOR "$csgocfg"'  \
+	ncdu='ncdu -e --color=dark' \
 	downurl='wget -mkEpnp '$1  \
 	ll="ls --color=auto -lAh"  \
 	yeet='sudo yay -Rcsn'  \

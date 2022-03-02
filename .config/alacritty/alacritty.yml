@@ -45,6 +45,7 @@ window:
     x: 15
     y: 15
   # Spread additional padding evenly around the terminal content.
+  opacity: 0.8
 dynamic_padding: true
 
 # Window decorations
@@ -130,7 +131,7 @@ font:
   # The `style` can be specified to pick a specific face.
   #style: Bold Italic
   # Point size
-  size: 8.0
+  size: 11.0
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
@@ -311,36 +312,54 @@ font:
   #
   #command: None
 
-# Background opacity
-#
-# Window opacity as a floating point number from `0.0` to `1.0`.
-# The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.9
-colors:
+0olors:
   # COLORSCHEME: wal.yml
   name: Dotshare
   author: ''
   primary:
-    background: '#000000'
-    foreground: '#ffffff'
+    background: '#282936'
+    foreground: '#e9e9f4'
   cursor:
     text: '#000000'
     cursor: '#ffffff'
   normal:
-    black: '#322a2c'
-    red: '#a04363'
-    green: '#9b9329'
-    yellow: '#bf7a29'
-    blue: '#6a8c8c'
-    magenta: '#856774'
-    cyan: '#757978'
-    white: '#bcbcaf'
+    black: '#282936'
+    red: '#ea51b2'
+    green: '#00f769'
+    yellow: '#ebff87'
+    blue: '#62d6e8'
+    magenta: '#b45bcf'
+    cyan: '#a1efe4'
+    white: '#e9e9f4'
   bright:
-    black: '#46423b'
-    red: '#a04363'
-    green: '#9b9329'
-    yellow: '#bf7a29'
-    blue: '#6a8c8c'
-    magenta: '#856774'
-    cyan: '#757978'
-    white: '#bcbcaf'
+    black: '#4d4f68'
+    red: '#ea51b2'
+    green: '#00f769'
+    yellow: '#ebff87'
+    blue: '#62d6e8'
+    magenta: '#b45bcf'
+    cyan: '#a1efe4'
+    white: '#f7f7fb'
+colors:
+  # COLORSCHEME: wal.yml
+  primary:
+    background: '#000000'
+    foreground: '#ffffff'
+  normal:
+    black: '#666666'
+    red: '#cc6666'
+    green: '#66cc99'
+    yellow: '#cc9966'
+    blue: '#6699cc'
+    magenta: '#cc6699'
+    cyan: '#66cccc'
+    white: '#cccccc'
+  bright:
+    black: '#999999'
+    red: '#cc6666'
+    green: '#66cc99'
+    yellow: '#cc9966'
+    blue: '#6699cc'
+    magenta: '#cc6699'
+    cyan: '#66cccc'
+    white: '#cccccc'
