@@ -2,6 +2,9 @@
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
 
+-- Personal functions
+local my_functions = require("myfunctions")
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -236,15 +239,16 @@ awful.screen.connect_for_each_screen(function(s)
 	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
 	    require("awesome-wm-widgets.fs-widget.fs-widget") {
-		    mounts = {
-			    '/', 
-			    '/home', 
-			    '/media/fafb', 
-			    '/media/fafb2', 
-			    '/media/bigdata', 
-			    '/media/chia',
-			    '/media/chia2'
-		    }
+            mounts = my_functions.get_drives()
+		    --mounts = {
+			--    '/', 
+			--    '/home', 
+			--    '/media/fafb', 
+			--    '/media/fafb2', 
+			--    '/media/bigdata', 
+			--    '/media/chia',
+			--    '/media/chia2'
+		    --}
 		    },
 	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
