@@ -19,7 +19,7 @@ vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr)
 			\> 0\|exec '/'.g:srchstr\|endif<CR>
 vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) 
 			\> 0\|exec '?'.g:srchstr\|endif<CR>
-" -----------------------------------------------------------------------------
+" =============================================================================
 
 set fileencoding=utf-8
 set encoding=utf-8
