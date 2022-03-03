@@ -39,4 +39,8 @@ alias \
 	ls='ls --color=auto'  \
 	sysup='yay -Syu'  \
 	sxiv='sxiv -a'  \
-	df='df -h'  
+	df='df -h' \
+    man='COLUMNS=80 man' \
+    quake='darkplaces-sdl >> $HOME/docs/games/quakelog' \
+    vox='wine "$HOME/installs/winepfx/drive_c/Program Files (x86)/VOX/Tone Room/ToneRoom.exe"' \
+    aliasrc='$EDITOR "${XDG_CONFIG_HOME}/shell/aliasrc"'
