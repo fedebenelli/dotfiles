@@ -45,6 +45,7 @@ export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export XRESOURCES="$XDG_CONFIG_HOME"/X11/Xresources
 export SHORTCUTS="$XDG_CONFIG_HOME"/shortcuts
 export PYTHONHISTFILE="$XDG_CONFIG_HOME"/python/python_history
+export BASH_HISTORY="$XDG_CONFIG_HOME/shell/bash/history"
 
 # Other settings
 export FMOD_ALSA_DEVICE=pipewire 

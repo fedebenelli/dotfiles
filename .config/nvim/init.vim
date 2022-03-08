@@ -107,6 +107,8 @@ noremap <Right> :silent bn<CR> :redraw!<CR>
 " --> ALE
 nnoremap <Leader>l :ALEToggle<cr>
 nnoremap gd :ALEGoToDefinition<CR>
+nnoremap <silent> <leader>aj :ALENext<cr>
+nnoremap <silent> <leader>ak :ALEPrevious<cr>
 " --> Git
 nnoremap <Leader>gl :GV<CR>
 nnoremap <Leader>gd :Git diff %<CR>

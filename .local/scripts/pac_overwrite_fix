@@ -18,4 +18,4 @@
 package=$1
 pkgs="$(xclip -o | sed -r "s/$package: (.*) e.*/ --overwrite \1/" | xargs)"
 echo $pkgs
-sudo pacman -S $package --asdeps $pkgs
+yay -S $package --asdeps $pkgs
