@@ -152,10 +152,12 @@ let g:gitblame_display_virtual_text = 1
 
 
 " --> Fortran
+let fortran_free_source=1
+let fortran_do_enddo=1
 let fortran_more_precise=1
 let fortran_leader = ','
-"let fortran_linter = '2'
-let fortran_linter = '-1'
+let fortran_linter = '2'
+"let fortran_linter = '-1'
 let fortran_completer = '<F3>'
 let fortran_compiler = 'gfortran'
 let fortran_exeExt = 'o'
@@ -206,7 +208,7 @@ augroup end
 let g:coc_user_config = {
       \   'languageserver': {
       \     'fortran': {
-      \       'command': '/usr/bin/fortls',
+      \       'command': 'fortls',
       \       'args': ['--lowercase_intrinsics', '--hover_signature'],
       \       'filetypes': ['fortran'],
       \       'rootPatterns': ['.fortls', '.git/'],
