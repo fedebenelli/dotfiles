@@ -9,18 +9,25 @@ local my_functions = require("myfunctions")
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
+
 -- Widget and layout library
 local wibox = require("wibox")
+
 --- Custom widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 
 -- Theme handling library
 local beautiful = require("beautiful")
+
+local systray = wibox.widget.systray()
+--systray:set_base_size(25)
+
 -- Notification library
 local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
+
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -251,11 +258,11 @@ awful.screen.connect_for_each_screen(function(s)
 		    --}
 		    },
 	    wibox.widget.textbox(' | '),
-	    require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
+            require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
 	    wibox.widget.textbox(' | '),
-	    require("battery-widget") {},
+            require("battery-widget") {},
 	    wibox.widget.textbox(' | '),
-            wibox.widget.systray(),
+            systray,
 	    wibox.widget.textbox(' | '),
             mytextclock,
 	    wibox.widget.textbox(' | '),
