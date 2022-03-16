@@ -39,7 +39,7 @@ echo
 echo "-> Appointments"
 # Show
 calcurse -a
-[ $(cat ~/.cache/caldavstatus) = "notworks" ] &&
+[ $(cat ~/.cache/caldavstatus)="notworks" ] &&
 	printf "\n$(red 'WARNING: update caldav!')\n"
 hline
 echo "-> To-do"

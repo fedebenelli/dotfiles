@@ -46,11 +46,8 @@ setxkbmap latam &
 # systray applets
 nm-applet &
 blueman-applet &
-kdeconnect-indicator &
+#kdeconnect-indicator &
 pasystray &
 
 
-#exec dwm_start
 exec awesome
-#exec i3
-#exec gnome-session
