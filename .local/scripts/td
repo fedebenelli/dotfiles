@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Directory where all the notes are stored
-dir=$HOME/.local/share/td
+dir="$HOME/.local/share/td"
 
 # List of files in the directory
 files=$(ls "$dir")
@@ -50,6 +50,12 @@ show() {
 	done
 }
 
+sync() {
+    git -C "$dir" pull
+    git -C "$dir" add "$dir/*"
+    git -C "$dir" commit -a -m "$(date)"
+    git -C "$dir" push
+}
 
 case $1 in
 	"show")
@@ -80,6 +86,9 @@ case $1 in
 		fi
 		rm "$dir/$file"
 		;;
+    "sync")
+        sync
+        ;;
 	*)
 		h;;
 esac
