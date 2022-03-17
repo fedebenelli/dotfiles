@@ -150,14 +150,14 @@ lua require("focus").setup()
 " --> Git
 let g:gitblame_display_virtual_text = 1
 
-
 " --> Fortran
+autocmd FileType fortran set foldmethod=indent
 let fortran_free_source=1
 let fortran_do_enddo=1
 let fortran_more_precise=1
 let fortran_leader = ','
-let fortran_linter = '2'
-"let fortran_linter = '-1'
+"let fortran_linter = '2'
+let fortran_linter = '-1'
 let fortran_completer = '<F3>'
 let fortran_compiler = 'gfortran'
 let fortran_exeExt = 'o'
