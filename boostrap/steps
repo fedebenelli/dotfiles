@@ -1,0 +1,3 @@
+# Install
+
+mkdir -p $HOME/.local/share/mpd/playlists
