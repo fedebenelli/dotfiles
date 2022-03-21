@@ -1,0 +1,14 @@
+{
+    "output": {
+        "blocklist": [],
+        "convolver": {
+            "input-gain": -0.3,
+            "ir-width": 100,
+            "kernel-path": "/home/ruther/.config//easyeffects/irs/music-balanced.irs",
+            "output-gain": 0.0
+        },
+        "plugins_order": [
+            "convolver"
+        ]
+    }
+}
