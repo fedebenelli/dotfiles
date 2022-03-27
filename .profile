@@ -51,7 +51,7 @@ export BASH_HISTORY="$XDG_CONFIG_HOME/shell/bash/history"
 export FMOD_ALSA_DEVICE=pipewire 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-source "${XDG_CONFIG_HOME/mendeley-cli-settings}"
+#source "${XDG_CONFIG_HOME/mendeley-cli-settings}"
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]
 
