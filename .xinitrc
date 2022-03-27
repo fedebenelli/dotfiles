@@ -48,6 +48,6 @@ nm-applet &
 blueman-applet &
 #kdeconnect-indicator &
 pasystray &
-
+easyeffects --gapplication-service &
 
 exec awesome

@@ -103,6 +103,11 @@ ctrl + XF86Audio{Raise,Lower}Volume
 	pamixer {-i,-d} 5 --source $source;
 	notify-send "Sink Volume:" "$(pamixer --get-volume --source $source)%"
 
+# -> Brightness
+# --------------------------
+XF86MonBrightness{Up,Down}
+    brightnessctl s {+10%,10%-}
+
 # -> Music/mpd
 # --------------------------
 super + n
