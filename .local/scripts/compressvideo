@@ -1,2 +1,4 @@
 #!/bin/sh
-ffmpeg -i $1 -vcodec libx265 -crf 20 $2.mp4
+#ffmpeg -i $1 -vcodec libvpx-vp9 -crf 20 $2.mp4
+
+ffmpeg -i "$1" -ss $2 -to $3 -c:v libx264 -profile:v baseline -level 3.0 -pix_fmt yuv420p "${1%.*}-cut.mp4"
