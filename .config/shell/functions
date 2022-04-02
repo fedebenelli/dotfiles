@@ -86,3 +86,29 @@ vw () {
         echo 'Usage: vimwiki [git] [args ...]'
     fi
 }
+
+plot() {
+    plt=""
+    data="$(cat /dev/stdin)"
+    columns=$(echo "$data" | awk '{print NF}' | head -n1)
+
+    for i in $(seq 2 $((columns))); do
+        plt="$plt plot '-' using 1:$i with lines;"
+    done
+
+    plt="$plt pause mouse close"
+
+    echo $plt
+    echo "$data"
+
+    echo "$data" | gnuplot -p -e "$plt"
+}
+
+tplot() {
+	gnuplot -p -e "
+    set terminal dumb size $COLUMNS, 30;
+    set autoscale;
+    plot '-' using 0:1 with lines notitle;
+    pause mouse close
+    "
+}
