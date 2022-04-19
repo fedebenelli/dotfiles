@@ -558,6 +558,9 @@ awful.rules.rules = {
     { rule = { class = "discord" },
       properties = { screen = 1, tag = "6" }
     },
+    { rule = { class  = "easyeffects"},
+      properties = { screen = 1, tag = "9" }
+    }
 }
 -- }}}
 
