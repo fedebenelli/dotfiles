@@ -49,5 +49,6 @@ blueman-applet &
 #kdeconnect-indicator &
 pasystray &
 easyeffects &
+syncthingtray --wait &
 
 exec awesome
