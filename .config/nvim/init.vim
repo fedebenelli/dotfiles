@@ -19,6 +19,12 @@ vnoremap <silent> / :<C-U>call RangeSearch('/')<CR>:if strlen(g:srchstr)
 			\> 0\|exec '/'.g:srchstr\|endif<CR>
 vnoremap <silent> ? :<C-U>call RangeSearch('?')<CR>:if strlen(g:srchstr) 
 			\> 0\|exec '?'.g:srchstr\|endif<CR>
+
+
+function! VW()
+    :VimwikiIndex<CR>
+    :Calendar<CR>
+endfunction
 " =============================================================================
 
 set fileencoding=utf-8
@@ -55,6 +61,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'puremourning/vimspector'
 Plug 'salkin-mada/openscad.nvim'
 Plug 'kevinoid/vim-jsonc'
@@ -64,6 +71,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'vim-airline/vim-airline'
 Plug 'vimwiki/vimwiki'
+Plug 'michal-h21/vimwiki-sync'
 Plug 'mattn/calendar-vim'
 Plug 'chrisbra/Colorizer'
 Plug 'Mofiqul/dracula.nvim'
@@ -82,8 +90,6 @@ Plug 'junegunn/gv.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
 Plug 'rhysd/git-messenger.vim'
 call plug#end()
-
-
 
 
 " -> Binds
@@ -141,6 +147,33 @@ colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 "set background=dark
 
+" --> Indent lines
+lua << EOF
+vim.opt.termguicolors = true
+vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
+vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
+
+vim.opt.list = true
+-- vim.opt.listchars:append("space:⋅")
+-- vim.opt.listchars:append("eol:↴")
+
+require("indent_blankline").setup {
+    space_char_blankline = "-",
+    char_highlight_list = {
+        "IndentBlanklineIndent1",
+        "IndentBlanklineIndent2",
+        "IndentBlanklineIndent3",
+        "IndentBlanklineIndent4",
+        "IndentBlanklineIndent5",
+        "IndentBlanklineIndent6",
+    },
+}
+EOF
+
 " --> Treesitter
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 lua require('openscad')
@@ -185,12 +218,13 @@ let g:vimtex_quickfix_mode=0
 "set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : '',
+	\ 'build_dir' : 'build',
 	\ 'callback' : 1,
 	\ 'continuous' : 1,
 	\ 'executable' : 'latexmk',
 	\ 'hooks' : [],
 	\ 'options' : [
+    \   '-xelatex',
 	\   '-verbose',
 	\   '-file-line-error',
 	\   '-synctex=1',
@@ -256,6 +290,7 @@ let g:airline_left_sep = "\uE0B4"
 let g:airline_right_sep = "\uE0B6"
 
 " -> VimWiki
-let g:vimwiki_list = [{'path': '~/docs/vimwiki',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{ 'path': '~/docs/vimwiki', 
+                      \ 'path_html': '~/docs/vimwiki/html'}]
 let g:vimwiki_global_ext = 0
+
