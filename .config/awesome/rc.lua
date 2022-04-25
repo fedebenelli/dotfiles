@@ -16,6 +16,7 @@ local wibox = require("wibox")
 --- Custom widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
+local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -263,6 +264,7 @@ awful.screen.connect_for_each_screen(function(s)
             require("battery-widget") {},
 	    wibox.widget.textbox(' | '),
             systray,
+            logout_menu_widget(),
 	    wibox.widget.textbox(' | '),
             mytextclock,
 	    wibox.widget.textbox(' | '),
