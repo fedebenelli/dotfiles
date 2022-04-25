@@ -62,6 +62,7 @@ endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'tpope/vim-sleuth'
 Plug 'puremourning/vimspector'
 Plug 'salkin-mada/openscad.nvim'
 Plug 'kevinoid/vim-jsonc'
