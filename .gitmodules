@@ -1,3 +1,6 @@
 [submodule ".config/awesome/awesome-wm-widgets"]
 	path = .config/awesome/awesome-wm-widgets
 	url = https://github.com/streetturtle/awesome-wm-widgets
+[submodule ".config/awesome/pomodoro-widget"]
+	path = .config/awesome/pomodoro-widget
+	url = https://github.com/francois2metz/pomodoro-awesome
