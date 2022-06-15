@@ -104,6 +104,25 @@ plot() {
     echo "$data" | gnuplot -p -e "$plt"
 }
 
+envelplot() {
+	plt=""
+	[ $1 = "log" ] && plt="$plt set logscale y;"
+	plt="$plt; plot"
+	i=0
+	for file in $(ls envelout*); do
+		echo "$file"
+		i=$((i+1))
+		awk '{print $1, $2}' "$file" | grep ^[0-9] > "tmp_$i"
+		plt="$plt \"tmp_$i\" using 1:2 title \"envelope$i\",\
+		"
+	done
+	plt="${plt%,*};"
+	plt="$plt pause mouse close"
+	echo "$plt"
+	gnuplot -p -e "$plt"
+	rm tmp*
+}
+
 tplot() {
 	gnuplot -p -e "
     set terminal dumb size $COLUMNS, 30;
@@ -111,4 +130,8 @@ tplot() {
     plot '-' using 0:1 with lines notitle;
     pause mouse close
     "
+}
+
+intload(){
+	source /home/${USER}/intel/oneapi/setvars.sh
 }
