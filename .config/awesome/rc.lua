@@ -15,7 +15,7 @@ local wibox = require("wibox")
 
 --- Custom widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
-local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
+-- local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 
 -- Theme handling library
@@ -60,8 +60,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
--- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init("/home/ruther/.config/awesome/themes/xresources/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init("/home/ruther/.config/awesome/themes/xresources/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = os.getenv("TERMINAL") or "xterm"
@@ -240,24 +240,11 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
 	    wibox.widget.textbox(' | '),
             layout = wibox.layout.fixed.horizontal,
-	    weather_widget({
-			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
-			     coordinates = {-31.4122, -64.1705},
-			 }),
 	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
 	    require("awesome-wm-widgets.fs-widget.fs-widget") {
             mounts = my_functions.get_drives()
-		    --mounts = {
-			--    '/', 
-			--    '/home', 
-			--    '/media/fafb', 
-			--    '/media/fafb2', 
-			--    '/media/bigdata', 
-			--    '/media/chia',
-			--    '/media/chia2'
-		    --}
-		    },
+            },
 	    wibox.widget.textbox(' | '),
             require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
 	    wibox.widget.textbox(' | '),
