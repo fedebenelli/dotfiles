@@ -5,7 +5,7 @@ plugged=$(cat /sys/class/power_supply/AC/online 2> /dev/null)
 
 i=0
 
-if [ $(hostname) = 'thiccpad' ]; then
+if [ "$(hostname)" = 'thiccpad' ]; then
 	[ $plugged -eq 1 ] &&
 	printf "AC: %s $(acpi | cut -d',' -f3 | cut -d' ' -f2)" "%$charge" ||
 	printf "BAT: %s $(acpi | cut -d',' -f3 | cut -d' ' -f2)" "%$charge"
