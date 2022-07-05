@@ -26,7 +26,6 @@ function! VW()
     :Calendar<CR>
 endfunction
 " =============================================================================
-
 set undodir=~/.local/share/nvim/undo-dir
 set undofile
 set fileencoding=utf-8
