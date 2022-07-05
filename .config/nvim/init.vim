@@ -27,6 +27,8 @@ function! VW()
 endfunction
 " =============================================================================
 
+set undodir=~/.local/share/nvim/undo-dir
+set undofile
 set fileencoding=utf-8
 set encoding=utf-8
 set runtimepath^=~/.config/nvim/
