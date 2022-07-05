@@ -50,7 +50,7 @@ set nocompatible
 filetype plugin on
 
 packadd termdebug
-
+let g:ale_disable_lsp = 1
 
 " ==============================================================================
 " PLUGINS
