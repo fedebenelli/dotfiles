@@ -89,12 +89,14 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'vim-autoformat/vim-autoformat'
 call plug#end()
 
 
 " -> Binds
 let g:vimspector_enable_mappings = 'HUMAN'
 " --> General
+noremap <F3> :Autoformat<CR>
 let mapleader = ','
 vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
@@ -104,9 +106,12 @@ nnoremap <C-Left> :vertical resize +5<CR>
 nnoremap <C-Right> :vertical resize -5<CR>
 nnoremap <Leader>w :w<CR> 
 nnoremap <Leader><Leader> :source $MYVIMRC<CR>
+nnoremap <C-s> :r!screenshot -tex<CR>
 " --> LaTeX
 autocmd FileType tex nmap cc :VimtexCompile<CR>
 autocmd FileType tex nmap <C-t> :VimtexTocToggle<CR>
+autocmd FileType tex nmap <leader>ss :!screenshot -tex<CR>
+
 " --> Lazy presentation
 noremap <Left> :silent bp<CR> :redraw!<CR>
 noremap <Right> :silent bn<CR> :redraw!<CR>
@@ -215,6 +220,8 @@ let g:ale_disable_lsp = 1
 " --> LaTeX
 let g:tex_flavor='xelatex'
 let g:vimtex_quickfix_mode=0
+let g:formatdef_latexindent = '"latexindent -"'
+
 "set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_compiler_latexmk = {
