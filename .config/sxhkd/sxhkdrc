@@ -1,7 +1,7 @@
 # -> Sxhkd
 # --------------------------
 super + Escape
-	killall sxhkd; wait & sxhkd & notify-send "⌨️  sxhkd reloaded!"
+	killall sxhkd; wait && sxhkd && notify-send "⌨️  sxhkd reloaded!"
 super + shift + Escape
 	$TERMINAL -e $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
 
@@ -91,7 +91,7 @@ super + shift + c
 # -> Volumes
 # --------------------------
 XF86Audio{Raise,Lower}Volume
-	pamixer {-i,-d} 5
+    sink=$(cat "$HOME/.cache/sink" || echo ""); pamixer {-i,-d} 5
 
 XF86AudioMute
 	pamixer --toggle-mute
