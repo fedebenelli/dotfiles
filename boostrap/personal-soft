@@ -1,2 +1,4 @@
-shellpad
-prata
+PREFIX=$HOME/.local/bin
+
+makefile shellpad https://github.com/fedebenelli/shellpad
+makefile prata https://github.com/fedebenelli/prata

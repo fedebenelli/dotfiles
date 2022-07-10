@@ -1,14 +1,15 @@
 # -> Sxhkd
 # --------------------------
 super + Escape
-	killall sxhkd; wait & sxhkd & notify-send "⌨️  sxhkd reloaded!"
+	killall sxhkd; wait && sxhkd && notify-send "⌨️  sxhkd reloaded!"
 super + shift + Escape
 	$TERMINAL -e $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
 
 # Show camera
 # --------------------------
 super + c
-	mpv av://v4l2:/dev/video0 \
+    camera=$(ls /dev/video* | dmenu); \
+    mpv av://v4l2:$camera \
 	--profile=low-latency \
 	--untimed --no-osd-bar \
 	--script-opts=osc-visibility=never --title=float
@@ -90,7 +91,7 @@ super + shift + c
 # -> Volumes
 # --------------------------
 XF86Audio{Raise,Lower}Volume
-	pamixer {-i,-d} 5
+    sink=$(cat "$HOME/.cache/sink" || echo ""); pamixer {-i,-d} 5
 
 XF86AudioMute
 	pamixer --toggle-mute

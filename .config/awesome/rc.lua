@@ -17,6 +17,7 @@ local wibox = require("wibox")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
+local pomodoro_widget = require("pomodoro-widget")
 
 -- Theme handling library
 local beautiful = require("beautiful")
@@ -239,24 +240,17 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
 	    wibox.widget.textbox(' | '),
-            layout = wibox.layout.fixed.horizontal,
+        layout = wibox.layout.fixed.horizontal,
 	    weather_widget({
 			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
 			     coordinates = {-31.4122, -64.1705},
 			 }),
 	    wibox.widget.textbox(' | '),
+        pomodoro_widget,
+	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
 	    require("awesome-wm-widgets.fs-widget.fs-widget") {
             mounts = my_functions.get_drives()
-		    --mounts = {
-			--    '/', 
-			--    '/home', 
-			--    '/media/fafb', 
-			--    '/media/fafb2', 
-			--    '/media/bigdata', 
-			--    '/media/chia',
-			--    '/media/chia2'
-		    --}
 		    },
 	    wibox.widget.textbox(' | '),
             require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
@@ -385,14 +379,22 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
+    awful.key({ modkey, }, "b", 
+        function ()
+            awful.wibar.visible = not awful.wibar.visible
+        end,
+        {description = "hide wibar"}),
     awful.key({ modkey,           }, "f",
         function (c)
             c.fullscreen = not c.fullscreen
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "q",      function (c) c:kill()                         end,
-              {description = "close", group = "client"}),
+    awful.key({ modkey, "Shift"   }, "q",
+        function (c)
+            c:kill()
+        end,
+        {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
