@@ -8,7 +8,7 @@
             "output-gain": 0.0
         },
         "equalizer": {
-            "input-gain": 3.3,
+            "input-gain": -4.5,
             "left": {
                 "band0": {
                     "frequency": 32.0,
