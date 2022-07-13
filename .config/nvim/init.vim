@@ -153,6 +153,7 @@ hi Normal guibg=NONE ctermbg=NONE
 "set background=dark
 
 " --> Indent lines
+
 lua << EOF
 vim.opt.termguicolors = true
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
