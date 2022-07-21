@@ -144,6 +144,7 @@ nnoremap <C-h> :FocusSplitLeft<CR>
 nnoremap <C-j> :FocusSplitDown<CR>
 nnoremap <C-k> :FocusSplitUp<CR>
 nnoremap <C-l> :FocusSplitRight<CR>
+nnoremap <leader>fm :FocusMaxOrEqual<CR>
 
 let g:magma_automatically_open_output = v:false
 
