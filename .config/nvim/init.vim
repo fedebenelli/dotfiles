@@ -90,6 +90,8 @@ Plug 'junegunn/gv.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 call plug#end()
 
 
@@ -107,6 +109,8 @@ nnoremap <C-Right> :vertical resize -5<CR>
 nnoremap <Leader>w :w<CR> 
 nnoremap <Leader><Leader> :source $MYVIMRC<CR>
 nnoremap <C-s> :r!screenshot -tex<CR>
+" --> Markdon
+autocmd FileType markdown nmap <leader>cc :!pandoc % -o %.pdf
 " --> LaTeX
 autocmd FileType tex nmap cc :VimtexCompile<CR>
 autocmd FileType tex nmap <C-t> :VimtexTocToggle<CR>
