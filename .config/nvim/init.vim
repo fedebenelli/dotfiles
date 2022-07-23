@@ -140,17 +140,18 @@ nnoremap <C-h> :FocusSplitLeft<CR>
 nnoremap <C-j> :FocusSplitDown<CR>
 nnoremap <C-k> :FocusSplitUp<CR>
 nnoremap <C-l> :FocusSplitRight<CR>
-
-let g:magma_automatically_open_output = v:false
+let g:focusmode_width = 90
 
 " =============================================================================
 "  Settings
 " -----------------------------------------------------------------------------
-
 " -> General
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 "set background=dark
+
+" --> Magma
+let g:magma_automatically_open_output = v:false
 
 " --> Indent lines
 lua << EOF
