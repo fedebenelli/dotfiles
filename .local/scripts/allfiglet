@@ -1,6 +1,5 @@
 #!/bin/sh
 for font in $(ls /usr/share/figlet/fonts/*.flf);
 do
-	figlet -f $font $1;
+    figlet -f "$font" "$1";
 done
-
