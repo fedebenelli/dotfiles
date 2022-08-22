@@ -35,21 +35,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
-function my_functions.toggle_bar()
-    -- If a client is fullscreen, hide the bar
-    clients = awful.screen.focused():get_clients()
-    for k, c in pairs(clients) do
-        c = value
-        if c.fullscreen then
-            myscreen = awful.screen.focused()
-            myscreen.mywibox.visible = false
-        else
-            myscreen = awful.screen.focused()
-            myscreen.mywibox.visible = true
-        end
-    end
-end
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
