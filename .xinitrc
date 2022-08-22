@@ -11,7 +11,6 @@ userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 
 # merge in defaults and keymaps
-
 [ -f $sysresources ] &&  xrdb -merge $sysresources
 [ -f $sysmodmap ] && xmodmap $sysmodmap
 [ -f "$userresources" ] && xrdb -merge "$userresources"
@@ -26,9 +25,6 @@ fi
 
 export XDG_SESSION_TYPE=x11
 export GDK_BACKEND=x11
-
-#bzchat "/media/fafb/games/steamapps/common/Battlezone 98 Redux/BZChatLog.txt" &
-#twitch-notifier e3ixyve163dlfndg0yznwf6hmliuki vuqh6hd4ddgdm9082gfxt7nf74lvk6 30s &
 
 pgrep sxhkd || sxhkd &
 pgrep mpd || mpd &
@@ -48,8 +44,13 @@ nm-applet &
 blueman-applet &
 #kdeconnect-indicator &
 pasystray &
+
+# Sound stuff
 easyeffects &
 set_sink set &
+
+# Sync files
 syncthingtray --wait &
 
+# Start wm
 exec awesome

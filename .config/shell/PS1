@@ -24,4 +24,13 @@
 
 # My name
 #------------------
-PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']') \n$(blinking-green '└-------------$(($(ls -la ~ | wc -l)-3))---->') "
+branch() {
+    b="$(git branch 2>/dev/null)"
+    if [ -z "$b" ]; then
+        printf ""
+    else
+        printf "(\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))"
+    fi
+}
+
+PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']')$(branch)\n$(blinking-green '└-------------$(($(ls -la ~ | wc -l)-3))---->') "

@@ -12,8 +12,8 @@ alias \
 	ffmpeg="ffmpeg -hide_banner"
 
 alias \
-    gams="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/gams" \
-    gamsstud="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/studio/studio.AppImage" \
+  gams="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/gams" \
+  gamsstud="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/studio/studio.AppImage" \
 	showcolors='for x in {0..8}; do for i in {30..37}; do for a in {40..47}; do echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "; done; echo; done; done; echo ""'  \
 	downsite='wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains website.org --no-parent "$1"' \
 	cdgo='cd ".local/share/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg"' \
@@ -42,7 +42,7 @@ alias \
 	sysup='yay -Syu'  \
 	sxiv='sxiv -a'  \
 	df='df -h' \
-    man='COLUMNS=80 man' \
-    quake='darkplaces-sdl >> $HOME/docs/games/quakelog' \
-    vox='wine "$HOME/installs/winepfx/drive_c/Program Files (x86)/VOX/Tone Room/ToneRoom.exe"' \
-    aliasrc='$EDITOR "${XDG_CONFIG_HOME}/shell/aliasrc"'
+  man='COLUMNS=80 man' \
+  quake='darkplaces-sdl >> $HOME/docs/games/quakelog' \
+  vox='wine "$HOME/installs/winepfx/drive_c/Program Files (x86)/VOX/Tone Room/ToneRoom.exe"' \
+  aliasrc='$EDITOR "${XDG_CONFIG_HOME}/shell/aliasrc"'
