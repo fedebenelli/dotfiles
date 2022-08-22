@@ -16,7 +16,7 @@ local wibox = require("wibox")
 
 --- Custom widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
--- local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
+local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local pomodoro_widget = require("pomodoro-widget")
 
