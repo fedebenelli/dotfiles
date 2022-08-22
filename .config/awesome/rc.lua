@@ -5,6 +5,7 @@ pcall(require, "luarocks.loader")
 -- Personal functions
 local my_functions = require("myfunctions")
 
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -33,6 +34,21 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+
+function my_functions.toggle_bar()
+    -- If a client is fullscreen, hide the bar
+    clients = awful.screen.focused():get_clients()
+    for k, c in pairs(clients) do
+        c = value
+        if c.fullscreen then
+            myscreen = awful.screen.focused()
+            myscreen.mywibox.visible = false
+        else
+            myscreen = awful.screen.focused()
+            myscreen.mywibox.visible = true
+        end
+    end
+end
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -278,6 +294,13 @@ root.buttons(gears.table.join(
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
+    awful.key({ modkey, }, "b", 
+        function() 
+            myscreen = awful.screen.focused()
+            myscreen.mywibox.visible = not myscreen.mywibox.visible
+        end,
+        {description = "hide wibar"}
+        ),
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
     awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
@@ -379,13 +402,16 @@ globalkeys = gears.table.join(
 )
 
 clientkeys = gears.table.join(
-    awful.key({ modkey, }, "b", 
-        function ()
-            awful.wibar.visible = not awful.wibar.visible
-        end,
-        {description = "hide wibar"}),
     awful.key({ modkey,           }, "f",
         function (c)
+            if not c.fullscreen then
+                myscreen = awful.screen.focused()
+                myscreen.mywibox.visible = false
+            else
+                myscreen = awful.screen.focused()
+                myscreen.mywibox.visible = true
+            end
+
             c.fullscreen = not c.fullscreen
             c:raise()
         end,
@@ -559,7 +585,7 @@ awful.rules.rules = {
     { rule = { class = "Steam" },
       properties = { screen = 1, tag = "7" }
     },
-    { rule = { class = "discord" },
+    { rule_any = { class = {"discord", "ferdium"} },
       properties = { screen = 1, tag = "6" }
     },
     { rule = { class  = "easyeffects"},
@@ -624,11 +650,20 @@ client.connect_signal("request::titlebars", function(c)
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
-client.connect_signal("mouse::enter", function(c)
-    c:emit_signal("request::activate", "mouse_enter", {raise = false})
-end)
+client.connect_signal(
+    "mouse::enter", 
+    function(c)
+        c:emit_signal("request::activate", "mouse_enter", {raise = false})
+    end
+)
 
-client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("focus",
+    function(c)
+        -- my_functions.toggle_bar()
+        c.border_color = beautiful.border_focus
+    end
+)
+
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
 
