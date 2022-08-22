@@ -3,6 +3,8 @@
 --   by Yauhen Kirylau                    --
 ---------------------------------------------
 
+local username = os.getenv("USER")
+local homedir = os.getenv("HOME")
 local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
@@ -126,11 +128,11 @@ if not is_dark_bg then
     wallpaper_bg, wallpaper_fg = wallpaper_fg, wallpaper_bg
 end
 
-theme.wallpaper = function(s)
-    return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
-end
+--theme.wallpaper = function(s)
+--    return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
+--end
 
-theme.wallpaper = "/home/ruther/.config/wallpaper.png"
+theme.wallpaper = homedir .. "/.config/wallpaper.png"
 theme.tasklist_disable_icon = true
 
 return theme

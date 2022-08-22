@@ -1,3 +1,4 @@
 {
-    "signature.floatConfig": {"border": true}
+    "signature.floatConfig": {"border": true},
+    "diagnostic.displayByAle": true
 }
