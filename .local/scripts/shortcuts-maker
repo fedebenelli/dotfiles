@@ -20,7 +20,6 @@ $(basename $0) show
 
 
 case $1 in
-
 	"make")
 		# ranger
 		echo "$shorts" | awk '{print "map g"$1" cd "$2}' > ${XDG_CONFIG_HOME}/ranger/shortcuts
