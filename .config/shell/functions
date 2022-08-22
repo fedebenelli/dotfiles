@@ -35,7 +35,6 @@ get_paper() {
 	wget "$pdf_link" -O "${PAPERS_DIR:-${XDG_DOWNLOAD_DIR:-$HOME/Downloads}}/$pdf_name.pdf"
 }
 
-
 nap() {
 	mkdir "$1"
 	cp $HOME/docs/programming/arduino/Makefile "$1/"
@@ -88,15 +87,21 @@ vw () {
 }
 
 plot() {
-    plt=""
+    tmp_file="/tmp/$(date +%s)"
+    plt="plot"
     data="$(cat /dev/stdin)"
-    columns=$(echo "$data" | awk '{print NF}' | head -n1)
 
-    for i in $(seq 2 $((columns))); do
-        plt="$plt plot '-' using 1:$i with lines;"
+    echo "$data" > $tmp_file
+
+    n_columns=$(echo "$data" | awk '{print NF}' | head -n1)
+    columns=( $(echo "$data" | head -n1) )
+
+    for i in $(seq 2 $((n_columns))); do
+        plt="$plt '$tmp_file' using 1:$i with lines title '${columns[i-1]}',\
+        "
     done
 
-    plt="$plt pause mouse close"
+    plt="$plt; pause mouse close"
 
     echo $plt
     echo "$data"
@@ -127,7 +132,7 @@ tplot() {
 	gnuplot -p -e "
     set terminal dumb size $COLUMNS, 30;
     set autoscale;
-    plot '-' using 0:1 with lines notitle;
+    plot '-' using 1:2 with lines notitle;
     pause mouse close
     "
 }
