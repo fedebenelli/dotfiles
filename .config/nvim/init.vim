@@ -26,7 +26,8 @@ function! VW()
     :Calendar<CR>
 endfunction
 " =============================================================================
-
+set undodir=~/.local/share/nvim/undo-dir
+set undofile
 set fileencoding=utf-8
 set encoding=utf-8
 set runtimepath^=~/.config/nvim/
@@ -48,7 +49,7 @@ set nocompatible
 filetype plugin on
 
 packadd termdebug
-
+let g:ale_disable_lsp = 1
 
 " ==============================================================================
 " PLUGINS
@@ -62,6 +63,7 @@ endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'tpope/vim-sleuth'
 Plug 'puremourning/vimspector'
 Plug 'salkin-mada/openscad.nvim'
 Plug 'kevinoid/vim-jsonc'

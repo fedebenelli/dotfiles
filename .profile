@@ -19,7 +19,7 @@ export XDG_PUBLICSHARE_DIR="$HOME/docs/public/"
 export XDG_VIDEOS_DIR="$HOME/vids/"
 export XDG_TRASH_DIR="$HOME/.local/share/Trash/"
 export BIBFILE="$HOME/docs/research/bibliography.bib"
-export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/scripts:$HOME/.local/bin:$HOME/.emacs.d/bin"
+export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/scripts:$HOME/.local/bin:$HOME/.emacs.d/bin:$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx"
 export ZDOTDIR="$HOME/.config/shell/zsh"
 
 # Default software to use
