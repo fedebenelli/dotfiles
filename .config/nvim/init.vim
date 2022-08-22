@@ -26,7 +26,8 @@ function! VW()
     :Calendar<CR>
 endfunction
 " =============================================================================
-
+set undodir=~/.local/share/nvim/undo-dir
+set undofile
 set fileencoding=utf-8
 set encoding=utf-8
 set runtimepath^=~/.config/nvim/
@@ -48,7 +49,7 @@ set nocompatible
 filetype plugin on
 
 packadd termdebug
-
+let g:ale_disable_lsp = 1
 
 " ==============================================================================
 " PLUGINS
@@ -62,6 +63,7 @@ endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'tpope/vim-sleuth'
 Plug 'puremourning/vimspector'
 Plug 'salkin-mada/openscad.nvim'
 Plug 'kevinoid/vim-jsonc'
@@ -90,6 +92,8 @@ Plug 'junegunn/gv.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 call plug#end()
 
 
@@ -107,6 +111,8 @@ nnoremap <C-Right> :vertical resize -5<CR>
 nnoremap <Leader>w :w<CR> 
 nnoremap <Leader><Leader> :source $MYVIMRC<CR>
 nnoremap <C-s> :r!screenshot -tex<CR>
+" --> Markdon
+autocmd FileType markdown nmap <leader>cc :!pandoc % -o %.pdf
 " --> LaTeX
 autocmd FileType tex nmap cc :VimtexCompile<CR>
 autocmd FileType tex nmap <C-t> :VimtexTocToggle<CR>
@@ -141,6 +147,7 @@ nnoremap <C-j> :FocusSplitDown<CR>
 nnoremap <C-k> :FocusSplitUp<CR>
 nnoremap <C-l> :FocusSplitRight<CR>
 let g:focusmode_width = 90
+nnoremap <leader>fm :FocusMaxOrEqual<CR>
 
 " =============================================================================
 "  Settings
@@ -154,6 +161,7 @@ hi Normal guibg=NONE ctermbg=NONE
 let g:magma_automatically_open_output = v:false
 
 " --> Indent lines
+
 lua << EOF
 vim.opt.termguicolors = true
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
