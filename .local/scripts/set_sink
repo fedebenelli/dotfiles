@@ -1,0 +1,26 @@
+#!/bin/sh
+SINK_FILE="${XDG_HOME_DIR:-$HOME}.cache/sink"
+
+choose() {
+    sinks="$(pactl list sinks | egrep "(Name)|(Description)")"
+    sink="$(echo "$sinks" | grep "Description" | dmenu)"
+    sink_name=$(echo "$sinks" | grep -P1 "$sink" | head -n1 | cut -d' ' -f2)
+    echo selected "$sink_name"
+
+    echo echo $sink_name > "${SINK_FILE}"
+    echo $sink_name > "${SINK_FILE}"
+}
+
+
+set_default() {
+    pactl set-default-sink $(cat "$SINK_FILE")
+}
+
+case $1 in
+    "choose")
+        choose
+        set_default;;
+
+    "set")
+        set_default;;
+esac

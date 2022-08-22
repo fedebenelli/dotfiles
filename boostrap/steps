@@ -1,2 +1,5 @@
 # Install
 mkdir -p $HOME/.local/share/mpd/playlists
+
+systemctl enable synthing@${USER}.service
+systemctl start synthing@${USER}.service

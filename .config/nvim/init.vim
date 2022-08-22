@@ -91,12 +91,16 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
 Plug 'yasuhiroki/github-actions-yaml.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'vim-autoformat/vim-autoformat'
+Plug 'godlygeek/tabular'
+Plug 'preservim/vim-markdown'
 call plug#end()
 
 
 " -> Binds
 let g:vimspector_enable_mappings = 'HUMAN'
 " --> General
+noremap <F3> :Autoformat<CR>
 let mapleader = ','
 vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
@@ -106,9 +110,14 @@ nnoremap <C-Left> :vertical resize +5<CR>
 nnoremap <C-Right> :vertical resize -5<CR>
 nnoremap <Leader>w :w<CR> 
 nnoremap <Leader><Leader> :source $MYVIMRC<CR>
+nnoremap <C-s> :r!screenshot -tex<CR>
+" --> Markdon
+autocmd FileType markdown nmap <leader>cc :!pandoc % -o %.pdf
 " --> LaTeX
 autocmd FileType tex nmap cc :VimtexCompile<CR>
 autocmd FileType tex nmap <C-t> :VimtexTocToggle<CR>
+autocmd FileType tex nmap <leader>ss :!screenshot -tex<CR>
+
 " --> Lazy presentation
 noremap <Left> :silent bp<CR> :redraw!<CR>
 noremap <Right> :silent bn<CR> :redraw!<CR>
@@ -137,6 +146,7 @@ nnoremap <C-h> :FocusSplitLeft<CR>
 nnoremap <C-j> :FocusSplitDown<CR>
 nnoremap <C-k> :FocusSplitUp<CR>
 nnoremap <C-l> :FocusSplitRight<CR>
+nnoremap <leader>fm :FocusMaxOrEqual<CR>
 
 let g:magma_automatically_open_output = v:false
 
@@ -150,6 +160,7 @@ hi Normal guibg=NONE ctermbg=NONE
 "set background=dark
 
 " --> Indent lines
+
 lua << EOF
 vim.opt.termguicolors = true
 vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
@@ -202,11 +213,11 @@ let g:fprettify_options = '--silent --indent 4'
 
 
 " --> Python
-"if exists("$VIRTUAL_ENV")
-"    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
-"else
-"    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
-"endif
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog=substitute(system("which -a python3 | head -n1 | tail -n1"), "\n", '', 'g')
+else
+    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
+endif
 
 " --> IPython
 let g:ipy_celldef = '^##'
@@ -217,6 +228,8 @@ let g:ale_disable_lsp = 1
 " --> LaTeX
 let g:tex_flavor='xelatex'
 let g:vimtex_quickfix_mode=0
+let g:formatdef_latexindent = '"latexindent -"'
+
 "set conceallevel=1
 let g:tex_conceal='abdmg'
 let g:vimtex_compiler_latexmk = {
