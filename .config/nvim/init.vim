@@ -206,6 +206,7 @@ let g:fprettify_options = '--silent --indent 4'
 
 
 " --> Python
+"  Don't use virtualenv's python
 if exists("$VIRTUAL_ENV")
     let g:python3_host_prog=substitute(system("which -a python3 | head -n1 | tail -n1"), "\n", '', 'g')
 else
@@ -219,7 +220,7 @@ let g:ipy_celldef = '^##'
 let g:ale_disable_lsp = 1
 
 " --> LaTeX
-let g:tex_flavor='xelatex'
+let g:tex_flavor='lualatex'
 let g:vimtex_quickfix_mode=0
 let g:formatdef_latexindent = '"latexindent -"'
 
@@ -230,9 +231,8 @@ let g:vimtex_compiler_latexmk = {
 	\ 'callback' : 1,
 	\ 'continuous' : 1,
 	\ 'executable' : 'latexmk',
-	\ 'hooks' : [],
 	\ 'options' : [
-    \   '-xelatex',
+    \   '-shell-escape',
 	\   '-verbose',
 	\   '-file-line-error',
 	\   '-synctex=1',
