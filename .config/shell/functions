@@ -21,6 +21,15 @@ blinking-green() {
 	echo "\e[5;32m$1\e[m"
 }
 
+onmodify() {
+    TARGET=${1:-.}; shift
+    CMD="$@"
+    
+    echo "$TARGET" "$CMD"
+
+    echo "$TARGET" | entr "$CMD"
+}
+
 #yta() {
 #    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
 #}
