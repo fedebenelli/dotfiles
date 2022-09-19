@@ -100,22 +100,40 @@ plot() {
     plt="plot"
     data="$(cat /dev/stdin)"
 
+    tmp_file="$HOME/.cache/plot$(date +%s)"
+    
     echo "$data" > $tmp_file
 
-    n_columns=$(echo "$data" | awk '{print NF}' | head -n1)
-    columns=( $(echo "$data" | head -n1) )
+    ncolumns=$(echo "$data" | awk '{print NF}' | head -n1)
+    labels=( $(echo $data | head -n1) )
 
-    for i in $(seq 2 $((n_columns))); do
-        plt="$plt '$tmp_file' using 1:$i with lines title '${columns[i-1]}',\
+    re='^[0-9]+$'
+
+    if ! [[ ${labels[0]} =~ $re ]] ; then
+	data=$(echo "$data" | tail -n+2)
+	plt="set xlabel \"${labels[0]}\";"
+    else
+	labels=()
+	for i in $(seq 2 $((ncolumns))); do
+	    labels[$i]=$i
+	done
+    fi
+
+    for i in $(seq 0 $((ncolumns))); do
+	echo ${labels[$i]}
+    done
+
+    plt="${plt}plot \"$tmp_file\" u 1:2 with lines title \"${labels[1]}\",\
+    "
+    for i in $(seq 3 $((ncolumns))); do
+	plt="$plt \"$tmp_file\" using 1:$i with lines title \"${labels[$((i-1))]}\",\
         "
     done
 
-    plt="$plt; pause mouse close"
-
-    echo $plt
-    echo "$data"
-
-    echo "$data" | gnuplot -p -e "$plt"
+    plt="${plt%,*};"
+    plt="$plt pause mouse close"
+    echo "$plt" > $HOME/.cache/gnuplotscript
+    echo "$data" | gnuplot -p $HOME/.cache/gnuplotscript
 }
 
 envelplot() {
