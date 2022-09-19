@@ -1,4 +1,9 @@
 # Install
+git pull https://github.com/fedebenelli/dotfiles .config/dotfiles
+
+cd .config/dotfiles
+git submodule update --init --recursive
+
 mkdir -p $HOME/.local/share/mpd/playlists
 
 systemctl enable synthing@${USER}.service
