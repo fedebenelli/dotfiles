@@ -1,5 +1,18 @@
 # Install
+git pull https://github.com/fedebenelli/dotfiles .config/dotfiles
+
+cd .config/dotfiles
+git submodule update --init --recursive
+
 mkdir -p $HOME/.local/share/mpd/playlists
 
 systemctl enable synthing@${USER}.service
 systemctl start synthing@${USER}.service
+
+
+# Configuration
+git clone --depth=1 https://github.com/adi1090x/rofi.git
+cd rofi 
+chmod +x setup.sh
+./setup.sh
+cd ..

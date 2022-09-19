@@ -83,7 +83,7 @@ super + shift + n
 	$TERMINAL -o "font:monospace:pixelsize=19:antialias=true:autohint=true" -e newsboat
 
 {XF86Calculator, alt + c}
-	exec rofi -show calc
+	exec rofi -show calc -modi calc -no-show-match -no-sort
 
 super + shift + c
 	exec $TERMINAL -e calcurse

@@ -14,9 +14,9 @@ local themes_path = gfs.get_themes_dir()
 
 -- inherit default theme
 local theme = dofile(themes_path.."default/theme.lua")
--- load vector assets' generators for this theme
 
-theme.font          = "bitmap 8"
+-- load vector assets' generators for this theme
+theme.font          = "Terminus 8"
 
 theme.bg_normal     = xrdb.background
 theme.bg_focus      = xrdb.color12
@@ -121,18 +121,18 @@ end
 local is_dark_bg = (bg_numberic_value < 383)
 
 -- Generate wallpaper:
-local wallpaper_bg = xrdb.color8
-local wallpaper_fg = xrdb.color7
-local wallpaper_alt_fg = xrdb.color12
-if not is_dark_bg then
-    wallpaper_bg, wallpaper_fg = wallpaper_fg, wallpaper_bg
-end
+-- local wallpaper_bg = xrdb.color8
+-- local wallpaper_fg = xrdb.color7
+-- local wallpaper_alt_fg = xrdb.color12
+-- if not is_dark_bg then
+--     wallpaper_bg, wallpaper_fg = wallpaper_fg, wallpaper_bg
+-- end
 
 --theme.wallpaper = function(s)
 --    return theme_assets.wallpaper(wallpaper_bg, wallpaper_fg, wallpaper_alt_fg, s)
 --end
 
-theme.wallpaper = homedir .. "/.config/wallpaper.png"
+theme.wallpaper = homedir.."/.config/wallpaper.png"
 theme.tasklist_disable_icon = true
 
 return theme
