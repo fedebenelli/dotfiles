@@ -13,8 +13,9 @@ alias \
 
 alias \
     grumos="~/installs/gromacs-2022.2/build/bin/gmx" \
-  gams="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/gams" \
-  gamsstud="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/studio/studio.AppImage" \
+	gams="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/gams" \
+	gamsstud="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/studio/studio.AppImage" \
+	upwal="xwallpaper --zoom $HOME/.config/wallpaper.png" \
 	showcolors='for x in {0..8}; do for i in {30..37}; do for a in {40..47}; do echo -ne "\e[$x;$i;$a""m\\\e[$x;$i;$a""m\e[0;37;40m "; done; echo; done; done; echo ""'  \
 	downsite='wget --recursive --no-clobber --page-requisites --html-extension --convert-links --restrict-file-names=windows --domains website.org --no-parent "$1"' \
 	cdgo='cd ".local/share/Steam/steamapps/common/Counter-Strike Global Offensive/csgo/cfg"' \
