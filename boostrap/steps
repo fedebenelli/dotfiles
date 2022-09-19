@@ -3,3 +3,11 @@ mkdir -p $HOME/.local/share/mpd/playlists
 
 systemctl enable synthing@${USER}.service
 systemctl start synthing@${USER}.service
+
+
+# Configuration
+git clone --depth=1 https://github.com/adi1090x/rofi.git
+cd rofi 
+chmod +x setup.sh
+./setup.sh
+cd ..

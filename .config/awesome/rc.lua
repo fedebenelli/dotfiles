@@ -11,8 +11,14 @@ local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
 
+
 -- Widget and layout library
 local wibox = require("wibox")
+
+
+-- Theme handling library
+local beautiful = require("beautiful")
+
 
 --- Custom widgets
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
@@ -20,11 +26,9 @@ local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
 local pomodoro_widget = require("pomodoro-widget")
 
--- Theme handling library
-local beautiful = require("beautiful")
 
 local systray = wibox.widget.systray()
---systray:set_base_size(25)
+systray:set_base_size(17)
 
 -- Notification library
 local naughty = require("naughty")
@@ -62,8 +66,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
---beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
-beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir().."xresources/theme.lua")
+beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), "xresources"))
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = os.getenv("TERMINAL") or "xterm"
@@ -71,10 +76,6 @@ editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
@@ -240,12 +241,12 @@ awful.screen.connect_for_each_screen(function(s)
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
+        layout = wibox.layout.fixed.horizontal,
 	    wibox.widget.textbox(' | '),
-      layout = wibox.layout.fixed.horizontal,
-	    weather_widget({
-			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
-			     coordinates = {-31.4122, -64.1705},
-			 }),
+--	    weather_widget({
+--			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
+--			     coordinates = {-31.4122, -64.1705},
+--			 }),
 	    wibox.widget.textbox(' | '),
       pomodoro_widget,
 	    wibox.widget.textbox(' | '),
