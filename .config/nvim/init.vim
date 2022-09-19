@@ -94,6 +94,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+Plug 'edluffy/hologram.nvim'
 call plug#end()
 
 
@@ -187,6 +188,9 @@ require("indent_blankline").setup {
     },
 }
 EOF
+
+" --> Hologram
+lua require('hologram').setup{ auto_display = true }
 
 " --> Treesitter
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
