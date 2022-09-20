@@ -32,7 +32,7 @@ export SUDO=sudo
 # Custom folders to some programs
 export WINEPREFIX="$HOME/installs/winepfx"
 export PAPERS_DIR="$HOME/docs/research/papers/"
-export WORKON_HOME="${XDG_HOME_DIR}/docs/programming/python/virtualenvs"
+export WORKON_HOME="${XDG_HOME_DIR}/docs/programming/python/virtualenvs/$(hostname)"
 
 # Cleaning a bit home directory
 export LESSHISTFILE=-
