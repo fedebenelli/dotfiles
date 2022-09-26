@@ -23,7 +23,7 @@ export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bi
 export ZDOTDIR="$HOME/.config/shell/zsh"
 
 # Default software to use
-export TERMINAL=alacritty
+export TERMINAL=kitty
 export EDITOR=nvim
 export VISUAL=nvim
 export BROWSER=firefox
