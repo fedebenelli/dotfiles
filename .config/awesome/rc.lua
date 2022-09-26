@@ -571,7 +571,7 @@ awful.rules.rules = {
     { rule = { class = "Steam" },
       properties = { screen = 1, tag = "7" }
     },
-    { rule_any = { class = {"discord", "ferdium"} },
+    { rule_any = { class = {"discord", "Ferdium"} },
       properties = { screen = 1, tag = "6" }
     },
     { rule = { class  = "easyeffects"},
