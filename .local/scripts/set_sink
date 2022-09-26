@@ -16,6 +16,24 @@ set_default() {
     pactl set-default-sink $(cat "$SINK_FILE")
 }
 
+
+find_id(){
+    sinkID=$(wpctl status |
+        grep "$1" |
+        awk '{print $3}'
+    )
+    sinkID=${sinkID%.*}
+}
+
+
+dirty_default() {
+    sinkID=52
+    sourceID=48
+    wpctl set-default $sinkID
+    wpctl set-default $sourceID
+}
+
+
 case $1 in
     "choose")
         choose
@@ -23,4 +41,6 @@ case $1 in
 
     "set")
         set_default;;
+    *)
+        dirty_default;;
 esac
