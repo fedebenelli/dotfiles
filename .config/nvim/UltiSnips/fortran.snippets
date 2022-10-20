@@ -1,9 +1,23 @@
-snippet head "Top of the code Head"
+snippet head "Top of the code Head" b
 ! -*- coding: utf-8 -*-
+! File: `!v expand('%:t:r')`
+! Last Modification: 
 ! License: MIT License (https://tldrlegal.com/license/mit-license)
 ! Copyright (c) 2021-$1 Federico Benelli and others.
 ! All rights reserved.
 ! -----------------------------------------------------------------------------
+endsnippet
+
+snippet prg "Program Name" b
+!	This is file : `!v expand('%:t:r')`
+! Author= `!v expand($USER)`
+! Started at: `date +%d.%m.%Y`
+! Last Modified: Mon 24 May 2021 01:10:42 IST
+!
+Program  ${1:`!v expand('%:t:r')`}
+Implicit None
+${2:${VISUAL}}
+End Program  ${1/([^\n$]+).*/$1/} $0
 endsnippet
 
 
