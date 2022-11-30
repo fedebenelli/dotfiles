@@ -50,6 +50,7 @@ export BASH_HISTORY="$XDG_CONFIG_HOME/shell/bash/history"
 # Other settings
 export FMOD_ALSA_DEVICE=pipewire 
 export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME=gtk2
 
 [ -f "$HOME"/installs/intel/setvars.sh ] && source "$HOME"/installs/intel/setvars.sh intel64
 #source "${XDG_CONFIG_HOME/mendeley-cli-settings}"
