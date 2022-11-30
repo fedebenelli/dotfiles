@@ -190,7 +190,7 @@ require("indent_blankline").setup {
 EOF
 
 " --> Hologram
-lua require('hologram').setup{ auto_display = true }
+" lua require('hologram').setup{ auto_display = true }
 
 " --> Treesitter
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
@@ -212,8 +212,8 @@ let fortran_linter = '-1'
 let fortran_completer = '<F3>'
 let fortran_compiler = 'gfortran'
 let fortran_exeExt = 'o'
-let fortran_fcflags = '-Wall -O0 -fcheck=all -c'
-let fortran_flflags = '-Wall -O0 -fcheck=all'
+let fortran_fcflags = '-Wall -g -O0 -fcheck=all -c'
+let fortran_flflags = '-Wall -g -O0 -fcheck=all'
 let g:fprettify_options = '--silent --indent 4'
 
 
