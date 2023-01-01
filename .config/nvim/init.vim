@@ -39,6 +39,7 @@ set splitright
 set nowrap
 set mouse=a
 set tabstop=4 shiftwidth=4 expandtab
+set nofoldenable "asd
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
@@ -94,7 +95,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
-Plug 'edluffy/hologram.nvim'
+"Plug 'edluffy/hologram.nvim'
 call plug#end()
 
 
@@ -195,7 +196,7 @@ EOF
 " --> Treesitter
 lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
 lua require('openscad')
-lua require("focus").setup()
+" lua require("focus").setup()
 
 
 " --> Git
@@ -244,7 +245,7 @@ let g:vimtex_compiler_latexmk = {
 	\ 'continuous' : 1,
 	\ 'executable' : 'latexmk',
 	\ 'options' : [
-    \   '-shell-escape',
+        \   '-shell-escape',
 	\   '-verbose',
 	\   '-file-line-error',
 	\   '-synctex=1',
