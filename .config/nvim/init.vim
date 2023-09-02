@@ -40,7 +40,7 @@ set nowrap
 set mouse=a
 set tabstop=4 shiftwidth=4 expandtab
 set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+" set foldexpr=nvim_treesitter#foldexpr()
 set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
 set fillchars=fold:\ 
 set foldnestmax=3
@@ -69,8 +69,8 @@ Plug 'salkin-mada/openscad.nvim'
 Plug 'kevinoid/vim-jsonc'
 Plug 'chrisbra/csv.vim'
 Plug 'beauwilliams/focus.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
-Plug 'nvim-treesitter/playground'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+" Plug 'nvim-treesitter/playground'
 Plug 'vim-airline/vim-airline'
 Plug 'vimwiki/vimwiki'
 Plug 'michal-h21/vimwiki-sync'
@@ -95,6 +95,7 @@ Plug 'vim-autoformat/vim-autoformat'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
 Plug 'edluffy/hologram.nvim'
+Plug 'savq/melange-nvim'
 call plug#end()
 
 
@@ -193,8 +194,8 @@ EOF
 " lua require('hologram').setup{ auto_display = true }
 
 " --> Treesitter
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-lua require('openscad')
+" lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+" lua require('openscad')
 lua require("focus").setup()
 
 
