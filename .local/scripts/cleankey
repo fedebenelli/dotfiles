@@ -1,11 +1,12 @@
 #!/bin/bash
 
-t=$1
+tiempo=$1
 n=0
-device_id=8
+device_id=12
+
 xinput set-prop $device_id 'Device Enabled' 0
 
-while [ $n -lt $t ]
+while [ $n -lt $tiempo ]
 do
     echo Reactivando teclado en $(($tiempo-$n)) segundos..
     sleep 1s
