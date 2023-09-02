@@ -5,7 +5,6 @@ pcall(require, "luarocks.loader")
 -- Personal functions
 local my_functions = require("myfunctions")
 
-
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -555,6 +554,7 @@ awful.rules.rules = {
 	  "float", -- Windows called just "float", using this with some scripts.
 	  "Volume Control",
 	  "Friends List*",
+          "[Gg]nuplot*",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
@@ -568,7 +568,7 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
-    { rule = { class = "Steam" },
+    { rule = { class = "steam*" },
       properties = { screen = 1, tag = "7" }
     },
     { rule_any = { class = {"discord", "Ferdium"} },
