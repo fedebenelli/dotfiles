@@ -1,6 +1,8 @@
 #!/bin/sh
 
-
+# =========================================================================={{{
+#  Colors
+# -----------------------------------------------------------------------------
 yellow() {
 	echo "\e[1;33m$1\e[m"
 }
@@ -20,19 +22,16 @@ blue() {
 blinking-green() {
 	echo "\e[5;32m$1\e[m"
 }
+# ==========================================================================}}}
 
 onmodify() {
     TARGET=${1:-.}; shift
     CMD="$@"
-    
+
     echo "$TARGET" "$CMD"
 
     echo "$TARGET" | entr "$CMD"
 }
-
-#yta() {
-#    mpv --ytdl-format=bestaudio ytdl://ytsearch:"$*"
-#}
 
 get_paper() {
 	doi="$1"
@@ -148,4 +147,16 @@ tplot() {
 
 intload(){
 	source /home/${USER}/intel/oneapi/setvars.sh
+}
+
+fproj(){
+	dirname="$1"
+	mkdir "$dirname"
+	cd "$dirname"
+	echo "
+program main
+   implicit none
+end program main" > main.f90
+	cp ${XDG_TEMPLATES_DIR}/programming/fortran/Makefile .
+	git status && git add .
 }
