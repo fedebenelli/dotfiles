@@ -40,9 +40,9 @@ set nowrap
 set mouse=a
 set tabstop=4 shiftwidth=4 expandtab
 set nofoldenable "asd
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
+" set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
 set fillchars=fold:\ 
 set foldnestmax=3
 set foldminlines=1
@@ -63,6 +63,7 @@ if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autolo
 endif
 
 call plug#begin(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/plugged"'))
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'tpope/vim-sleuth'
 Plug 'puremourning/vimspector'
@@ -70,8 +71,8 @@ Plug 'salkin-mada/openscad.nvim'
 Plug 'kevinoid/vim-jsonc'
 Plug 'chrisbra/csv.vim'
 Plug 'beauwilliams/focus.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
-Plug 'nvim-treesitter/playground'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
+" Plug 'nvim-treesitter/playground'
 Plug 'vim-airline/vim-airline'
 Plug 'vimwiki/vimwiki'
 Plug 'michal-h21/vimwiki-sync'
@@ -95,15 +96,29 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'vim-autoformat/vim-autoformat'
 Plug 'godlygeek/tabular'
 Plug 'preservim/vim-markdown'
+Plug 'mcchrish/zenbones.nvim'
+Plug 'rktjmp/lush.nvim' " Required by zenbones
+Plug 'savq/melange-nvim'
+Plug 'preservim/tagbar'
+Plug 'junegunn/limelight.vim'
+Plug 'nyoom-engineering/oxocarbon.nvim'
+Plug 'rhysd/vim-grammarous'
 "Plug 'edluffy/hologram.nvim'
 call plug#end()
 
 
 " -> Binds
+let mapleader = ','
 let g:vimspector_enable_mappings = 'HUMAN'
+
+nmap <F8> :TagbarToggle<CR>
+
+" --> Select colorschemes
+nnoremap <leader>csl :colorscheme vimbones<CR>
+nnoremap <leader>csd :colorscheme tokyobones<CR>
+
 " --> General
 noremap <F3> :Autoformat<CR>
-let mapleader = ','
 vnoremap <C-c> "+y
 inoremap <C-v> <ESC>"+pa
 vnoremap <C-d> "+d
@@ -155,7 +170,6 @@ nnoremap <leader>fm :FocusMaxOrEqual<CR>
 "  Settings
 " -----------------------------------------------------------------------------
 " -> General
-colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 "set background=dark
 
@@ -194,9 +208,10 @@ EOF
 " lua require('hologram').setup{ auto_display = true }
 
 " --> Treesitter
-lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-lua require('openscad')
-" lua require("focus").setup()
+" lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
+
+" lua require('openscad')
+lua require("focus").setup()
 
 
 " --> Git
@@ -315,3 +330,27 @@ let g:vimwiki_list = [{ 'path': '~/docs/vimwiki',
                       \ 'path_html': '~/docs/vimwiki/html'}]
 let g:vimwiki_global_ext = 0
 
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.7
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 1
+
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = -1

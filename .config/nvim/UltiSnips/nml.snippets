@@ -1,0 +1,59 @@
+snippet full
+! Namelist based input file
+! =========================
+!
+! Units:
+!  - Pressure: bar
+!  - Temperature: K
+!  - Volume: L
+! =========================
+
+
+&nml_setup
+    nc=                   ! Number of components
+    model=            ! SRK PR76 PR78 RKPR
+    mixrule=     ! ClassicVdW
+/
+
+&nml_composition
+    names=
+    spec=          ! critical or parameters
+    z=
+/
+
+&nml_classicvdw
+    kij(1, :)=
+    lij(:,:)=
+/
+
+&nml_critical
+    tc=
+    pc=
+    w=
+/
+endsnippet
+
+snippet setup
+&nml_setup
+    nc=$1,                    ! Number of components
+    model="$2",            ! SRK PR76 PR78 RKPR
+    mixrule="$3"     ! ClassicVdW
+/
+endsnippet
+
+snippet comp
+&nml_composition
+    names=$1
+    spec=$2          ! critical or parameters
+    z=$3
+/
+endsnippet
+
+snippet crit
+&nml_critical
+    tc=$1
+    pc=$2
+    w=$3
+/
+endsnippet
+
