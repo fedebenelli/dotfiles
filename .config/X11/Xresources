@@ -1,6 +1,12 @@
+XTerm*colorMode: on
+XTerm*background: #F8F8F2
+XTerm*foreground: #000000
+
 ! Dracula Xresources palette
-*.foreground: #F8F8F2
-*.background: #000000
+!*.foreground: #F8F8F2
+!*.background: #000000
+*.foreground: #000000
+*.background: #F8F8F2
 *.color0:     #020005
 *.color8:     #4D4D4D
 *.color1:     #FF5555
@@ -58,6 +64,7 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 ! st settings
 st.alpha: 0.9
 
+!Xft.dpi:                    120
 Xft.dpi:                    96
 Xft.antialias:              true
 Xft.rgba:                   rgb
