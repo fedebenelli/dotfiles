@@ -104,6 +104,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'nyoom-engineering/oxocarbon.nvim'
 Plug 'rhysd/vim-grammarous'
 "Plug 'edluffy/hologram.nvim'
+
 call plug#end()
 
 
@@ -209,7 +210,6 @@ EOF
 
 " --> Treesitter
 " lua require'nvim-treesitter.configs'.setup { highlight = { enable = true } }
-
 " lua require('openscad')
 lua require("focus").setup()
 

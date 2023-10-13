@@ -5,6 +5,7 @@ pcall(require, "luarocks.loader")
 -- Personal functions
 local my_functions = require("myfunctions")
 
+
 -- local coords_xy = my_functions.get_loc()
 local coords_x = -31.3667 -- coords_xy[1]
 local coords_y = -64.2167 -- coords_xy[2]
@@ -566,7 +567,7 @@ awful.rules.rules = {
 	  "float", -- Windows called just "float", using this with some scripts.
 	  "Volume Control",
 	  "Friends List*",
-          "Gnuplot *",
+    "[Gg]nuplot*",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
@@ -580,7 +581,7 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
-    { rule = { class = "Steam" },
+    { rule = { class = "steam*" },
       properties = { screen = 1, tag = "7" }
     },
     { rule_any = { class = {"discord", "Ferdium"} },
