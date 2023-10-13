@@ -70,7 +70,7 @@ case $1 in
 		then
 			echo "No file chosen!" && exit 0
 		fi
-		exec $terminal -t "float" -e  \
+		exec $terminal --title "float" -e  \
 			"${VISUAL:-${EDITOR:-vi}}" "$HOME/.local/share/td/$file"
 		;;
 	"remove") 

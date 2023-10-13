@@ -16,3 +16,8 @@ cd rofi
 chmod +x setup.sh
 ./setup.sh
 cd ..
+
+
+# Firefox as default browser?
+xdg-mime default browser.desktop x-scheme-handler/http
+xdg-mime default browser.desktop x-scheme-handler/https 

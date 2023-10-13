@@ -2304,7 +2304,7 @@ class Breakpoints(Dashboard.Module):
 
 # XXX traceback line numbers in this Python block must be increased by 1
 MODULES = [
-        Assembly, 
+        # Assembly, 
         Stack,
         Memory,
         Variables,
