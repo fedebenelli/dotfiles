@@ -126,7 +126,7 @@ envelplot() {
 		echo "$file"
 		i=$((i+1))
 		awk '{print $1, $2}' "$file" | grep ^[0-9] > "tmp_$i"
-		plt="$plt \"tmp_$i\" using 1:2 title \"envelope$i\",\
+		plt="$plt \"tmp_$i\" using 1:2 w lp ps 0.5 title \"envelope$i\",\
 		"
 	done
 	plt="${plt%,*};"

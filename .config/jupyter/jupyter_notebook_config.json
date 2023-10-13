@@ -1,6 +1,6 @@
 {
   "NotebookApp": {
-    "password": "sha1:544850ec93f6:5b71c4d9cce97fc73b3d9d22f8b2bcfcdbfc0746",
+    "password": "argon2:$argon2id$v=19$m=10240,t=10,p=8$jOqy2I9YP6Kdde7YTViDag$GDbANkpz8nXJYYLZY8x3wOHeEFB73rf+SErbU9Iucic",
     "nbserver_extensions": {
       "jupyter_nbextensions_configurator": true
     }

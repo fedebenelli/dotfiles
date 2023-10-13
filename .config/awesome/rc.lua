@@ -5,6 +5,11 @@ pcall(require, "luarocks.loader")
 -- Personal functions
 local my_functions = require("myfunctions")
 
+
+-- local coords_xy = my_functions.get_loc()
+local coords_x = -31.3667 -- coords_xy[1]
+local coords_y = -64.2167 -- coords_xy[2]
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -127,8 +132,11 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 --
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
+local visitorclock = wibox.widget.textclock()
+local vclock = wibox.widget {timezone = "Europe/Madrid", widget=wibox.widget.textclock }
+
 local cw = calendar_widget({
-	theme = 'outrun',
+	theme = 'nord',
 	placement = 'top_right',
 	radius = 8
 })
@@ -137,7 +145,6 @@ mytextclock:connect_signal("button::press",
     function(_, _, _, button)
         if button == 1 then cw.toggle() end
     end)
-
 
 
 -- Create a wibox for each screen and add it
@@ -238,21 +245,24 @@ awful.screen.connect_for_each_screen(function(s)
             s.mytaglist,
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        -- Middle widget
+        s.mytasklist,
         { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
 	    wibox.widget.textbox(' | '),
---	    weather_widget({
---			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
---			     coordinates = {-31.4122, -64.1705},
---			 }),
+	    weather_widget({
+			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
+			     coordinates = {coords_x, coords_y},
+                             show_hourly_forecast = true,
+                             show_daily_forecast = true,
+	    }),
 	    wibox.widget.textbox(' | '),
       pomodoro_widget,
 	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
 	    require("awesome-wm-widgets.fs-widget.fs-widget") {
-            mounts = my_functions.get_drives()
-		  },
+                mounts = my_functions.get_drives()
+	    },
 	    wibox.widget.textbox(' | '),
             require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
 	    wibox.widget.textbox(' | '),
@@ -262,6 +272,9 @@ awful.screen.connect_for_each_screen(function(s)
             logout_menu_widget(),
 	    wibox.widget.textbox(' | '),
             mytextclock,
+	    -- wibox.widget.textbox(' | '),
+             -- wibox.widget.textbox('VC:'),
+             -- vclock,
 	    wibox.widget.textbox(' | '),
             s.mylayoutbox,
         },
@@ -554,7 +567,7 @@ awful.rules.rules = {
 	  "float", -- Windows called just "float", using this with some scripts.
 	  "Volume Control",
 	  "Friends List*",
-          "[Gg]nuplot*",
+    "[Gg]nuplot*",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
