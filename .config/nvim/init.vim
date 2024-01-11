@@ -192,17 +192,7 @@ vim.opt.list = true
 -- vim.opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 
-require("indent_blankline").setup {
-    space_char_blankline = "-",
-    char_highlight_list = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-    },
-}
+require("ibl").setup()
 EOF
 
 " --> Hologram
@@ -219,6 +209,8 @@ let g:gitblame_display_virtual_text = 1
 
 " --> Fortran
 autocmd FileType fortran set foldmethod=indent
+autocmd FileType fortran syntax match FortranConceal '%' conceal cchar=→
+autocmd FileType fortran  inoremap <buffer> ; %
 let fortran_free_source=1
 let fortran_do_enddo=1
 let fortran_more_precise=1

@@ -31,7 +31,6 @@ super + shift + p
 # --------------------------
 Print
 	exec screenshot -fs && echo "Screenshot taken!"
-
 shift + Print
 	exec screenshot -s && echo "Screenshot taken!"
 super + shift + Print

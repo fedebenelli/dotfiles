@@ -46,8 +46,8 @@ blueman-applet &
 pasystray &
 
 # Sound stuff
-easyeffects &
-set_sink set &
+# easyeffects &
+# set_sink set &
 
 # Sync files
 syncthingtray --wait &
