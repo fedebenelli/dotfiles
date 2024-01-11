@@ -3,9 +3,11 @@
 #
 
 # Start with XDG paths
+export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CONFIG_HOME="$HOME/.config/"
 export XDG_CACHE_HOME="$HOME/.cache/"
 export XDG_DATA_HOME="$HOME/.local/share/"
+
 # XDG PATHS acording to user.dirs
 export XDG_HOME_DIR="$HOME/"
 export XDG_CONFIG_DIR="$HOME/.config/"
@@ -35,7 +37,30 @@ export PAPERS_DIR="$HOME/docs/research/papers/"
 export WORKON_HOME="${XDG_HOME_DIR}/docs/programming/python/virtualenvs"
 
 # Cleaning a bit home directory
+## Bash
+export HISTFILE="${XDG_STATE_HOME}"/bash/history
+
+## Cuda
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME"/nv
+
+## gnupg
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+
+## GTK2
+export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
+
+## Julia
+export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
+
+## texlive
+export TEXMFVAR="$XDG_CACHE_HOME"/texlive/texmf-var
+
+## Less
 export LESSHISTFILE=-
+
+## zsh
+export ZDOTDIR="$HOME"/.config/shell/zsh
+
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
@@ -53,7 +78,6 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORMTHEME=gtk2
 
 [ -f "$HOME"/installs/intel/setvars.sh ] && source "$HOME"/installs/intel/setvars.sh intel64
-#source "${XDG_CONFIG_HOME/mendeley-cli-settings}"
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]
 

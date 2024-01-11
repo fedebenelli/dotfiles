@@ -31,7 +31,7 @@ make_links() {
 
 make_home_links() {
     OUTDIR=$HOME
-    files=".bashrc .profile .xinitrc .zshrc"
+    files=".bashrc .profile .xinitrc"
     for file in $files; do
         echo "Linking: $file to $OUTDIR"
         ln -sf $DOTS_DIR/$file $OUTDIR/
