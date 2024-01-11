@@ -1,0 +1,48 @@
+#!/bin/sh
+#
+# Setup symlinks for dotfiles and scripts
+# This will override previously existing files!
+#
+#
+
+abspath() {
+  # Save the current directory
+  current_dir=$(pwd)
+  # Change to the target directory
+  cd "$1" || return 1
+  # Get the absolute path and store it in a variable
+  absolute_path=$(pwd)
+  # Change back to the original directory
+  cd "$current_dir" || return 1
+  # Print the absolute path
+  echo "$absolute_path"
+}
+
+make_links() {
+    # $1: Folder of original files
+    # $2: Output folder
+
+    files=$(ls "$1")
+    for file in $files; do
+        echo "Linking: $file to $2"
+        ln -sf "$1/$file" "$2"
+    done
+}
+
+make_home_links() {
+    OUTDIR=$HOME
+    files=".bashrc .profile .xinitrc .zshrc"
+    for file in $files; do
+        echo "Linking: $file to $OUTDIR"
+        ln -sf $DOTS_DIR/$file $OUTDIR/
+    done
+}
+
+THIS_DIR=$(abspath $(dirname $0))
+DOTS_DIR=$(abspath "$THIS_DIR/..")
+CONFIG_DIR=$(abspath "$THIS_DIR/../.config/")
+SCRIPT_DIR=$(abspath $THIS_DIR/../.local/scripts)
+
+make_links "$CONFIG_DIR" "$HOME/.config"
+make_links "$SCRIPT_DIR" "$HOME/.local/scripts"
+make_home_links
