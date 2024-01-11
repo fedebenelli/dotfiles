@@ -25,5 +25,10 @@ case $@ in
 \begin{figure}[h]
 	\includegraphics[width=0.7\textwidth]{$file}
 \end{figure}
-\end{center}" 
+\end{center}" ;;
+	"-qr")
+		file="/tmp/scr--$(date '+%Y-%m-%d--%H:%M:%S').png"
+		import -silent "$file"
+		zbarimg "$file"
+		;;
 esac
