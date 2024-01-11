@@ -33,7 +33,7 @@ pgrep mpd || mpd &
 # Set wallpaper and default colors
 picom &
 xwallpaper --zoom $HOME/.config/wallpaper.png &
-update-colors 
+update-colors
 wait &
 
 # Keyboard layout
@@ -42,7 +42,6 @@ setxkbmap latam &
 # systray applets
 nm-applet &
 blueman-applet &
-#kdeconnect-indicator &
 pasystray &
 
 # Sound stuff
