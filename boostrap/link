@@ -1,8 +1,0 @@
-#!/bin/sh
-
-IFS=$'\n'
-
-for file in $(find .config); do
-	echo "ln -sf \"$file\" \"$HOME/$file\""
-	echo ..
-done
