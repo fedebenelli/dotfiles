@@ -35,6 +35,8 @@ export SUDO=sudo
 export WINEPREFIX="$HOME/installs/winepfx"
 export PAPERS_DIR="$HOME/docs/research/papers/"
 export WORKON_HOME="${XDG_HOME_DIR}/docs/programming/python/virtualenvs"
+# export GHCUP_INSTALL_BASE_PREFIX="~/.local/share/ghcup"
+# $GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin
 
 # Cleaning a bit home directory
 ## Bash
@@ -72,12 +74,19 @@ export SHORTCUTS="$XDG_CONFIG_HOME"/shortcuts
 export PYTHONHISTFILE="$XDG_CONFIG_HOME"/python/python_history
 export BASH_HISTORY="$XDG_CONFIG_HOME/shell/bash/history"
 
+# Fortran refactor tool that uses perl
+export RF4A_DIR="/home/ruther/installs/RefactorF4Acc"
+export PERL5LIB="$PERL5LIB:$RF4A_DIR"
+export PATH="$PATH:$RF4A_DIR/bin"
+
 # Other settings
 export FMOD_ALSA_DEVICE=pipewire 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORMTHEME=gtk2
 
 [ -f "$HOME"/installs/intel/setvars.sh ] && source "$HOME"/installs/intel/setvars.sh intel64
+export PIPX_HOME="${XDG_DATA_HOME}/pipx"
+
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]
 
