@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case "$1" in
+    office)
+        autorandr left_mon
+        $VISUAL ${XDG_DOCUMENTS_DIR}/vimwiki/index.wiki
+    ;;
+    fenvelopes)
+        $TERMINAL ${XDG_DOCUMENTS_DIR}/research/thermo/algos/envelopes & disown
+    ;;
+esac
