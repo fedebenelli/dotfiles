@@ -25,6 +25,11 @@ function! VW()
     :VimwikiIndex<CR>
     :Calendar<CR>
 endfunction
+
+function! GetDate()
+    :r!echo $(date "+\%Y/\%m/\%d")
+    :r!echo ""
+endfunction
 " =============================================================================
 set undodir=~/.local/share/nvim/undo-dir
 set undofile
@@ -40,6 +45,7 @@ set nowrap
 set mouse=a
 set tabstop=4 shiftwidth=4 expandtab
 set nofoldenable "asd
+set foldmethod=indent
 " set foldmethod=expr
 " set foldexpr=nvim_treesitter#foldexpr()
 " set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
@@ -69,7 +75,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'puremourning/vimspector'
 Plug 'salkin-mada/openscad.nvim'
 Plug 'kevinoid/vim-jsonc'
-Plug 'chrisbra/csv.vim'
+" Plug 'chrisbra/csv.vim'
 Plug 'beauwilliams/focus.nvim'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} 
 " Plug 'nvim-treesitter/playground'
@@ -86,6 +92,7 @@ Plug 'dccsillag/magma-nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'rudrab/vimf90'
 Plug 'lervag/vimtex'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'jpalardy/vim-slime'
 Plug 'dense-analysis/ale'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -111,6 +118,7 @@ call plug#end()
 " -> Binds
 let mapleader = ','
 let g:vimspector_enable_mappings = 'HUMAN'
+noremap <Leader>d :call GetDate()<CR>
 
 nmap <F8> :TagbarToggle<CR>
 
@@ -171,29 +179,51 @@ nnoremap <leader>fm :FocusMaxOrEqual<CR>
 "  Settings
 " -----------------------------------------------------------------------------
 " -> General
-hi Normal guibg=NONE ctermbg=NONE
-"set background=dark
+" hi Normal guibg=NONE ctermbg=NONE
+" set background=dark
 
 " --> Magma
 let g:magma_automatically_open_output = v:false
 
 " --> Indent lines
 
-lua << EOF
-vim.opt.termguicolors = true
-vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
-vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
+" lua << EOF
+" vim.opt.termguicolors = true
+" vim.cmd [[highlight IndentBlanklineIndent1 guifg=#E06C75 gui=nocombine]]
+" vim.cmd [[highlight IndentBlanklineIndent2 guifg=#E5C07B gui=nocombine]]
+" vim.cmd [[highlight IndentBlanklineIndent3 guifg=#98C379 gui=nocombine]]
+" vim.cmd [[highlight IndentBlanklineIndent4 guifg=#56B6C2 gui=nocombine]]
+" vim.cmd [[highlight IndentBlanklineIndent5 guifg=#61AFEF gui=nocombine]]
+" vim.cmd [[highlight IndentBlanklineIndent6 guifg=#C678DD gui=nocombine]]
+" 
+" vim.opt.list = true
+" -- vim.opt.listchars:append("space:⋅")
+" -- vim.opt.listchars:append("eol:↴")
+" 
+" require("indent_blankline").setup {
+"     space_char_blankline = "-",
+"     char_highlight_list = {
+"         "IndentBlanklineIndent1",
+"         "IndentBlanklineIndent2",
+"         "IndentBlanklineIndent3",
+"         "IndentBlanklineIndent4",
+"         "IndentBlanklineIndent5",
+"         "IndentBlanklineIndent6",
+"     },
+" }
+" EOF
+"
 
+lua << EOF
 vim.opt.list = true
 -- vim.opt.listchars:append("space:⋅")
 -- vim.opt.listchars:append("eol:↴")
 
 require("ibl").setup()
 EOF
+
+" --> Slime
+let g:slime_target = "kitty"
 
 " --> Hologram
 " lua require('hologram').setup{ auto_display = true }
@@ -246,19 +276,32 @@ let g:formatdef_latexindent = '"latexindent -"'
 
 "set conceallevel=1
 let g:tex_conceal='abdmg'
-let g:vimtex_compiler_latexmk = {
-	\ 'build_dir' : 'build',
-	\ 'callback' : 1,
-	\ 'continuous' : 1,
-	\ 'executable' : 'latexmk',
-	\ 'options' : [
-        \   '-shell-escape',
-	\   '-verbose',
-	\   '-file-line-error',
-	\   '-synctex=1',
-	\   '-interaction=nonstopmode',
-	\ ],
-\}
+
+let g:vimtex_compiler_method='tectonic'
+let g:vimtex_compiler_generic = {
+      \ 'command': 'tectonic -X watch'
+      \}
+let g:vimtex_compiler_tectonic = {
+    \ 'out_dir' : '',
+    \ 'hooks' : [],
+    \ 'options' : [
+    \   '--keep-logs',
+    \   '--synctex'
+    \ ],
+    \}
+" let g:vimtex_compiler_latexmk = {
+" 	\ 'build_dir' : 'build',
+" 	\ 'callback' : 1,
+" 	\ 'continuous' : 1,
+" 	\ 'executable' : 'latexmk',
+" 	\ 'options' : [
+"         \   '-shell-escape',
+" 	\   '-verbose',
+" 	\   '-file-line-error',
+" 	\   '-synctex=1',
+" 	\   '-interaction=nonstopmode',
+" 	\ ],
+" \}
 
 " --> CoC
 let g:coc_start_at_startup = 1
@@ -321,7 +364,6 @@ let g:airline_right_sep = "\uE0B6"
 let g:vimwiki_list = [{ 'path': '~/docs/vimwiki', 
                       \ 'path_html': '~/docs/vimwiki/html'}]
 let g:vimwiki_global_ext = 0
-
 
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
