@@ -364,6 +364,7 @@ let g:airline_right_sep = "\uE0B6"
 let g:vimwiki_list = [{ 'path': '~/docs/vimwiki', 
                       \ 'path_html': '~/docs/vimwiki/html'}]
 let g:vimwiki_global_ext = 0
+let g:vimwiki_folding='list'
 
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'

@@ -29,8 +29,12 @@ branch() {
     if [ -z "$b" ]; then
         printf ""
     else
-        printf "(\$(git branch 2>/dev/null | grep '^*' | colrm 1 2))"
+        printf "($(git branch 2>/dev/null | grep '^*' | colrm 1 2))"
     fi
 }
 
-PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']')$(branch)\n$(blinking-green '└-------------$(($(ls -la ~ | wc -l)-3))---->') "
+PROMPT_COMMAND=__prompt_command
+__prompt_command() {
+    PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']$(branch)$ ')
+$(blinking-green '└-----------$(($(ls -la ~ | wc -l)-3))---->') "
+}

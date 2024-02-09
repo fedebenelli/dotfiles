@@ -12,6 +12,7 @@ alias \
         ffmpeg="ffmpeg -hide_banner"
 
 alias \
+        bashrc="source ~/.bashrc" \
         grumos="~/installs/gromacs-2022.2/build/bin/gmx" \
         gams="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/gams" \
         gamsstud="$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx/studio/studio.AppImage" \
@@ -47,7 +48,7 @@ alias \
         quake='darkplaces-sdl >> $HOME/docs/games/quakelog' \
         vox='wine "$HOME/installs/winepfx/drive_c/Program Files (x86)/VOX/Tone Room/ToneRoom.exe"' \
         aliasrc='$EDITOR "${XDG_CONFIG_HOME}/shell/aliasrc"'\
-        gdb=gdb -n -x $XDG_CONFIG_HOME/gdb/init \
+        gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init" \
         svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
-        wget=wget --hsts-file="$XDG_DATA_HOME/wget-hsts"
+        wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts"
 

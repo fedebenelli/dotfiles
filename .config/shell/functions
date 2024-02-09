@@ -137,22 +137,17 @@ envelplot() {
 }
 
 fenvelplot() {
-	plt=""
-	[ $1 = "log" ] && plt="$plt set logscale y;"
-	plt="$plt; plot"
-	i=0
-	for file in $(ls env*$1*); do
-		echo "$file"
-		i=$((i+1))
-		awk '{print $4, $5}' "$file" | grep ^[0-9] > "tmp_$i"
-		plt="$plt \"tmp_$i\" using 1:2 w lp ps 0.5 title \"envelope$i\",\
-		"
-	done
-	plt="${plt%,*};"
-	plt="$plt pause mouse close"
-	echo "$plt"
-	gnuplot -p -e "$plt"
-	rm tmp*
+	[ $1="PT" ] && xlb="set xlabel \"T [K]\""
+	[ $1="PX" ] && xlb="set xlabel \"{/Symbol a}\""
+	ylb="set ylabel \"P [bar]\""
+	gnuplot -p -e "
+	set terminal qt font ',14';
+	$2;
+	$ylb;
+	$xlb;
+	plot for [f in system(\"ls fenvelopes_output/env-*$1*\")] f u 4:5 w lp t system(\"echo \".f.\" | cut -d'/' -f2\"), \
+	     for [f in system(\"ls fenvelopes_output/env-*$1*\")] f index \"critical\" u 1:2 w p pt 7 lc rgb \"black\" notitle;
+	pause mouse close"
 }
 
 tplot() {
