@@ -3,7 +3,7 @@ SINK_FILE="${XDG_HOME_DIR:-$HOME}.cache/sink"
 
 choose() {
     sinks="$(pactl list sinks | egrep "(Name)|(Description)")"
-    sink="$(echo "$sinks" | grep "Description" | dmenu)"
+    sink="$(echo "$sinks" | grep "Description" | dmenu -l 5)"
     sink_name=$(echo "$sinks" | grep -P1 "$sink" | head -n1 | cut -d' ' -f2)
     echo selected "$sink_name"
 

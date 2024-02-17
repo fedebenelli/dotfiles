@@ -114,7 +114,7 @@ super + n
 	$TERMINAL -e ncmpcpp
 
 XF86Tools
-	exec sm
+	exec set_sink choose
 
 XF86AudioPlay 
 	exec mpc toggle

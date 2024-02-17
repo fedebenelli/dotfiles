@@ -705,3 +705,5 @@ zlib
 zstd
 zziplib
 trash-cli
+lsp-plugins
+zam-plugins

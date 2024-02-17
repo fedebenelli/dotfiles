@@ -11,7 +11,7 @@ export XDG_DATA_HOME="$HOME/.local/share/"
 # XDG PATHS acording to user.dirs
 export XDG_HOME_DIR="$HOME/"
 export XDG_CONFIG_DIR="$HOME/.config/"
-export XDG_DESKTOP_DIR="$HOME/"
+export XDG_DESKTOP_DIR="${XDG_DATA_HOME}/applications"
 export XDG_DOCUMENTS_DIR="$HOME/docs/"
 export XDG_DOWNLOAD_DIR="$HOME/downs/"
 export XDG_MUSIC_DIR="$HOME/music/"
@@ -83,6 +83,7 @@ export PATH="$PATH:$RF4A_DIR/bin"
 export FMOD_ALSA_DEVICE=pipewire 
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORMTHEME=gtk2
+export RADV_PERFTEST=gpl 
 
 [ -f "$HOME"/installs/intel/setvars.sh ] && source "$HOME"/installs/intel/setvars.sh intel64
 export PIPX_HOME="${XDG_DATA_HOME}/pipx"

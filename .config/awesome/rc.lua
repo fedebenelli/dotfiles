@@ -28,7 +28,6 @@ local beautiful = require("beautiful")
 local calendar_widget = require("awesome-wm-widgets.calendar-widget.calendar")
 local weather_widget = require("awesome-wm-widgets.weather-widget.weather")
 local logout_menu_widget = require("awesome-wm-widgets.logout-menu-widget.logout-menu")
-local pomodoro_widget = require("pomodoro-widget")
 
 
 local systray = wibox.widget.systray()
@@ -256,8 +255,6 @@ awful.screen.connect_for_each_screen(function(s)
                              show_hourly_forecast = true,
                              show_daily_forecast = true,
 	    }),
-	    wibox.widget.textbox(' | '),
-      pomodoro_widget,
 	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
 	    require("awesome-wm-widgets.fs-widget.fs-widget") {

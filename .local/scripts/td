@@ -90,5 +90,5 @@ case $1 in
         sync
         ;;
 	*)
-		h;;
+	h;;
 esac

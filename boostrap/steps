@@ -1,23 +1,24 @@
-# Install
-git pull https://github.com/fedebenelli/dotfiles .config/dotfiles
+#!/bin/sh
 
+# Install dotfiles
+git pull https://github.com/fedebenelli/dotfiles .config/dotfiles
 cd .config/dotfiles
 git submodule update --init --recursive
 
+# mpd
 mkdir -p $HOME/.local/share/mpd/playlists
 
 systemctl enable synthing@${USER}.service
 systemctl start synthing@${USER}.service
 
-
 # Configuration
 git clone --depth=1 https://github.com/adi1090x/rofi.git
-cd rofi 
+cd rofi
 chmod +x setup.sh
 ./setup.sh
 cd ..
 
-
 # Firefox as default browser?
 xdg-mime default browser.desktop x-scheme-handler/http
-xdg-mime default browser.desktop x-scheme-handler/https 
+xdg-mime default browser.desktop x-scheme-handler/https
+
