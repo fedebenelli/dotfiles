@@ -33,8 +33,17 @@ branch() {
     fi
 }
 
+python-venv() {
+    venv="$(basename ${VIRTUAL_ENV} 2> /dev/null)"
+    if [ -z "$venv" ]; then
+        printf ""
+    else
+        printf "($venv)"
+    fi
+}
+
 PROMPT_COMMAND=__prompt_command
 __prompt_command() {
-    PS1="•$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']$(branch)$ ')
+    PS1="•$(python-venv)$(yellow '[')$(blue '\u')@$(red '\h') $(green '\w')$(yellow ']$(branch)$ ')
 $(blinking-green '└-----------$(($(ls -la ~ | wc -l)-3))---->') "
 }
