@@ -12,6 +12,7 @@ alias \
         ffmpeg="ffmpeg -hide_banner"
 
 alias \
+        miche='xdg-open "$HOME/docs/research/thermo/books/thermodynamics/Phase Behavior, SPE Monograph (Whitson) - 2000.pdf"' \
         ffpt="fortran_project" \
         bashrc="source ~/.bashrc" \
         grumos="~/installs/gromacs-2022.2/build/bin/gmx" \
