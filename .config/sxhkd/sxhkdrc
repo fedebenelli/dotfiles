@@ -5,6 +5,8 @@ super + Escape
 super + shift + Escape
 	$TERMINAL -e $EDITOR "$HOME/.config/sxhkd/sxhkdrc"
 
+ctrl + alt + p
+	$BROWSER "https://sci-hub.se/$(xclip -o)"
 # Show camera
 # --------------------------
 super + c

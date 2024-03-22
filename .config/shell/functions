@@ -139,16 +139,23 @@ envelplot() {
 fenvelplot() {
 	[ $1="PT" ] && xlb="set xlabel \"T [K]\""
 	[ $1="PX" ] && xlb="set xlabel \"{/Symbol a}\""
+	if [ -z $2 ]; then
+		dirs=( . )
+	else
+		args=("$@")
+		dirs=("${args[@]:1}")
+	fi
 	ylb="set ylabel \"P [bar]\""
-	gnuplot -p -e "
-	set terminal qt font ',14';
-	$2;
+	for dir in ${dirs[@]}; do
+	str="set terminal qt font ',14';
 	$ylb;
 	$xlb;
-	plot for [f in system(\"ls fenvelopes_output/env-*$1*\")] f u 4:5 w lp t system(\"echo \".f.\" | cut -d'/' -f2\"), \
-	     for [f in system(\"ls fenvelopes_output/env-*$1*\")] f index \"critical\" u 1:2 w p pt 7 lc rgb \"black\" notitle;
+	plot for [f in system(\"ls $dir/fenvelopes_output/env-*$1*\")] f u 4:5 w lp t system(\"echo \".f.\" | cut -d'/' -f2\"), \
+	     for [f in system(\"ls $dir/fenvelopes_output/env-*$1*\")] f index \"critical\" u 1:2 w p pt 7 lc rgb \"black\" notitle;
 	pause mouse close"
-}
+	gnuplot -p -e "$str" & disown
+	done
+	}
 
 tplot() {
 	gnuplot -p -e "
