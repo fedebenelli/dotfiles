@@ -88,7 +88,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_QPA_PLATFORMTHEME=gtk2
 export RADV_PERFTEST=gpl 
 
-[ -f "$HOME"/installs/intel/setvars.sh ] && source "$HOME"/installs/intel/setvars.sh intel64
+# [ -f "$HOME"/installs/intel/setvars.sh ] && source "$HOME"/installs/intel/setvars.sh intel64
 export PIPX_HOME="${XDG_DATA_HOME}/pipx"
 
 
