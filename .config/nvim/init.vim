@@ -31,6 +31,7 @@ function! GetDate()
     :r!echo ""
 endfunction
 " =============================================================================
+set backupdir=~/.local/share/nvim/backup
 set undodir=~/.local/share/nvim/undo-dir
 set undofile
 set fileencoding=utf-8
