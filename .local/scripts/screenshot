@@ -21,12 +21,13 @@ case $@ in
 		file="$(pwd)/figs/scr--$(date '+%Y-%m-%d--%H:%M:%S').png"
 		import -silent "$file"
 		echo -n "
-\begin{center}
-\begin{figure}[h]
-	\includegraphics[width=0.7\textwidth]{$file}
-\end{figure}
-\end{center}" ;;
+	\begin{center}
+	\begin{figure}[h]
+		\includegraphics[width=0.7\textwidth]{$file}
+	\end{figure}
+	\end{center}" ;;
 	"-qr")
+		echo "qr"
 		file="/tmp/scr--$(date '+%Y-%m-%d--%H:%M:%S').png"
 		import -silent "$file"
 		zbarimg "$file"
