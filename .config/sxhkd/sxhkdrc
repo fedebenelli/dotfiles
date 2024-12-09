@@ -94,6 +94,9 @@ super + shift + c
 XF86Audio{Raise,Lower}Volume
     sink=$(cat "$HOME/.cache/sink" || echo ""); pamixer {-i,-d} 5
 
+super + {plus,minus}
+    sink=$(cat "$HOME/.cache/sink" || echo ""); pamixer {-i,-d} 5
+
 XF86AudioMute
 	pamixer --toggle-mute
 
