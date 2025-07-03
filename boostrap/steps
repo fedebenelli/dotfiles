@@ -23,3 +23,9 @@ cd ..
 # Firefox as default browser?
 xdg-mime default browser.desktop x-scheme-handler/http
 xdg-mime default browser.desktop x-scheme-handler/https
+
+# Disbable bios speaker
+sudo echo "blacklist pcspkr" | sudo tee "/etc/modprobe.d/nobeep.conf"
+
+# Make rofi act as dmenu
+ln -s /usr/bin/rofi /usr/bin/dmenu

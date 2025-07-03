@@ -26,7 +26,7 @@ fi
 export XDG_SESSION_TYPE=x11
 export GDK_BACKEND=x11
 
-pgrep sxhkd || sxhkd &
+pgrep sxhkd || sxhkd -c ~/.config/sxhkd/sxhkdrc &
 pgrep mpd || mpd &
 #mpv ~/.config/startup.m4a --loop=no --loop-file=no --loop-playlist=no &
 
@@ -52,4 +52,6 @@ pasystray &
 syncthingtray --wait &
 
 # Start wm
+
+sudo cpupower frequency-set --governor powersave
 exec awesome

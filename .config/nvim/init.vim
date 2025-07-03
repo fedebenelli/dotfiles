@@ -109,7 +109,8 @@ Plug 'savq/melange-nvim'
 Plug 'preservim/tagbar'
 Plug 'junegunn/limelight.vim'
 Plug 'nyoom-engineering/oxocarbon.nvim'
-Plug 'rhysd/vim-grammarous'
+Plug 'folke/zen-mode.nvim'
+"Plug 'rhysd/vim-grammarous'
 "Plug 'edluffy/hologram.nvim'
 
 call plug#end()
@@ -134,6 +135,8 @@ vnoremap <C-d> "+d
 nnoremap <Space> @q
 nnoremap <C-Left> :vertical resize +5<CR>
 nnoremap <C-Right> :vertical resize -5<CR>
+nnoremap <C-down> :horizontal resize +5<CR>
+nnoremap <C-up> :horizontal resize -5<CR>
 nnoremap <Leader>w :w<CR> 
 nnoremap <Leader><Leader> :source $MYVIMRC<CR>
 nnoremap <C-s> :r!screenshot -tex<CR>
@@ -389,3 +392,6 @@ let g:limelight_eop = '\ze\n^\s'
 " Highlighting priority (default: 10)
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
+
+
+colorscheme catppuccin

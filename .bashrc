@@ -6,7 +6,8 @@
 # Functions
 #------------------
 source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/functions"
-source /usr/bin/virtualenvwrapper.sh
+# source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper_lazy.sh
 
 # Vi mode
 #------------------
@@ -26,6 +27,8 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 #------------------
 source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/PS1"
 
+source ~/docs/research/thermo/algos/envelopes/other/paper/fcmmp/input_files/runner.sh
+
 # Stuff to show when starting bash
 #------------------
 i=0
@@ -36,15 +39,15 @@ while [ "$i" -le "${#t}" ]; do printf "-"; i=$((i+1)); done
 echo
 cal -3
 echo
-echo "-> Appointments"
+## echo "-> Appointments"
 # Show
-calcurse -a
-[ $(cat ~/.cache/caldavstatus)="notworks" ] &&
-    printf "\n$(red 'WARNING: update caldav!')\n"
-hline
-echo "-> To-do"
-td show
-echo ""
+## calcurse -a
+## [ $(cat ~/.cache/caldavstatus)="notworks" ] &&
+##     printf "\n$(red 'WARNING: update caldav!')\n"
+## hline
+## echo "-> To-do"
+## td show
+## echo ""
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 

@@ -170,6 +170,22 @@ intload(){
 	source /home/${USER}/intel/oneapi/setvars.sh
 }
 
+gamma(){
+	gamma_file=~/.config/screen_gamma
+	if [ -f $gamma_file ]; then
+		echo
+	else
+		echo 1 > $gamma_file
+	fi
+	gamma_value=$(< $gamma_file)
+	echo $gamma_value
+	delta=$1
+	new=$(echo "$gamma_value + $delta" | bc)
+
+	xgamma -gamma "$new" 
+	echo "$new" > "$gamma_file"
+}
+
 fproj(){
 	dirname="$1"
 	mkdir "$dirname"

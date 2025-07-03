@@ -9,7 +9,7 @@ case "$1" in
         fenvdir="${XDG_DOCUMENTS_DIR}/research/thermo/algos/envelopes"
         cd "$fenvdir"
         shopt -s expand_aliases
-        source "$fenvdir/paper/fcmmp/input_files/runner.sh"
+        bash -c "source $fenvdir/other/paper/fcmmp/input_files/runner.sh"
         bash
     ;;
 esac

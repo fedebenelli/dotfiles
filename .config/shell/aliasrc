@@ -12,6 +12,9 @@ alias \
         ffmpeg="ffmpeg -hide_banner"
 
 alias \
+        fp="xdg-open $(fzf)" \
+        nva='nvim ~/.config/shell/aliasrc' \
+        tosleep='sleep 1h; sudo systemctl suspend' \
         paper='firefox https://sci-hub.se/"$(xclip -o)"' \
         miche='xdg-open "$HOME/docs/research/thermo/books/thermodynamics/Phase Behavior, SPE Monograph (Whitson) - 2000.pdf"' \
         ffpt="fortran_project" \
@@ -53,5 +56,6 @@ alias \
         aliasrc='$EDITOR "${XDG_CONFIG_HOME}/shell/aliasrc"'\
         gdb="gdb -n -x $XDG_CONFIG_HOME/gdb/init" \
         svn="svn --config-dir $XDG_CONFIG_HOME/subversion" \
-        wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts""
+        wget="wget --hsts-file="$XDG_DATA_HOME/wget-hsts"" \
+        gpec="wine '/home/ruther/downs/GPEC Installer & User Guide/pfx/drive_c/Program Files (x86)/GPEC-3.2.1-(beta)'"
 

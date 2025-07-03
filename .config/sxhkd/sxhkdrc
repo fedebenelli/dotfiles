@@ -48,8 +48,8 @@ super + alt + shift + m
 
 # Interaction
 # --------------------------
-ctrl + Return
-	exec dunstctl close-all
+# ctrl + Return
+# 	exec dunstctl close-all
 
 ctrl + shift + Return
 	exec dunstctl action
@@ -112,6 +112,9 @@ ctrl + XF86Audio{Raise,Lower}Volume
 # --------------------------
 XF86MonBrightness{Up,Down}
     brightnessctl s {+10%,10%-}
+
+ctrl + XF86MonBrightness{Up,Down}
+	source ~/.config/shell/functions && gamma {0.05,-0.05}
 
 # -> Music/mpd
 # --------------------------

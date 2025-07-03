@@ -206,7 +206,12 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    --
+    local names =  { "1", "2", "3", "4", "5", "6", "7", "8", "9" }
+    -- awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    local l = awful.layout.suit  -- Just to save some typing: use an alias.
+    local layouts = { l.tile, l.tile, l.tile, l.tile, l.tile, l.tile, l.floating, l.tile, l.tile, }
+    awful.tag(names, s, layouts)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -249,19 +254,10 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
 	    wibox.widget.textbox(' | '),
-	    weather_widget({
-			     api_key='f17d8fc425bd7e2bceb8c97130c65f7a',
-			     coordinates = {coords_x, coords_y},
-                             show_hourly_forecast = true,
-                             show_daily_forecast = true,
-	    }),
-	    wibox.widget.textbox(' | '),
 	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
 	    require("awesome-wm-widgets.fs-widget.fs-widget") {
                 mounts = my_functions.get_drives()
 	    },
-	    wibox.widget.textbox(' | '),
-            require("awesome-wm-widgets.mpdarc-widget.mpdarc"),
 	    wibox.widget.textbox(' | '),
             require("battery-widget") {},
 	    wibox.widget.textbox(' | '),
@@ -565,7 +561,8 @@ awful.rules.rules = {
 	  "float", -- Windows called just "float", using this with some scripts.
 	  "Volume Control",
 	  "Friends List*",
-    "[Gg]nuplot*",
+          "Obsidian",
+          "[Gg]nuplot*",
         },
         role = {
           "AlarmWindow",  -- Thunderbird's calendar.
@@ -579,9 +576,10 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = false }
     },
 
-    { rule = { class = "steam*" },
-      properties = { screen = 1, tag = "7" }
-    },
+    { rule = { class = "steam*" }, properties = { screen = 1, tag = "7" } },
+    { rule = { name = "btm" }, properties = { screen = 1, tag = "9" } },
+
+    -- Social media
     { rule_any = { class = {"discord", "Ferdium"} },
       properties = { screen = 1, tag = "6" }
     },

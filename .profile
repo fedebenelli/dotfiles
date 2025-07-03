@@ -8,6 +8,16 @@ if [ -n "$DESKTOP_SESSION" ];then
     export SSH_AUTH_SOCK
 fi
 
+# Settings
+export USER_SCREEN_GAMMA=1
+
+export FPM_FC=gfortran-14
+export FPM_CC=gcc-14
+
+
+# Make it possible to write tildes on wsp?
+export GTK_IM_MODULE=xim
+
 # Start with XDG paths
 export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CONFIG_HOME="$HOME/.config/"
@@ -26,6 +36,7 @@ export XDG_TEMPLATES_DIR="$HOME/docs/templates/"
 export XDG_PUBLICSHARE_DIR="$HOME/docs/public/"
 export XDG_VIDEOS_DIR="$HOME/vids/"
 export XDG_TRASH_DIR="$HOME/.local/share/Trash/"
+
 export BIBFILE="$HOME/docs/research/bibliography.bib"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/scripts:$HOME/.local/bin:$HOME/.emacs.d/bin:$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx"
 export ZDOTDIR="$HOME/.config/shell/zsh"

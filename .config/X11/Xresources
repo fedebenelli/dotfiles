@@ -65,8 +65,8 @@ URxvt.keysym.M-s:           perl:keyboard-select:search
 st.alpha: 0.9
 
 
-!Xft.dpi:                    120
-Xft.dpi:                    96
+!Xft.dpi:                    96
+Xft.dpi:                    110
 Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
