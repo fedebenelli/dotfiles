@@ -1,0 +1,27 @@
+#!/home/ruther/docs/programming/python/virtualenvs/thermo/bin/python
+
+import dipypr as dp
+import pandas as pd
+import sys
+sys.tracebacklimit = 0
+
+names = [*sys.argv[1:]]
+
+chems = [ dp.Chemical(name) for name in names ]
+Tcs = [chem.cons.critical_temperature.magnitude for chem in chems]
+Pcs = [chem.cons.critical_pressure.to("bar").magnitude for chem in chems]
+ws = [chem.cons.acentric_factor.magnitude for chem in chems]
+zcs = [chem.cons.critical_z.magnitude for chem in chems]
+
+print (pd.DataFrame({
+"Tc": Tcs,
+"Pc": Pcs,
+"w": ws,
+"zc": zcs}))
+
+print()
+print("Tc = ", Tcs)
+print("Pc = ", Pcs)
+print("w = ", ws)
+print("zc = ", zcs)
+

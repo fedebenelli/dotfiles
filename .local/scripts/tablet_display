@@ -1,0 +1,9 @@
+#!/bin/sh
+
+OUTPUT=DisplayPort-1
+
+xrandr --addmode $OUTPUT 1920x1080
+xrandr --output $OUTPUT --mode 1920x1080 --right-of eDP
+
+
+#xrandr --output $OUTPUT --off
