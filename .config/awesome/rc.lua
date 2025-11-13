@@ -4,6 +4,7 @@ pcall(require, "luarocks.loader")
 
 -- Personal functions
 local my_functions = require("myfunctions")
+local bindings = require("bindings")
 
 
 -- local coords_xy = my_functions.get_loc()
@@ -80,6 +81,7 @@ editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
 modkey = "Mod4"
+modkey = bindings.modkey
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -253,11 +255,6 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist,
         { -- Right widgets
         layout = wibox.layout.fixed.horizontal,
-	    wibox.widget.textbox(' | '),
-	    require("awesome-wm-widgets.ram-widget.ram-widget") {},
-	    require("awesome-wm-widgets.fs-widget.fs-widget") {
-                mounts = my_functions.get_drives()
-	    },
 	    wibox.widget.textbox(' | '),
             require("battery-widget") {},
 	    wibox.widget.textbox(' | '),
@@ -513,6 +510,7 @@ clientbuttons = gears.table.join(
 
 -- Set keys
 root.keys(globalkeys)
+-- root.keys(bindings.globalkeys)
 -- }}}
 
 -- {{{ Rules
@@ -561,7 +559,6 @@ awful.rules.rules = {
 	  "float", -- Windows called just "float", using this with some scripts.
 	  "Volume Control",
 	  "Friends List*",
-          "Obsidian",
           "[Gg]nuplot*",
         },
         role = {
@@ -577,6 +574,7 @@ awful.rules.rules = {
     },
 
     { rule = { class = "steam*" }, properties = { screen = 1, tag = "7" } },
+    { rule = { class = "obsidian" }, properties = { screen = 1, tag = "4" } },
     { rule = { name = "btm" }, properties = { screen = 1, tag = "9" } },
 
     -- Social media
