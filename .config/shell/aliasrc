@@ -12,7 +12,7 @@ alias \
         ffmpeg="ffmpeg -hide_banner"
 
 alias \
-        fp="xdg-open $(fzf)" \
+        fp='xdg-open "$(fzf)"' \
         nva='nvim ~/.config/shell/aliasrc' \
         tosleep='sleep 1h; sudo systemctl suspend' \
         paper='firefox https://sci-hub.se/"$(xclip -o)"' \
