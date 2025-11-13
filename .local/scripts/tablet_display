@@ -1,9 +1,14 @@
 #!/bin/sh
 
-OUTPUT=DisplayPort-1
+#OUTPUT=DisplayPort-1
+OUTPUT=HDMI-A-0
 
-xrandr --addmode $OUTPUT 1920x1080
-xrandr --output $OUTPUT --mode 1920x1080 --right-of eDP
-
-
-#xrandr --output $OUTPUT --off
+case $1 in
+    "start")
+        xrandr --addmode $OUTPUT 1920x1080
+        xrandr --output $OUTPUT --mode 1920x1080 --right-of eDP
+        ;;
+    "stop")
+        xrandr --output $OUTPUT --off
+        ;;
+esac
