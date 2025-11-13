@@ -27,8 +27,6 @@ source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/aliasrc"
 #------------------
 source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/PS1"
 
-source ~/docs/research/thermo/algos/envelopes/other/paper/fcmmp/input_files/runner.sh
-
 # Stuff to show when starting bash
 #------------------
 i=0
