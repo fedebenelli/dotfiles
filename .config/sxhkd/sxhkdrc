@@ -15,6 +15,11 @@ super + c
 	--profile=low-latency \
 	--untimed --no-osd-bar \
 	--script-opts=osc-visibility=never --title=float
+# Shortcuts
+super + d
+	firefox "https://drive.google.com/drive/u/1/folders/1j98pITDrs-lXKu_PVzj-e8_U9JMZlyFc"
+super + g
+	firefox "mail.google.com/mail/u/1"
 
 # -> Show info
 # --------------------------
@@ -161,3 +166,14 @@ alt + F12
 	exec shellpad 12
 alt + Escape
 	exec shellpad cancel
+
+{shift,ctrl} + alt + j
+	exec xdotool mousemove_relative -- 0 {20,5}
+{shift,ctrl} + alt + k
+	exec xdotool mousemove_relative -- 0 -{20,5}
+{shift,ctrl} + alt + h
+	exec xdotool mousemove_relative -- -{20,5} 0
+{shift,ctrl} + alt + l
+	exec xdotool mousemove_relative -- {20,5} 0
+shift + alt + enter
+	exec xdotool click 1
