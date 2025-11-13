@@ -108,9 +108,11 @@ export RADV_PERFTEST=gpl
 # [ -f "$HOME"/installs/intel/setvars.sh ] && source "$HOME"/installs/intel/setvars.sh intel64
 export PIPX_HOME="${XDG_DATA_HOME}/pipx"
 
+setterm -blength 0
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]
 
 [ -f ~/.bashrc ] && . ~/.bashrc
 
 [ $(tty) = "/dev/tty1" ] && exec startx
+
