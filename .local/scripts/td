@@ -7,7 +7,7 @@ dir="$HOME/.local/share/td"
 files=$(ls "$dir")
 
 # Terminal to open editor
-terminal=${TERMINAL:-st}
+terminal=${TERMINAL}
 
 h () {
 scriptname="$(basename $0)"
@@ -32,6 +32,9 @@ $scriptname edit "file":
 $scriptname remove "file":
  Removes the selected list.
  When no file is passed it prompts dmenu to select a list to edit.
+
+$scriptname sync:
+ Sync with github repo
 "
 }
 
