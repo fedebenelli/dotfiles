@@ -2,7 +2,9 @@
 
 tiempo=$1
 n=0
-device_id=12
+device_id=10
+
+devide_id=$(xinput | dmenu -l 20 | sed "s/.*\(id\)=\([0-9]\+\).*/\2/")
 
 xinput set-prop $device_id 'Device Enabled' 0
 

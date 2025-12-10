@@ -3,9 +3,16 @@ from pynput import mouse, keyboard
 from pynput.keyboard import Key
 import time
 Kcontroller = keyboard.Controller()
+Mcontroller = mouse.Controller()
 
 
 def on_click(x,y,button, pressed):
+    if str(button) == "Button.button1": 
+        if pressed:
+            print("1")
+            Mcontroller.press(mouse.Button(1))
+        else:
+            Mcontroller.release(mouse.Button(1))
     if str(button) == 'Button.button9' and pressed:
         print("9")
         Kcontroller.press(Key.f10)

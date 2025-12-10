@@ -11,11 +11,13 @@ simpleclock 60h will show you the time for 60 hours"
 
 [ $# == 0 ] && h && exit 1
 
+clear
+
 # Get the time unit
 unit="${1: -1}"
 time="${1:0:-1}"
 for ((i=1;i<=$time;i++)); do
-	figlet $(date +"%H-%M-%S")
+	figlet $(date +"%H : %M : %S") -f /usr/share/figlet/fonts/slant.flf 
 	sleep "1$unit"
 	clear
 done
