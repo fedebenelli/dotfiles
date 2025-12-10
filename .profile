@@ -54,7 +54,7 @@ export SUDO=sudo
 # Custom folders to some programs
 export WINEPREFIX="$HOME/installs/winepfx"
 export PAPERS_DIR="$HOME/docs/research/papers/"
-export WORKON_HOME="${XDG_HOME_DIR}/docs/programming/python/virtualenvs"
+export WORKON_HOME="${XDG_HOME_DIR}/docs/programming/python/virtualenvs/"
 # export GHCUP_INSTALL_BASE_PREFIX="~/.local/share/ghcup"
 # $GHCUP_INSTALL_BASE_PREFIX/.ghcup/bin
 
