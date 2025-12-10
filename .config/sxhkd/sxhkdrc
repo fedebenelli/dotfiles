@@ -138,6 +138,16 @@ XF86Audio{Prev,Next}
 XF86AudioStop
 	exec mpc stop
 
+# -> monitor
+# --------------------------
+ctrl + alt + 1
+    exec mymon off
+
+ctrl + alt + 2
+    exec mymon 2_h_h
+
+ctrl + alt + 3
+    exec mymon 2_h_v
 # -> shellpad
 # --------------------------
 alt + F1
