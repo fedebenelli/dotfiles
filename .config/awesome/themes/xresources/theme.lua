@@ -17,6 +17,7 @@ local theme = dofile(themes_path.."default/theme.lua")
 
 -- load vector assets' generators for this theme
 theme.font          = "Terminus 10"
+theme.notification_font = "IBM Plex 15"
 
 theme.bg_normal     = xrdb.background
 theme.bg_focus      = xrdb.color12
