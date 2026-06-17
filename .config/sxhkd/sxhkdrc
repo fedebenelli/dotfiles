@@ -7,6 +7,11 @@ super + shift + Escape
 
 ctrl + alt + p
 	$BROWSER "https://sci-hub.se/$(xclip -o)"
+
+# ECC
+super + e
+    exec ecc
+
 # Show camera
 # --------------------------
 super + c
@@ -20,6 +25,9 @@ super + d
 	firefox "https://drive.google.com/drive/u/1/folders/1j98pITDrs-lXKu_PVzj-e8_U9JMZlyFc"
 super + g
 	firefox "mail.google.com/mail/u/1"
+
+alt + g
+	exec gk
 
 # -> Show info
 # --------------------------
@@ -61,8 +69,8 @@ ctrl + shift + Return
 
 # -> Run Software
 # --------------------------
-super + d
-	exec dmenu_run
+#super + d
+#	exec dmenu_run
 
 super + shift + Return
 	exec $TERMINAL
@@ -112,6 +120,10 @@ ctrl + XF86Audio{Raise,Lower}Volume
 	source=$(pactl info | grep "Default Source:" | sed 's/Default Source: //g');
 	pamixer {-i,-d} 5 --source $source;
 	notify-send "Sink Volume:" "$(pamixer --get-volume --source $source)%"
+
+ctrl + space
+	playerctl play-pause
+
 
 # -> Brightness
 # --------------------------
@@ -177,13 +189,13 @@ alt + F12
 alt + Escape
 	exec shellpad cancel
 
-{shift,ctrl} + alt + j
-	exec xdotool mousemove_relative -- 0 {20,5}
-{shift,ctrl} + alt + k
-	exec xdotool mousemove_relative -- 0 -{20,5}
-{shift,ctrl} + alt + h
-	exec xdotool mousemove_relative -- -{20,5} 0
-{shift,ctrl} + alt + l
-	exec xdotool mousemove_relative -- {20,5} 0
-shift + alt + enter
-	exec xdotool click 1
+#{shift,ctrl} + alt + j
+#	exec xdotool mousemove_relative -- 0 {20,5}
+#{shift,ctrl} + alt + k
+#	exec xdotool mousemove_relative -- 0 -{20,5}
+#{shift,ctrl} + alt + h
+#	exec xdotool mousemove_relative -- -{20,5} 0
+#{shift,ctrl} + alt + l
+#	exec xdotool mousemove_relative -- {20,5} 0
+#shift + alt + enter
+#	exec xdotool click 1
