@@ -12,6 +12,7 @@ alias \
         ffmpeg="ffmpeg -hide_banner"
 
 alias \
+        chadeos="code $HOME/docs/research/thermo/algos/yaeos" \
         fp='xdg-open "$(fzf)"' \
         nva='nvim ~/.config/shell/aliasrc' \
         tosleep='sleep 1h; sudo systemctl suspend' \
