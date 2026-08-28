@@ -41,8 +41,8 @@ export BIBFILE="$HOME/docs/research/bibliography.bib"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/var/lib/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:$HOME/.local/scripts:$HOME/.local/bin:$HOME/.emacs.d/bin:$HOME/docs/research/thermo/software/gams39.1_linux_x64_64_sfx"
 export ZDOTDIR="$HOME/.config/shell/zsh"
 
-export THERMO="$HOME/docts/research/thermo"
-export PHD="$HOME/docts/research/thermo"
+export THERMO="$HOME/docs/research/thermo"
+export PHD="$HOME/docs/research/thermo"
 
 # RCLONE REMOTES
 export RCLONE_GDRIVEUNC=gdrive_unc
