@@ -12,6 +12,9 @@ ctrl + alt + p
 super + e
     exec ecc
 
+super + y 
+     exec code "$HOME/docs/research/thermo/algos/yaeos"
+
 # Show camera
 # --------------------------
 super + c
