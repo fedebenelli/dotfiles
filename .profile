@@ -114,6 +114,11 @@ export RADV_PERFTEST=gpl
 # [ -f "$HOME"/installs/intel/setvars.sh ] && source "$HOME"/installs/intel/setvars.sh intel64
 export PIPX_HOME="${XDG_DATA_HOME}/pipx"
 
+# Fix firefox being problematic with ´
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+
 setterm -blength 0
 
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]]
